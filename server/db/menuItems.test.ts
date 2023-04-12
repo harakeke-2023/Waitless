@@ -50,3 +50,12 @@ describe('addMenuItem', () => {
     expect(newItem.category_id).toBe(2)
   })
 })
+
+describe('getMenuItemById', () => {
+  it('gets a specific menu item by id', async () => {
+    const id = 1
+    const menuItem = await db.getMenuItemById(id, testDb)
+
+    expect(menuItem.name).toBe('Spring Rolls')
+  })
+})
