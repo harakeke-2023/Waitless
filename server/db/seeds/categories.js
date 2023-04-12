@@ -8,15 +8,15 @@ exports.seed = async function (knex) {
   await knex('categories').insert([
     {
       id: 1,
-      category_name: 'Starters',
+      category_name: 'Appetizers',
     },
     {
       id: 2,
-      category_name: 'Mains',
+      category_name: 'Fried Rice',
     },
     {
       id: 3,
-      category_name: 'Desserts',
+      category_name: 'Noodles',
     },
     {
       id: 4,
