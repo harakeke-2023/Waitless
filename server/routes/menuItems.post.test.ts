@@ -1,7 +1,7 @@
 import request from 'supertest'
 import server from '../server'
 import * as db from '../db/menuItems'
-import { MenuItemDB } from '../../models/MenuItem'
+import { MenuItemDB, MenuItemMutation } from '../../models/MenuItem'
 import { promise } from 'zod'
 
 jest.mock('../db/menuItems')
@@ -19,7 +19,7 @@ const newMenuItem = {
   category_id: 1,
 }
 
-describe('post /api/v1/menuitems', () => {
+describe('POST /api/v1/menuitems', () => {
   it('adds new menu item, and confirms', async () => {
     jest.mocked(db.addMenuItem).mockImplementation(() => {
       return Promise.resolve([1])
@@ -33,3 +33,66 @@ describe('post /api/v1/menuitems', () => {
     expect(db.addMenuItem).toHaveBeenCalled()
   })
 })
+
+describe('DELETE /api/v1/menuitems', () => {
+  it('deletes item, and confirms deletion', async () =>{
+    
+  })
+})
+
+describe('POST /api/v1/menuitems/:id Update menu item', () => {
+  it('responds with confirmation of updated item', async () => {
+    jest.mocked(db.updateMenuItem).mockImplementation((updatedMenuItem) => {
+      console.log(updatedMenuItem)
+      expect(updatedMenuItem.id).toBe(1)
+      expect(updatedMenuItem.name).toBe('Autumnn Rolls')
+      expect(updatedMenuItem.description).toBe('Well these are out of season')
+      return Promise.resolve(1)
+    })
+
+    await request(server)
+      .patch('/api/v1/menuitems/1')
+      .send({
+        id: 1,
+        name: 'Autumnn Rolls',
+        description: 'Well these are out of season',
+        price: 30,
+        stock: 40,
+        image_url: '',
+        category_id: 1,
+        category_name: 'Starters',
+      } as MenuItemMutation)
+      .expect('Content-Type', /json/)
+      .expect(200)
+  })
+
+  it('responds with 500 and correct error object on DB error', async () => {
+    const consoleSpy = jest.spyOn(console, 'error')
+    jest
+      .mocked(db.updateMenuItem)
+      .mockImplementation(() =>
+        Promise.reject(new Error('mock updateMenuItem error'))
+      )
+    const res = await request(server)
+      .patch('/api/v1/menuitems/99999')
+      .expect('Content-Type', /json/)
+      .send({
+        id: 1,
+        name: 'Autumnn Rolls',
+        description: 'Well these are out of season',
+        price: 30,
+        stock: 40,
+        image_url: '',
+        category_id: 1,
+        category_name: 'Starters',
+      } as MenuItemMutation)
+      .expect('Content-Type', /json/)
+      .expect(500)
+
+    expect(consoleSpy).toHaveBeenCalledWith('mock updateMenuItem error')
+    expect(res.body.error.title).toBe('Unable to update menu Item with id: 1')
+
+    consoleSpy.mockRestore()
+  })
+})
+

@@ -1,6 +1,7 @@
 import connection from './connection'
 import { MenuItemDB, MenuItem } from '../../models/MenuItem'
 
+
 export async function getAllMenuItems(db = connection) {
   return await db('menu_items')
     .join('categories', 'menu_items.category_id', '=', 'categories.id')
@@ -28,3 +29,10 @@ export async function updateMenuItem(newMenuItem: MenuItem, db = connection) {
     .update(newMenuItem)
   return result
 }
+
+
+export async function deleteMenuItem(menuItemId: number, db = connection) {
+  const result = await db('menu_tems').where('id', menuItemId).delete()
+  return result
+}
+

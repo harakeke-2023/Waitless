@@ -57,5 +57,28 @@ describe('getMenuItemById', () => {
     const menuItem = await db.getMenuItemById(id, testDb)
 
     expect(menuItem.name).toBe('Spring Rolls')
+    expect(menuItem.description).toBe(`They ain't summer rolls!`)
+  })
+})
+
+describe('updateMenutItem', () => {
+  it('updates item with specific id', async () => {
+    const updatedMenuItem = {
+      id: 1,
+      name: 'Autumnn Rolls',
+      description: 'Well these are out of season',
+      price: 3,
+      stock: 40,
+      image_url: '',
+      category_id: 1,
+    }
+
+    await db.updateMenuItem(updatedMenuItem, testDb)
+
+    const fetchedMenuItem = await db.getMenuItemById(1, testDb)
+
+    expect(fetchedMenuItem.name).toBe('Autumnn Rolls')
+    expect(fetchedMenuItem.description).toBe('Well these are out of season')
+    expect(fetchedMenuItem.price).toBe(3)
   })
 })
