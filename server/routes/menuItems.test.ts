@@ -110,8 +110,4 @@ describe('GET /api/v1/menuitems/:id', () => {
   })
 })
 
-// describe('POST /api/v1/menuitems/:id', () => {
-//   it('responds with status', async () => {
-//     jest.mocked()
-//   })
-// })
+

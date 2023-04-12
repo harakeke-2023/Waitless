@@ -56,17 +56,36 @@ router.post('/', async (req, res) => {
   }
 })
 
-//POST /api/v1/menuitems/:id
+//PATCH /api/v1/menuitems/:id
 router.patch('/:id', async (req, res) => {
   try {
-    await db.updateMenuItem(menuItemMutationSchema.parse(req.body))
-    res.sendStatus(200)
+    const event = await db.updateMenuItem(
+      menuItemMutationSchema.parse(req.body)
+    )
+    res.status(200).json(event)
   } catch (error) {
     if (error instanceof Error) {
       console.error(error.message)
       res.status(500).json({
         error: {
-          title: 'Unable to update menu Item',
+          title: 'Unable to update menu Item with id: ' + req.body.id,
+        },
+      })
+    }
+  }
+})
+
+//DELETE /api/v1/menuitems/:id
+router.delete('/:id', async (req, res) => {
+  try {
+    const response = await db.deleteMenuItem(Number(req.params.id))
+    res.status(200).json(response)
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message)
+      res.status(500).json({
+        error: {
+          title: 'Unable to delete menu item, id: ' + req.params.id,
         },
       })
     }
