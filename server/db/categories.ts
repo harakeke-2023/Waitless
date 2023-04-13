@@ -2,7 +2,7 @@ import { Category, CategoryDb } from '../../models/Category'
 import connection from './connection'
 
 export async function getAllCategories(db = connection) {
-  return await db('categories')
+  return await db('categories').select()
 }
 
 export async function addCategory(newCategory: CategoryDb, db = connection) {
@@ -23,4 +23,13 @@ export async function updateCategory(
     .where('id', newCategoryItem.id)
     .update(newCategoryItem)
   return result
+}
+
+export async function getCategoryById(categoryId: number, db = connection) {
+  const fetchedCategory = await db('categories')
+    .select()
+    .where('id', categoryId)
+    .first()
+
+  return fetchedCategory
 }

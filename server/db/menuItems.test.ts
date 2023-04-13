@@ -24,7 +24,7 @@ describe('getAllMenuItems', () => {
   it('returns the correct number of menu items', async () => {
     const menuItems = await db.getAllMenuItems(testDb)
 
-    expect(menuItems).toHaveLength(8)
+    expect(menuItems).toHaveLength(63)
   })
 })
 
@@ -56,8 +56,8 @@ describe('getMenuItemById', () => {
     const id = 1
     const menuItem = await db.getMenuItemById(id, testDb)
 
-    expect(menuItem.name).toBe('Spring Rolls')
-    expect(menuItem.description).toBe(`They ain't summer rolls!`)
+    expect(menuItem.name).toBe('Vegetarian Mini Spring Rolls ( 10 pcs )')
+    expect(menuItem.price).toBe(12)
   })
 })
 
