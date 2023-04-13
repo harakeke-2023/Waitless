@@ -1,8 +1,7 @@
 import request from 'supertest'
 import server from '../server'
 import * as db from '../db/menuItems'
-import { MenuItemDB, MenuItemMutation } from '../../models/MenuItem'
-import { promise } from 'zod'
+import { MenuItemMutation } from '../../models/MenuItem'
 
 jest.mock('../db/menuItems')
 
@@ -35,15 +34,21 @@ describe('POST /api/v1/menuitems', () => {
 })
 
 describe('DELETE /api/v1/menuitems', () => {
-  it('deletes item, and confirms deletion', async () =>{
-    
+  it('deletes item, and confirms deletion', async () => {
+    jest.mocked(db.deleteMenuItem).mockImplementation(() => {
+      return Promise.resolve(1)
+    })
+
+    await request(server).delete('/api/v1/menuitems/1')
+
+    expect(db.deleteMenuItem).toHaveBeenCalled()
   })
 })
 
 describe('POST /api/v1/menuitems/:id Update menu item', () => {
   it('responds with confirmation of updated item', async () => {
     jest.mocked(db.updateMenuItem).mockImplementation((updatedMenuItem) => {
-      console.log(updatedMenuItem)
+  
       expect(updatedMenuItem.id).toBe(1)
       expect(updatedMenuItem.name).toBe('Autumnn Rolls')
       expect(updatedMenuItem.description).toBe('Well these are out of season')
@@ -95,4 +100,3 @@ describe('POST /api/v1/menuitems/:id Update menu item', () => {
     consoleSpy.mockRestore()
   })
 })
-
