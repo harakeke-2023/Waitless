@@ -11,7 +11,7 @@ type SuccessPageProps = {
 test('renders success page with correct props and checks status button functionality', () => {
   const name = 'John Smith'
   const checkStatusMock = jest.fn()
-  render(<SuccessPage name={name} checkSatus={checkStatusMock} />)
+  render(<SuccessPage name={name} checkStatus={checkStatusMock} />)
   const greetingElement = screen.getByText(`Hey ${name}`)
   expect(greetingElement).toBeInTheDocument()
 
