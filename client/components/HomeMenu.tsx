@@ -16,17 +16,15 @@ function HomeMenu() {
   }
   return (
     <>
-      <Routes>
-        <Route>
-          <nav
-            className={
-              open
-                ? 'block'
-                : 'hidden' +
-                  'w-full lg:flex justify-between items-center lg:items-center lg:w-auto'
-            }
-          >
-            {/* <div className="lg:flex tex-center md:text-align">
+      <nav
+        className={
+          open
+            ? 'block'
+            : 'hidden' +
+              'w-full lg:flex justify-between items-center lg:items-center lg:w-auto'
+        }
+      >
+        {/* <div className="lg:flex tex-center md:text-align">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/table/:tableNo/menu" element={<Menultems />} />
@@ -34,39 +32,37 @@ function HomeMenu() {
           </Routes>
         </div> */}
 
-            <div className="lg:flex text-center md:text-align">
-              <Link
-                to="/"
-                className="text-white hover:text-green block my-6 py-2 px-6"
-              >
-                Home
-              </Link>
-
-              <Link
-                to="/table/:tableNo/menu"
-                className="text-white hover:text-green block my-6 py-2 px-6"
-              >
-                Menu
-              </Link>
-
-              <Link
-                to="/table/:tableNo/contact"
-                className="text-white hover:text-green block my-6 py-2 px-6"
-              >
-                Contact 
-              </Link>
-            </div>
-          </nav>
-          <div
-            className="lg:hidden z-90 absolute top-4 right-6 text-white text-4xl"
-            onClick={toggleMenu}
+        <div className="lg:flex text-center md:text-align">
+          <Link
+            to="/"
+            className="text-white hover:text-green block my-6 py-2 px-6"
           >
-            {open ? <IoClose /> : <GiHamburgerMenu />}
-          </div>
-        </Route>
-      </Routes>
+            Home
+          </Link>
+
+          <Link
+            to="/table/:tableNo/menu"
+            className="text-white hover:text-green block my-6 py-2 px-6"
+          >
+            Menu
+          </Link>
+
+          <Link
+            to="/table/:tableNo/contact"
+            className="text-white hover:text-green block my-6 py-2 px-6"
+          >
+            Contact
+          </Link>
+        </div>
+      </nav>
+      <div
+        className="lg:hidden z-90 absolute top-4 right-6 text-white text-4xl"
+        onClick={toggleMenu}
+      >
+        {open ? <IoClose /> : <GiHamburgerMenu />}
+      </div>
     </>
   )
 }
 
-export default HomeMenu()
+export default HomeMenu
