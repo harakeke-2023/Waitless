@@ -12,7 +12,7 @@ exports.seed = async function (knex) {
       description: `They ain't summer rolls!`,
       price: 12.0,
       stock: 40,
-      image_url: 'vegetarian-mini-spring-rolls.jpg',
+      image_url: 'vegetarian-mini-spring-rolls.jpeg',
       category_id: 1,
     },
     {
@@ -21,7 +21,7 @@ exports.seed = async function (knex) {
       description: ``,
       price: 12.0,
       stock: 40,
-      image_url: 'vegetarian-mini-samosas.jpg',
+      image_url: 'vegetarian-mini-samosas.jpeg',
       category_id: 1,
     },
     {
@@ -30,7 +30,7 @@ exports.seed = async function (knex) {
       description: ``,
       price: 13.0,
       stock: 40,
-      image_url: 'deep-fried-dumplings.jpg',
+      image_url: 'deep-fried-dumplings.jpeg',
       category_id: 1,
     },
 
@@ -40,7 +40,7 @@ exports.seed = async function (knex) {
       description: `Thai style stir fried rice with Choice of Meat and Vegetables`,
       price: 18.80,
       stock: 40,
-      image_url: 'thai-fried-rice.jpg',
+      image_url: 'thai-fried-rice.jpeg',
       category_id: 2,
     },
     {
@@ -49,7 +49,7 @@ exports.seed = async function (knex) {
       description: ``,
       price: 18.80,
       stock: 40,
-      image_url: 'fried-rice.jpg',
+      image_url: 'fried-rice.jpeg',
       category_id: 2,
     },
     {
@@ -58,7 +58,7 @@ exports.seed = async function (knex) {
       description: `Stir fried choice of meat, rice, mixed vegetables and sambal chilli.`,
       price: 18.80,
       stock: 20,
-      image_url: 'nasi-goreng.jpg',
+      image_url: 'nasi-goreng.jpeg',
       category_id: 2,
     },
     {
@@ -67,7 +67,7 @@ exports.seed = async function (knex) {
       description: `Stir fried choice of meat with egg, rice, mixed vegetables and sambal chilli.`,
       price: 20.80,
       stock: 20,
-      image_url: 'nasi-goreng-fried-egg.jpg',
+      image_url: 'nasi-goreng-fried-egg.jpeg',
       category_id: 2,
     },
     {
@@ -76,7 +76,7 @@ exports.seed = async function (knex) {
       description: ``,
       price: 21.80,
       stock: 25,
-      image_url: 'prawns-fried-rice.jpg',
+      image_url: 'prawns-fried-rice.jpeg',
       category_id: 2,
     },
     {
@@ -85,7 +85,7 @@ exports.seed = async function (knex) {
       description: ``,
       price: 21.80,
       stock: 20,
-      image_url: 'duck-fried-rice.jpg',
+      image_url: 'duck-fried-rice.jpeg',
       category_id: 2,
     },
     {
@@ -94,7 +94,7 @@ exports.seed = async function (knex) {
       description: ``,
       price: 21.80,
       stock: 30,
-      image_url: 'crispy-pork-fried-rice.jpg',
+      image_url: 'crispy-pork-fried-rice.jpeg',
       category_id: 2,
     },
     {
@@ -103,7 +103,7 @@ exports.seed = async function (knex) {
       description: ``,
       price: 18.80,
       stock: 20,
-      image_url: 'spicy-fried-rice.jpg',
+      image_url: 'spicy-fried-rice.jpeg',
       category_id: 2,
     },
     {
@@ -112,7 +112,7 @@ exports.seed = async function (knex) {
       description: `Stir fried choice of meat, egg, rice, vegetables, pineapple and cashew nuts`,
       price: 19.80,
       stock: 20,
-      image_url: 'pineapple-fried-rice.jpg',
+      image_url: 'pineapple-fried-rice.jpeg',
       category_id: 2,
     },
     {
@@ -121,7 +121,7 @@ exports.seed = async function (knex) {
       description: ``,
       price: 18.80,
       stock: 20,
-      image_url: 'tom-yum-fried-rice.jpg',
+      image_url: 'tom-yum-fried-rice.jpeg',
       category_id: 2,
     },
 
@@ -131,7 +131,7 @@ exports.seed = async function (knex) {
       description: ``,
       price: 19.80,
       stock: 20,
-      image_url: 'fried-rice-with-cashew-nuts.jpg',
+      image_url: 'fried-rice-with-cashew-nuts.jpeg',
       category_id: 2,
     },
     {
@@ -140,7 +140,7 @@ exports.seed = async function (knex) {
       description: `Stir fried rice, mixed vegetables, soya sauce without egg.`,
       price: 18.80,
       stock: 20,
-      image_url: 'vegetarian-fried-rice.jpg',
+      image_url: 'vegetarian-fried-rice.jpeg',
       category_id: 2,
     },
     {
@@ -149,7 +149,7 @@ exports.seed = async function (knex) {
       description: `Stir fried tofu with egg, rice, mixed vegetables and soya sauce.`,
       price: 18.80,
       stock: 20,
-      image_url: 'tofu-fried-rice.jpg',
+      image_url: 'tofu-fried-rice.jpeg',
       category_id: 2,
     },
     {
@@ -158,7 +158,7 @@ exports.seed = async function (knex) {
       description: ``,
       price: 18.80,
       stock: 40,
-      image_url: 'pad-thai.jpg',
+      image_url: 'pad-thai.jpeg',
       category_id: 3,
     },
     {
@@ -167,7 +167,7 @@ exports.seed = async function (knex) {
       description: ``,
       price: 21.80,
       stock: 40,
-      image_url: 'pad-thai-duck.jpg',
+      image_url: 'pad-thai-duck.jpeg',
       category_id: 3,
     },
     {
@@ -221,7 +221,7 @@ exports.seed = async function (knex) {
       description: `Yellow noodles, vegetables, peanuts sauce and your choice of meat`,
       price: 18.80,
       stock: 40,
-      image_url: 'satay-noodles.jpg',
+      image_url: 'satay-noodles.jpeg',
       category_id: 3,
     },
     {

@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks'
 import { fetchFruits } from '../slices/fruits'
+import CustomerRoutes from './CustomerRoutes/CustomerRoutes'
 
 function App() {
   const fruits = useAppSelector((state) => state.fruits)
@@ -12,14 +13,7 @@ function App() {
 
   return (
     <>
-      <div className="app">
-        <h1>Fullstack Boilerplate!</h1>
-        <ul>
-          {fruits.map((fruit) => (
-            <li key={fruit}>{fruit}</li>
-          ))}
-        </ul>
-      </div>
+      <CustomerRoutes />
     </>
   )
 }
