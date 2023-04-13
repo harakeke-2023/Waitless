@@ -1,14 +1,15 @@
-import react from 'react'
+import React from 'react'
+
 interface Props {
   name: string
 }
 
-const SuccessPage = (props: Props) => {
+const SuccessPage = ({ name }: Props) => {
   return (
     <div>
-      <h1>Hey{props.name} </h1>
+      <h1>Hey {name}</h1>
       <p>Your order is confirmed!</p>
-      <p>We'll send you a shipping confrimation email</p>
+      <p>We'll send you a shipping confirmation email</p>
       <button>Check status</button>
     </div>
   )
