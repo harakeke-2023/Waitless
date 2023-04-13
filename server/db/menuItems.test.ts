@@ -3,7 +3,7 @@ import config from './knexfile'
 const testDb = knex(config.test)
 
 import * as db from './menuItems'
-import { MenuItem, MenuItemDB } from '../../models/MenuItem'
+import { MenuItem, MenuItemDb } from '../../models/MenuItem'
 
 // Prevent Jest from timing out (5s often isn't enough)
 jest.setTimeout(10000)
@@ -40,7 +40,7 @@ describe('addMenuItem', () => {
     } as MenuItem
 
     await db.addMenuItem(newMenuItem, testDb)
-    const menuItems = (await db.getAllMenuItems(testDb)) as MenuItemDB[]
+    const menuItems = (await db.getAllMenuItems(testDb)) as MenuItemDb[]
 
     const newItem = menuItems[menuItems.length - 1]
 
@@ -80,5 +80,17 @@ describe('updateMenutItem', () => {
     expect(fetchedMenuItem.name).toBe('Autumnn Rolls')
     expect(fetchedMenuItem.description).toBe('Well these are out of season')
     expect(fetchedMenuItem.price).toBe(3)
+  })
+})
+
+describe('deleteMenuItem', () => {
+  it('deletes a specific menu item', async () => {
+    const id = 1
+    await db.deleteMenuItem(id, testDb)
+
+    const menuItems = (await db.getAllMenuItems(testDb)) as MenuItem[]
+
+    expect(menuItems[0].name).toBe('Vegetarian Mini Samosas ( 10 pcs )')
+    expect(menuItems[0].id).toBe(2)
   })
 })
