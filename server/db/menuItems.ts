@@ -1,6 +1,5 @@
 import connection from './connection'
-import { MenuItemDB, MenuItem } from '../../models/MenuItem'
-
+import { MenuItemDb, MenuItem } from '../../models/MenuItem'
 
 export async function getAllMenuItems(db = connection) {
   return await db('menu_items')
@@ -8,7 +7,7 @@ export async function getAllMenuItems(db = connection) {
     .select('menu_items.*', 'category_name')
 }
 
-export async function addMenuItem(newMenuItem: MenuItemDB, db = connection) {
+export async function addMenuItem(newMenuItem: MenuItemDb, db = connection) {
   const result = await db('menu_items').insert(newMenuItem)
   return result
 }
@@ -30,9 +29,7 @@ export async function updateMenuItem(newMenuItem: MenuItem, db = connection) {
   return result
 }
 
-
 export async function deleteMenuItem(menuItemId: number, db = connection) {
-  const result = await db('menu_tems').where('id', menuItemId).delete()
+  const result = await db('menu_items').where('id', menuItemId).delete()
   return result
 }
-

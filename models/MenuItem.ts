@@ -21,5 +21,5 @@ export const menuItemMutationSchema = z.object({
   category_id: z.number(),
 })
 
-export type MenuItemDB = z.infer<typeof menuItemSchema>
+export type MenuItemDb = z.infer<typeof menuItemSchema>
 export type MenuItemMutation = z.infer<typeof menuItemMutationSchema>
