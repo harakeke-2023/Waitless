@@ -1,18 +1,15 @@
 import { useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../hooks'
-import { fetchFruits } from '../slices/fruits'
 import CustomerRoutes from './CustomerRoutes/CustomerRoutes'
+import { Header } from './Header'
+import HomeMenu from './HomeMenu'
 
 function App() {
-  const fruits = useAppSelector((state) => state.fruits)
-  const dispatch = useAppDispatch()
-
-  useEffect(() => {
-    dispatch(fetchFruits())
-  }, [dispatch])
+  useEffect(() => {}, [])
 
   return (
     <>
+      <Header />
+      
       <CustomerRoutes />
     </>
   )
