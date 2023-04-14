@@ -21,7 +21,6 @@ function App() {
       <Header />
       <CustomerRoutes />
       <Footer />
-
     </QueryClientProvider>
   )
 }
