@@ -23,19 +23,16 @@ export default function MenuItems() {
   console.log("Appetizers:", appetizersArr);
   
   
-  // const items = data.map( )
-  // console.log("Error: ", error.message);
-  
 
   return (
    <>
-   <ul>
+   
 
-      <li>
+      <div>
+        <h2>Appetizers</h2>
         <Categories category={appetizersArr}/>
-      </li>
+      </div>
     
-    </ul>
    </>
   );
 }

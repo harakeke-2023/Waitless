@@ -8,11 +8,17 @@ interface Props{
 export default function Categories(props: Props) {
 return(
   <>
-  <ul>
+  <div>
   {props.category.map((item)=>{
-    return<li key={item.id}>{item.name}</li>
+    return(
+    <div key={item.id}>
+    <div><img src={item.image_url} alt={item.name}/></div>
+    <strong>{item.name}</strong>
+    <p>NZD${item.price}</p>
+    </div>
+    )
   })}
-  </ul>
+  </div>
   </>
 )
 }
