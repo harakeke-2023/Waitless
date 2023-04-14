@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 import HomeMenu from './HomeMenu'
 import CategoriesNavBar from './Menu/CategoriesNavBar'
+
 import Cart from './Cart'
 import SuccessPage from './SuccessPage' // import your SuccessPage component here
+
+import { Header } from './Header'
+
 
 export default function Home() {
   const [isPaymentSubmitted, setPaymentSubmitted] = useState(false)
@@ -19,6 +23,7 @@ export default function Home() {
   }
   return (
     <div>
+      <Header isHome={true} />
       <HomeMenu />
       <CategoriesNavBar />
 
