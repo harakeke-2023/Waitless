@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-
 import Payment from './Payment'
+import SuccessPage from './SuccessPage'
 
-//Mock data for cart items
+// Mock data for cart items
 const cartitems = [
   {
     categoryid: 1,
@@ -15,19 +15,30 @@ const cartitems = [
   { categoryid: 4, id: 63, name: 'Pinor Gris', price: 9 },
 ]
 
-const Cart = () => {
+type CartProps = {
+  handlePaymentSubmit: () => void // Define handlePaymentSubmit prop type
+}
+
+const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
+  // Add handlePaymentSubmit as a prop
   const [isPaymentSubmitted, setPaymentSubmitted] = useState(false)
 
-  const handlePaymentSubmit = () => {
-    //payment process logic
-
-    // set payment submitted status to true
+  const handlePaymentButtonClick = () => {
+    // Call the handlePaymentSubmit callback function passed as a prop
+    handlePaymentSubmit()
     setPaymentSubmitted(true)
   }
+
   return (
     <div>
       {isPaymentSubmitted ? (
-        <Payment />
+        // render the SuccessPage component if payment is submitted *Mock*
+        <SuccessPage
+          name={''}
+          checkStatus={function (): void {
+            throw new Error('Function not implemented.')
+          }}
+        />
       ) : (
         <div>
           <h1>Cart Items</h1>
@@ -38,7 +49,8 @@ const Cart = () => {
               </li>
             ))}
           </ul>
-          <button onClick={handlePaymentSubmit}>Submit Payment</button>
+          <button onClick={handlePaymentButtonClick}>Submit Payment</button>{' '}
+          {/* Use handlePaymentButtonClick as the onClick handler */}
         </div>
       )}
     </div>
