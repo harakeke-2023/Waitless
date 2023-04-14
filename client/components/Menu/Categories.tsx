@@ -8,11 +8,11 @@ interface Props {
 export default function Categories(props: Props) {
   return (
     <>
-      <div>
+      <section>
         {props.category.map((item) => {
           if(item.category_id !== 4){
           return (
-            <div key={item.id}>
+            <div key={item.id} className='flex flex-wrap flex-row justify-center'>
                 
               <div>
                 <img src={`/images/${item.image_url}`} alt={item.name} />
@@ -27,7 +27,7 @@ export default function Categories(props: Props) {
             </div>
             )}
         })}
-      </div>
+      </section>
     </>
   )
 }
