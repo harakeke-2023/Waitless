@@ -12,7 +12,6 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <>
-        
         <CustomerRoutes />
       </>
     </QueryClientProvider>
