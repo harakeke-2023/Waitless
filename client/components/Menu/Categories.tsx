@@ -1,5 +1,11 @@
 import React from 'react'
 
 export default function Categories() {
-  return <></>
+  return (
+    <>
+      <ul>
+        <li>apples and other applications</li>
+      </ul>
+    </>
+  )
 }
