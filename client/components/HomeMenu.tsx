@@ -27,21 +27,21 @@ function HomeMenu() {
         <ul className="lg:flex text-center md:text-align ">
           <li><Link
             to="/"
-            className="text-beige-500 hover:bg-black-400  text-2xl hover:text-green block my-6 py-2 px-6"
+            className="rounded text-beige-500  hover:bg-black-300 text-2xl font-medium uppercase leading-normal hover:text-green block my-6 py-2 px-6 transition duration-150 ease-in-out hover:border-neutral-100"
           >
             Home
           </Link></li>
 
           <li><Link
             to="/table/:tableNo/menu"
-            className="text-beige-500  hover:bg-black-400  text-2xl hover:text-green block my-6 py-2 px-6"
+            className="rounded text-beige-500  hover:bg-black-300 text-2xl font-medium uppercase leading-normal hover:text-green block my-6 py-2 px-6 transition duration-150 ease-in-out hover:border-neutral-100"
           >
             Menu
           </Link></li>
 
           <li><Link
             to="/table/:tableNo/contact"
-            className="text-beige-500 hover:bg-black-400 text-2xl hover:text-green block my-6 py-2 px-6"
+            className="rounded text-beige-500  hover:bg-black-300 text-2xl font-medium uppercase leading-normal hover:text-green block my-6 py-2 px-6 transition duration-150 ease-in-out hover:border-neutral-100"
           >
             Contact
           </Link></li>
