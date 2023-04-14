@@ -1,7 +1,7 @@
 import React from 'react'
 import { fireEvent, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import SuccessPage, { Props as SuccessPageProps } from '../SuccessPage'
+import SuccessPage, { Props as SuccessPageProps } from './SuccessPage'
 
 // test for SuccessPage component
 test('renders success page with correct props and checks status button functionality', () => {
