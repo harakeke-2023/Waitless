@@ -2,23 +2,18 @@ import { useEffect } from 'react'
 import CustomerRoutes from './CustomerRoutes/CustomerRoutes'
 import { Header } from './Header'
 
-import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
-import { addMenuItem } from '../apis/menuItems'
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 
 const queryClient = new QueryClient()
 
 function App() {
-  useEffect(() => {
-  }, [])
+  useEffect(() => {}, [])
 
   return (
     <QueryClientProvider client={queryClient}>
-      
-        <Header />
-        
+      <Header />
 
-        <CustomerRoutes />
-      
+      <CustomerRoutes />
     </QueryClientProvider>
   )
 }
