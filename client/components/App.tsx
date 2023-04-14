@@ -10,7 +10,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       
-        <Header />
+        <Header isHome={true}/>
         <CustomerRoutes />
       
     </QueryClientProvider>

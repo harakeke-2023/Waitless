@@ -14,9 +14,9 @@ export default function MenuItems() {
   
   if(isLoading) return <div>Loading...</div>
   
-  if(error) return <div>Error: {error.message}</div>
+  // if(error) return <div>Error: {error.message}</div>
   console.log(data);
-  const items = data.map(()=> item )
+  const items = data.map( )
 
   return (
    <>
