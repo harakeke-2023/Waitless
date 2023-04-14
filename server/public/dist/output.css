@@ -633,6 +633,15 @@ video {
   background-color: rgb(127 29 29 / var(--tw-bg-opacity));
 }
 
+
+
+
+.bg-blue-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+}
+
+
 .bg-cover {
   background-size: cover;
 }
@@ -704,6 +713,14 @@ video {
   line-height: 1rem;
 }
 
+
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+
 .font-bold {
   font-weight: 700;
 }
@@ -719,6 +736,7 @@ video {
 .leading-normal {
   line-height: 1.5;
 }
+
 
 .text-beige-500 {
   --tw-text-opacity: 1;
