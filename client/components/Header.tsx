@@ -42,6 +42,7 @@ export function Header(props: HeaderProps) {
                 )}
               </div>
             </div>
+            
           </div>
         </div>
       </header>

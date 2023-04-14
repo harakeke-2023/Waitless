@@ -19,7 +19,7 @@ function HomeMenu() {
       <nav
         className={
           open
-            ? 'block border-2 border-solid border-red-500'
+            ? 'block border-2 border-solid bg-burgundy-500'
             : 'hidden' +
               ' w-full lg:flex justify-between items-center lg:items-center lg:w-auto'
         }
@@ -27,7 +27,7 @@ function HomeMenu() {
         <div className="lg:flex text-center md:text-align ">
           <Link
             to="/"
-            className="text-red-500  hover:text-green block my-6 py-2 px-6"
+            className="text-beige-500 hover:text-green block my-6 py-2 px-6"
           >
             Home
           </Link>
@@ -48,7 +48,7 @@ function HomeMenu() {
         </div>
       </nav>
       <div
-        className="lg:hidden z-90 absolute top-4 right-6 text-black text-xl"
+        className="lg:hidden z-90 absolute top-4 right-6 text-white text-6xl"
         onClick={toggleMenu}
       >
         {open ? <IoClose /> : <GiHamburgerMenu />}
