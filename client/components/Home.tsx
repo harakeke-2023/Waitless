@@ -27,7 +27,7 @@ export default function Home() {
       <CategoriesNavBar />
 
       {isPaymentSubmitted ? (
-        // Render the SuccessPage component if payment has been submitted
+        //Mock Render the SuccessPage component if payment has been submitted
         <SuccessPage
           name={''}
           checkStatus={function (): void {
