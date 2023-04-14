@@ -3,7 +3,7 @@ import HomeMenu from './HomeMenu'
 export function Header() {
   return (
     <header>
-      <HomeMenu />
+     
       <div
         className="relative overflow-hidden bg-cover bg-no-repeat"
         style={{
@@ -32,6 +32,7 @@ export function Header() {
                 Order Now
               </button>
             </div>
+            
           </div>
         </div>
       </div>
