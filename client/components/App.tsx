@@ -10,6 +10,7 @@ import {
 import { addMenuItem } from '../apis/menuItems'
 import Footer from './Footer'
 
+
 const queryClient = new QueryClient()
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Header />
       <CustomerRoutes />
       <Footer />
+
     </QueryClientProvider>
   )
 }

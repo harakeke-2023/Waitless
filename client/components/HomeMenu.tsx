@@ -21,31 +21,31 @@ function HomeMenu() {
           open
             ? 'block max-w-screen-full flex-wrap items-center justify-between mx-auto p-4 border-2 border-solid bg-burgundy-500'
             : 'hidden' +
-              ' w-full lg:flex justify-between items-center lg:items-center lg:w-auto'
+              ' w-full lg:flex justify-between items-center lg:items-center lg:w-auto  bg-burgundy-500'
         }
       >
-        <div className="lg:flex text-center md:text-align ">
-          <Link
+        <ul className="lg:flex text-center md:text-align ">
+          <li><Link
             to="/"
-            className="text-beige-500 active:bg-blue-600 hover:bg-white  text-2xl hover:text-green block my-6 py-2 px-6"
+            className="text-beige-500 hover:bg-black-400  text-2xl hover:text-green block my-6 py-2 px-6"
           >
             Home
-          </Link>
+          </Link></li>
 
-          <Link
+          <li><Link
             to="/table/:tableNo/menu"
-            className="text-beige-500  hover:bg-white  text-2xl hover:text-green block my-6 py-2 px-6"
+            className="text-beige-500  hover:bg-black-400  text-2xl hover:text-green block my-6 py-2 px-6"
           >
             Menu
-          </Link>
+          </Link></li>
 
-          <Link
+          <li><Link
             to="/table/:tableNo/contact"
-            className="text-beige-500 hover:bg-white text-2xl hover:text-green block my-6 py-2 px-6"
+            className="text-beige-500 hover:bg-black-400 text-2xl hover:text-green block my-6 py-2 px-6"
           >
             Contact
-          </Link>
-        </div>
+          </Link></li>
+        </ul>
       </nav>
       <div
         className="lg:hidden z-90 absolute top-4 right-6 dark:bg-white dark:border-gray-700 text-6xl"
