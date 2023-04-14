@@ -22,7 +22,7 @@ export default function Home() {
   }
   return (
     <div>
-      <Header />
+      {/* <Header />
       <HomeMenu />
       <CategoriesNavBar />
 
@@ -36,7 +36,7 @@ export default function Home() {
         />
       ) : (
         <Cart handlePaymentSubmit={handlePaymentSubmit} />
-      )}
+      )} */}
     </div>
   )
 }
