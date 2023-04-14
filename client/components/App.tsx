@@ -5,8 +5,9 @@ import { Header } from './Header'
 import {
   QueryClient,
   QueryClientProvider,
-  useQuery,
-} from '@tanstack/react-query'
+  
+} from 'react-query'
+
 import { addMenuItem } from '../apis/menuItems'
 import Footer from './Footer'
 
