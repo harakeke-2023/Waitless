@@ -7,7 +7,6 @@ import SuccessPage from './SuccessPage' // import your SuccessPage component her
 
 import { Header } from './Header'
 
-
 export default function Home() {
   const [isPaymentSubmitted, setPaymentSubmitted] = useState(false)
 
@@ -23,7 +22,7 @@ export default function Home() {
   }
   return (
     <div>
-      <Header isHome={true} />
+      <Header />
       <HomeMenu />
       <CategoriesNavBar />
 

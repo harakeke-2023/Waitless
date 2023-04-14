@@ -10,7 +10,6 @@ function CustomerRoutes() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/table/:tableNo" element={<Home />} />
-        
 
         <Route path="/table/:tableNo/menu" element={<MenuItems />} />
         <Route path="/table/:tableNo/contact" element={<Contact />} />
