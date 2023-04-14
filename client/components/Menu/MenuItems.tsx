@@ -33,9 +33,9 @@ const drinksArr = data.menuItems.filter((item: MenuItemMutation)=> {
   
 
   return (
-   <>
+   <div>
      <CategoriesNavBar/>
-      <div className=' p-8 flex flex-wrap'>
+      <div>
         <h2>Appetizers</h2>
         <Categories category={appetizersArr}/>
       </div>
@@ -52,6 +52,6 @@ const drinksArr = data.menuItems.filter((item: MenuItemMutation)=> {
         <Categories category={drinksArr}/>
       </div>
     
-   </>
+   </div>
   );
 }
