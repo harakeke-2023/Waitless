@@ -3,6 +3,26 @@ import HomeMenu from './HomeMenu'
 
 export function Header() {
   const location = useLocation()
+  const headingName =
+    location.pathname === '/'
+      ? 'Home'
+      : location.pathname.includes('menu')
+      ? 'Menu'
+      : location.pathname.includes('cart')
+      ? 'Cart'
+      : location.pathname.includes('about')
+      ? 'About'
+      : location.pathname.includes('contact')
+      ? 'Contact'
+      : location.pathname.includes('login')
+      ? 'Login'
+      : location.pathname.includes('register')
+      ? 'Register'
+      : location.pathname.includes('profile')
+      ? 'Profile'
+      : location.pathname.includes('admin')
+      ? 'Admin'
+      : 'Home'
 
   return (
     <>
@@ -23,10 +43,10 @@ export function Header() {
             <div className="flex h-full items-center justify-center">
               <div className="px-6 text-center text-white md:px-12">
                 <h1 className="mb-6 md:text-5xl max-sm:text-3xl font-bold">
-                  Heading
+                  {headingName}
                 </h1>
                 <h3 className="mb-8 md:text-3xl max-sm:text-xl font-bold">
-                  Subeading
+                  {/* Subeading */}
                 </h3>
 
                 {location.pathname === '/' && (
