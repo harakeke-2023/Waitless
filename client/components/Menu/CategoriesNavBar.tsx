@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Categories from '../../../models/Category'
+import { CategoryMutation } from '../../../models/Category'
 import { useQuery } from 'react-query'
 
 export default function CategoriesNavBar() {
@@ -9,15 +9,16 @@ export default function CategoriesNavBar() {
   )
   console.log(data)
 
-  if (isLoading) return 'Loading...'
+  if (isLoading) return <div>Loading...</div>
 
-  if (error) return 'An error has occurred: ' + error.message
+  if (error) return <div>An error has occurred</div>
+
   return (
     <>
-      {data.categories[0].category_name}
+      {/* {data.categories[0].category_name} */}
       <nav>
         <div className="max-w-screen-full flex flex-wrap items-center justify-between mx-auto p-4 bg-red-900 ">
-          {data.categories.map((cat, index) => {
+          {data.categories.map((cat: CategoryMutation, index: number) => {
             return (
               <Link
                 key={index}
