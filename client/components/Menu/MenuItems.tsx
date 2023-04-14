@@ -4,6 +4,7 @@ import { MenuItem } from './MenuItem'
 
 import { MenuItemMutation } from '../../../models/MenuItem';
 import Categories from './Categories';
+import CategoriesNavBar from './CategoriesNavBar';
 
 export default function MenuItems() {
   const { isLoading, error, data } = useQuery( {
@@ -26,8 +27,7 @@ export default function MenuItems() {
 
   return (
    <>
-   
-
+     <CategoriesNavBar/>
       <div>
         <h2>Appetizers</h2>
         <Categories category={appetizersArr}/>

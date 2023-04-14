@@ -12,7 +12,7 @@ return(
   {props.category.map((item)=>{
     return(
     <div key={item.id}>
-    <div><img src={item.image_url} alt={item.name}/></div>
+    <div><img src={`/images/${item.image_url}`} alt={item.name}/></div>
     <strong>{item.name}</strong>
     <p>NZD${item.price}</p>
     </div>
