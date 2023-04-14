@@ -1,4 +1,4 @@
-import '@testing-library/jest-dom' // <-- add this line
+import '@testing-library/jest-dom'
 
 import { render } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
@@ -13,7 +13,7 @@ describe('Header component - Button rendering', () => {
     )
 
     const orderNowButton = queryByText('Order Now')
-    expect(orderNowButton).toBeInTheDocument() // <-- now "toBeInTheDocument" should be recognized
+    expect(orderNowButton).toBeInTheDocument()
   })
 
   it('does not render "Order Now" button on about page', () => {
@@ -24,7 +24,7 @@ describe('Header component - Button rendering', () => {
     )
 
     const orderNowButton = queryByText('Order Now')
-    expect(orderNowButton).not.toBeInTheDocument() // <-- now "not.toBeInTheDocument" should also be recognized
+    expect(orderNowButton).not.toBeInTheDocument()
   })
 
   it('does not render "Order Now" button on contact pages', () => {
@@ -35,6 +35,6 @@ describe('Header component - Button rendering', () => {
     )
 
     const orderNowButton = queryByText('Order Now')
-    expect(orderNowButton).not.toBeInTheDocument() // <-- now "not.toBeInTheDocument" should also be recognized
+    expect(orderNowButton).not.toBeInTheDocument()
   })
 })
