@@ -21,6 +21,24 @@ router.get('/', async (req, res) => {
   }
 })
 
+//GET /api/v1/categories/menuItems
+router.get('/menuitems', async (req, res) => {
+  try {
+    const categories = await db.getMenuItemsSortedByCategory()
+    console.log('categories: ', categories)
+    res.json(categories)
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message)
+      res.status(500).json({
+        error: {
+          title: 'Unable to retrieve category items',
+        },
+      })
+    }
+  }
+})
+
 //GET /api/v1/categories/:id
 router.get('/:id', async (req, res) => {
   try {
