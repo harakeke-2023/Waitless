@@ -9,7 +9,11 @@
     /* Language and Environment */
     "target": "es2016" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
     "jsx": "react-jsx" /* Specify what JSX code is generated. */,
-    "types": ["node", "jest", "@testing-library/jest-dom"] /* Type declaration files to be included in compilation. */,
+    "types": [
+      "node",
+      "jest",
+      "@testing-library/jest-dom"
+    ] /* Type declaration files to be included in compilation. */,
     /* Modules */
     "module": "commonjs" /* Specify what module code is generated. */,
 
