@@ -1,17 +1,21 @@
 import {QueryClient, QueryClientProvider, useQuery} from '@tanstack/react-query'
 
-export default function App(){
-    return(
-        <QueryClientProvider client={queryClient}>
-            <MenuItem/>
-        </QueryClientProvider>
-    )
+// const queryClient = new QueryClient()
 
-}
- function MenuItem() {
-  
+// export default function MenuItems(){
+//     return(
+//         <QueryClientProvider client={queryClient}>
+//             <MenuItem/>
+//         </QueryClientProvider>
+   
+//         )
+
+// }
+ export function MenuItem() {
 
   return (
-   
+   <>
+     
+   </>
   );
 }
