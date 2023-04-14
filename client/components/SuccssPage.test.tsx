@@ -1,11 +1,7 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import SuccessPage from '../SuccessPage'
-// type for name prop
-type SuccessPageProps = {
-  name: string
-}
+import SuccessPage, { Props as SuccessPageProps } from '../SuccessPage'
 
 // test for SuccessPage component
 test('renders success page with correct props and checks status button functionality', () => {
@@ -16,4 +12,6 @@ test('renders success page with correct props and checks status button functiona
   expect(greetingElement).toBeInTheDocument()
 
   const checkStatusButton = screen.getByText('Check status')
+  fireEvent.click(checkStatusButton) // Simulate click event on checkStatusButton
+  expect(checkStatusMock).toHaveBeenCalled()
 })
