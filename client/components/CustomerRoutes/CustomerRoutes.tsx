@@ -13,6 +13,7 @@ function CustomerRoutes() {
 
         <Route path="/table/:tableNo/menu" element={<MenuItems />} />
         <Route path="/table/:tableNo/aboutus" element={<Contact />} />
+        <Route path="/table/:tableNo/aboutus" element={<Contact />} />
       </Routes>
     </>
   )
