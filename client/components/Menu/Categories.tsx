@@ -13,10 +13,7 @@ export default function Categories(props: Props) {
           if (item.category_id !== 4) {
             return (
               <div key={item.id}>
-                <img
-                  src={`/images/${item.image_url}`}
-                  alt={item.name}
-                />
+                <img src={`/images/${item.image_url}`} alt={item.name} />
                 <h2>
                   <strong>{item.name}</strong>
                 </h2>
