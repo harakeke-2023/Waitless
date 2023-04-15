@@ -6,3 +6,4 @@ server/public/bundle.js.map
 .env
 tags
 output.css
+server/public/dist/output.css
