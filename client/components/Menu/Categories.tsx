@@ -8,21 +8,30 @@ interface Props {
 export default function Categories(props: Props) {
   return (
     <>
-      <section className='flex flex-wrap'>
+      <section>
         {props.category.map((item) => {
-          if(item.category_id !== 4){
-          return (
-            <div key={item.id} className='flex flex-column' >
-              <img src={`/images/${item.image_url}`} alt={item.name} className='flex'/>
-              <strong className='flex'>{item.name}</strong>
-              <p className='flex'>NZD${item.price}</p>
-            </div>
-          ) }else{return (
-            <div key={item.id}>
-              <p><strong>{item.name}</strong> - NZD${item.price}</p>
-              
-            </div>
-            )}
+          if (item.category_id !== 4) {
+            return (
+              <div key={item.id}>
+                <img
+                  src={`/images/${item.image_url}`}
+                  alt={item.name}
+                />
+                <h2>
+                  <strong>{item.name}</strong>
+                </h2>
+                <p>NZD${item.price}</p>
+              </div>
+            )
+          } else {
+            return (
+              <div key={item.id}>
+                <p>
+                  <strong>{item.name}</strong> - NZD${item.price}
+                </p>
+              </div>
+            )
+          }
         })}
       </section>
     </>
