@@ -11,7 +11,6 @@ const SuccessPage = ({ name, checkStatus }: Props) => {
       <div className="bg-gray-100 p-8 rounded-lg text-center">
         <div className="max-w-md mx-auto">
           {' '}
-          {/* Add max width and center align */}
           <h1 className="text-3xl font-bold mb-2">Hey {name}</h1>
           <p className="text-lg text-gray-600 mb-4">Your order is confirmed!</p>
           <p className="text-lg text-gray-600 mb-4">
@@ -23,7 +22,6 @@ const SuccessPage = ({ name, checkStatus }: Props) => {
           >
             Check status
           </button>{' '}
-          {/* Use the checkStatus prop as a click handler */}
         </div>
       </div>
     </div>
