@@ -8,26 +8,29 @@ interface Props {
 export default function Categories(props: Props) {
   return (
     <>
-      <div>
+      <section>
         {props.category.map((item) => {
-          if(item.category_id !== 4){
-          return (
-            <div key={item.id}>
-                
-              <div>
+          if (item.category_id !== 4) {
+            return (
+              <div key={item.id}>
                 <img src={`/images/${item.image_url}`} alt={item.name} />
+                <h2>
+                  <strong>{item.name}</strong>
+                </h2>
+                <p>NZD${item.price}</p>
               </div>
-              <strong>{item.name}</strong>
-              <p>NZD${item.price}</p>
-            </div>
-          ) }else{return (
-            <div key={item.id}>
-              <p><strong>{item.name}</strong> - NZD${item.price}</p>
-              
-            </div>
-            )}
+            )
+          } else {
+            return (
+              <div key={item.id}>
+                <p>
+                  <strong>{item.name}</strong> - NZD${item.price}
+                </p>
+              </div>
+            )
+          }
         })}
-      </div>
+      </section>
     </>
   )
 }
