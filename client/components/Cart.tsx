@@ -52,7 +52,7 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
         />
       ) : (
         <div>
-          <h1 className="text-xl font-semibold mb-4">Cart Items</h1>
+          <h1>Cart items</h1>
           <div className="border border-gray-200 rounded p-4">
             {cartItems.length > 0 ? (
               <ul>
@@ -75,7 +75,6 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
               </ul>
             ) : (
               <>
-                <h1>Cart Items</h1>
                 <ul>
                   {cartitems.map((item) => (
                     <li key={item.id}>
