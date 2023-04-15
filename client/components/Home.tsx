@@ -6,6 +6,7 @@ import Cart from './Cart'
 import SuccessPage from './SuccessPage' // import your SuccessPage component here
 
 import { Header } from './Header'
+import FailedPage from './FailedPage'
 
 export default function Home() {
   const [isPaymentSubmitted, setPaymentSubmitted] = useState(false)
@@ -16,7 +17,7 @@ export default function Home() {
 
     // Simulating API call with a delay of 2 seconds
     setTimeout(() => {
-      console.log('Payment submitted successfully!')
+      console.log('Payment was successful!')
       setPaymentSubmitted(true)
     }, 2000)
   }
@@ -27,9 +28,9 @@ export default function Home() {
       <CategoriesNavBar />
 
       {isPaymentSubmitted ? (
-        // Render the SuccessPage component if payment has been submitted
+        //Mock Render the SuccessPage component if payment has been submitted
         <SuccessPage
-          name={''}
+          message={''}
           checkStatus={function (): void {
             throw new Error('Function not implemented.')
           }}
