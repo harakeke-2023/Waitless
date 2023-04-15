@@ -7,6 +7,7 @@ import Cart from '../Cart'
 import SuccessPage from '../SuccessPage'
 import FailedPage from '../FailedPage'
 import HomeMenu from '../HomeMenu'
+import SeanTestingMenu from '../Menu/SeanTestingMenu'
 
 function CustomerRoutes() {
   return (
@@ -22,7 +23,7 @@ function CustomerRoutes() {
               <div>
                 <HomeMenu />
               </div>
-              <MenuItems />
+              <SeanTestingMenu />
             </>
           }
         />
