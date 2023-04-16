@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { CategoryMutation } from '../../../models/Category'
 import { useQuery } from 'react-query'
+import { HashLink as Link } from 'react-router-hash-link'
 
 export default function CategoriesNavBar() {
+  const { tableNo } = useParams()
   const { isLoading, error, data } = useQuery('repoData', () =>
     fetch('/api/v1/categories').then((res) => res.json())
   )
@@ -20,7 +22,7 @@ export default function CategoriesNavBar() {
             return (
               <Link
                 key={index}
-                to="/table/:tableNo/menu"
+                to={`/table/${tableNo}/menu#${cat.category_name.toLowerCase()}`}
                 className="lock py-2 pl-3 pr-4 text-beige-500 bg-red-900 hover:border-4 border-slate-400 rounded "
               >
                 {cat.category_name}
