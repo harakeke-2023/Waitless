@@ -9,7 +9,12 @@ interface CartProps {
 //The handlePaymentSubmit prop is expected to be a function that is called when the user clicks the "Submit Payment Method" button
 const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
   const [isPaymentSubmitted, setPaymentSubmitted] = useState(false)
-  const [cartItems, setCartItems] = useState<CartItem[]>([]) // Update to use CartItem type
+  const [cartItems, setCartItems] = useState(
+    [] as MenuItemMutationWithQuantity[]
+  ) // Update to use CartItem type
+  const [totalCost, setTotalCost] = useState(0)
+  //count is only here to make the total update. I was very tired.
+  const [count, addCount] = useState(0)
 
   // const newLocal = [
   //   {
@@ -26,7 +31,7 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
 
   // const currentCartJson = localStorage.getItem('cart')
   // const currentCartArr = JSON.parse(currentCartJson as string) || []
-  const handlePaymentButtonClick = () => {
+  const submitOrderToDb = () => {
     handlePaymentSubmit()
     setPaymentSubmitted(true)
   }
@@ -40,9 +45,18 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
     const fetchedCartItems = (JSON.parse(currentCartJson as string) ||
       []) as MenuItemMutationWithQuantity[]
     setCartItems(() => fetchedCartItems)
-  }, [])
+
+    setTotalCost(() =>
+      fetchedCartItems.reduce(
+        (accumulator, currentValue) =>
+          accumulator + currentValue.quantity * currentValue.price,
+        0
+      )
+    )
+  }, [count])
 
   const removeFromCart = (itemId: number) => {
+    addCount((count) => count + 1)
     // Remove item from cart based on itemId
     const updatedCartItems = cartItems.filter((item) => item.id !== itemId)
     const newCartJson = JSON.stringify(updatedCartItems)
@@ -51,6 +65,7 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
   }
 
   const changeQuantity = (plutOrMinus: number, itemId: number) => {
+    addCount((count) => count + 1)
     const newCart = [
       ...cartItems.map((item) => {
         if (item.id === itemId) {
@@ -76,26 +91,26 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
         />
       ) : (
         <div>
-          <h1>Cart item</h1>
-          <div className="border border-gray-200 rounded p-4">
+          <div className="p-4">
             {cartItems.length > 0 ? (
-              <article className="m-6 ml-0 w-64 my-4 p-6 rounded-md border-2 shadow-xl flex flex-col justify-around">
+              <article className="my-4 rounded-md shadow-lg">
                 <ul>
                   {cartItems.map((item, index) => (
-                    <li
-                      key={item.id}
-                      className="flex justify-between items-center mb-2"
-                    >
+                    <li key={item.id} className="shadow-lg">
                       <span>
-                        {item.name}
-                        <h3 className="font-bold p-0 flex items-center justify-center">
+                        <h2 className="font-bold flex items-center ">
+                          <div className="flex  w-1/2">{item.name}</div>
+                          <div className=" ml-2 w-1/5 font-bold flex items-center  mr-20">
+                            ${item.quantity * item.price}
+                          </div>
+
                           <button
                             onClick={() =>
                               cartItems[index].quantity >= 2
                                 ? changeQuantity(-1, item.id)
                                 : removeFromCart(item.id)
                             }
-                            className="p-3 border-2 border-r-0"
+                            className=" p-3 border-2 border-r-0 "
                           >
                             -
                           </button>
@@ -108,15 +123,14 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
                           >
                             +
                           </button>
-                        </h3>
-                        {item.price * item.quantity}
+                          <button
+                            onClick={() => removeFromCart(item.id)}
+                            className="ml-12 bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
+                          >
+                            Remove
+                          </button>
+                        </h2>
                       </span>
-                      <button
-                        onClick={() => removeFromCart(item.id)}
-                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
-                      >
-                        Remove
-                      </button>
                     </li>
                   ))}
                 </ul>
@@ -125,11 +139,15 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
               <div>Nothing in cart</div>
             )}
           </div>
+
+          <h2 className="ml-5 font-bold flex items-center ">
+            Total: ${totalCost.toFixed(2)}
+          </h2>
           <button
-            onClick={handlePaymentButtonClick}
+            onClick={submitOrderToDb}
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
           >
-            Submit Payment
+            Submit Order
           </button>
         </div>
       )}

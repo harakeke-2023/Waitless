@@ -17,9 +17,9 @@ export default function SeanTestingMenu() {
       fetch('/api/v1/categories/menuitems').then((res) => res.json()),
   })
 
-  const menuItemsByCategory = data as MenuItemsSortedByCategory
-
   if (isLoading) return <div>Loading...</div>
+
+  const menuItemsByCategory = data as MenuItemsSortedByCategory
 
   function addToCart(
     evt: React.MouseEvent<HTMLButtonElement>,
@@ -50,22 +50,23 @@ export default function SeanTestingMenu() {
   return (
     <>
       {data &&
-        Object.keys(menuItemsByCategory.categories).map((category) => {
+        Object.keys(menuItemsByCategory.categories).map((category, index) => {
           return (
             <>
               <h3 key={category}>{category}</h3>
-              <ul>
+              <ul key={index}>
                 {menuItemsByCategory.categories[category].map(
                   (item: MenuItemMutation) => {
                     return (
-                      <>
-                        <li key={item.id}>
-                          {item.name}{' '}
-                          <button onClick={(evt) => addToCart(evt, item)}>
-                            Add to Cart
-                          </button>
-                        </li>
-                      </>
+                      <li key={item.id}>
+                        {item.name}{' '}
+                        <button
+                          key={item.name}
+                          onClick={(evt) => addToCart(evt, item)}
+                        >
+                          Add to Cart
+                        </button>
+                      </li>
                     )
                   }
                 )}
