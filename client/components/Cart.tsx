@@ -50,12 +50,7 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
     setCartItems(() => updatedCartItems)
   }
 
-  const changeQuantity = (
-    plutOrMinus: number,
-    itemId: number,
-    currentQueantity: number
-  ) => {
-    console.log('SEAN: ', currentQueantity)
+  const changeQuantity = (plutOrMinus: number, itemId: number) => {
     const newCart = [
       ...cartItems.map((item) => {
         if (item.id === itemId) {
@@ -81,7 +76,7 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
         />
       ) : (
         <div>
-          <h1>Cart items</h1>
+          <h1>Cart item</h1>
           <div className="border border-gray-200 rounded p-4">
             {cartItems.length > 0 ? (
               <article className="m-6 ml-0 w-64 my-4 p-6 rounded-md border-2 shadow-xl flex flex-col justify-around">
@@ -97,21 +92,19 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
                           <button
                             onClick={() =>
                               cartItems[index].quantity >= 2
-                                ? changeQuantity(-1, item.id, item.quantity)
+                                ? changeQuantity(-1, item.id)
                                 : removeFromCart(item.id)
                             }
-                            className="p-4 border-2 border-r-0"
+                            className="p-3 border-2 border-r-0"
                           >
                             -
                           </button>
-                          <div className="p-4 px-10 font-bold border-2">
+                          <div className="p-3 px-10 font-bold border-2">
                             {item.quantity}
                           </div>
                           <button
-                            onClick={() =>
-                              changeQuantity(1, item.id, item.quantity)
-                            }
-                            className="p-4 border-2 border-l-0"
+                            onClick={() => changeQuantity(1, item.id)}
+                            className="p-3 border-2 border-l-0"
                           >
                             +
                           </button>
