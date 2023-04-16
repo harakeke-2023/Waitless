@@ -7,7 +7,10 @@ import Cart from '../Cart'
 import SuccessPage from '../SuccessPage'
 import FailedPage from '../FailedPage'
 import HomeMenu from '../HomeMenu'
+
+import About from '../About'
 import SeanTestingMenu from '../Menu/SeanTestingMenu'
+
 
 function CustomerRoutes() {
   return (
@@ -15,6 +18,7 @@ function CustomerRoutes() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/table/:tableNo" element={<Home />} />
+        <Route path="/about" element={<About />} />
 
         <Route
           path="/table/:tableNo/menu"

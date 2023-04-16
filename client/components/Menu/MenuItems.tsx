@@ -49,6 +49,7 @@ export default function MenuItems() {
         <h2>Appetizers</h2>
         <Categories category={appetizersArr} />
       </div>
+
       <div>
         <h2>Fried Rice</h2>
         <Categories category={friedRiceArr} />
