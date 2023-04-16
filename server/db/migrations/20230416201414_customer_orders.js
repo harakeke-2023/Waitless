@@ -8,6 +8,7 @@ exports.up = function (knex) {
     table.integer('total_cost')
     table.string('customer_name')
     table.string('customer_email')
+    table.integer('table_number')
   })
 }
 
