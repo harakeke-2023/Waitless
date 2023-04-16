@@ -13,6 +13,7 @@ export default function MenuItems() {
   })
 
   if (isLoading) return <div>Loading...</div>
+  
   //Getting Menu Items by categories
   //APPETIZERS-1
   const appetizersArr = data.menuItems.filter((item: MenuItemMutation) => {
