@@ -7,7 +7,10 @@ import Cart from '../Cart'
 import SuccessPage from '../SuccessPage'
 import FailedPage from '../FailedPage'
 import HomeMenu from '../HomeMenu'
+
 import About from '../About'
+import SeanTestingMenu from '../Menu/SeanTestingMenu'
+
 
 function CustomerRoutes() {
   return (
@@ -31,7 +34,14 @@ function CustomerRoutes() {
         <Route path="/table/:tableNo/contact" element={<Contact />} />
         <Route
           path="/table/:tableNo/cart"
-          element={<Cart handlePaymentSubmit={() => {}} />}
+          element={
+            <>
+              <div>
+                <HomeMenu />
+              </div>
+              <Cart handlePaymentSubmit={() => {}} />
+            </>
+          }
         />
         <Route
           path="/table/:tableNo/order/success"
@@ -39,7 +49,7 @@ function CustomerRoutes() {
         />
         <Route
           path="/table/:tableNo/order/fail"
-          element={<FailedPage message="test" retry={() => {}} />}
+          element={<FailedPage name={'test'} retry={() => {}} />}
         />
       </Routes>
     </>

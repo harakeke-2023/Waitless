@@ -559,13 +559,18 @@ video {
   margin-bottom: 1.5rem;
 }
 
+<<<<<<<<< Temporary merge branch 1
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+=========
 .-mt-16 {
   margin-top: -4rem;
 }
 
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
+.mb-2 {
+  margin-bottom: 0.5rem;
+>>>>>>>>> Temporary merge branch 2
 }
 
 .mx-2 {
@@ -617,42 +622,67 @@ video {
   display: none;
 }
 
+<<<<<<<<< Temporary merge branch 1
+=========
 .h-1\/6 {
   height: 16.666667%;
 }
 
-.h-16 {
-  height: 4rem;
+.h-4 {
+  height: 1rem;
 }
 
+.h-48 {
+  height: 12rem;
+}
+
+.h-6 {
+  height: 1.5rem;
+}
+
+.h-auto {
+  height: auto;
+}
+
+>>>>>>>>> Temporary merge branch 2
 .h-full {
   height: 100%;
 }
 
+<<<<<<<<< Temporary merge branch 1
+=========
 .h-screen {
   height: 100vh;
 }
 
-.w-16 {
-  width: 4rem;
+.w-4\/5 {
+  width: 80%;
 }
 
+.w-48 {
+  width: 12rem;
+}
+
+>>>>>>>>> Temporary merge branch 2
 .w-full {
   width: 100%;
 }
 
-.max-w-screen-xl {
-  max-width: 1280px;
+<<<<<<<<< Temporary merge branch 1
+=========
+.max-w-4xl {
+  max-width: 56rem;
 }
 
 .max-w-md {
   max-width: 28rem;
 }
 
-.flex-col {
-  flex-direction: column;
+.max-w-screen-xl {
+  max-width: 1280px;
 }
 
+>>>>>>>>> Temporary merge branch 2
 .flex-wrap {
   flex-wrap: wrap;
 }
@@ -677,12 +707,17 @@ video {
   border-radius: 0.25rem;
 }
 
+<<<<<<<<< Temporary merge branch 1
+.border-2 {
+  border-width: 2px;
+=========
 .rounded-full {
   border-radius: 9999px;
 }
 
-.border-2 {
-  border-width: 2px;
+.rounded-lg {
+  border-radius: 0.5rem;
+>>>>>>>>> Temporary merge branch 2
 }
 
 .rounded-none {
@@ -693,12 +728,26 @@ video {
   border-width: 1px;
 }
 
+<<<<<<<<< Temporary merge branch 1
+=========
 .border-2 {
   border-width: 2px;
 }
 
+.border-b-2 {
+  border-bottom-width: 2px;
+}
+
+>>>>>>>>> Temporary merge branch 2
 .border-solid {
   border-style: solid;
+}
+
+<<<<<<<<< Temporary merge branch 1
+=========
+.border-burgundy-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(140 28 19 / var(--tw-border-opacity));
 }
 
 .border-gray-200 {
@@ -706,6 +755,7 @@ video {
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
 
+>>>>>>>>> Temporary merge branch 2
 .border-neutral-50 {
   --tw-border-opacity: 1;
   border-color: rgb(250 250 250 / var(--tw-border-opacity));
@@ -716,14 +766,20 @@ video {
   border-color: rgb(148 163 184 / var(--tw-border-opacity));
 }
 
+<<<<<<<<< Temporary merge branch 1
+.border-gray-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+=========
 .bg-black-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(79 81 98 / var(--tw-bg-opacity));
 }
 
-.border-gray-200 {
-  --tw-border-opacity: 1;
-  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+>>>>>>>>> Temporary merge branch 2
 }
 
 .bg-burgundy-500 {
@@ -751,6 +807,13 @@ video {
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
+<<<<<<<<< Temporary merge branch 1
+=========
+.bg-red-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(127 29 29 / var(--tw-bg-opacity));
+}
+
 .bg-scarlet-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(191 67 66 / var(--tw-bg-opacity));
@@ -761,6 +824,7 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+>>>>>>>>> Temporary merge branch 2
 .bg-cover {
   background-size: cover;
 }
@@ -810,14 +874,12 @@ video {
   padding-bottom: 0.25rem;
 }
 
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+.pb-16 {
+  padding-bottom: 4rem;
 }
 
-.py-6 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+.pb-8 {
+  padding-bottom: 2rem;
 }
 
 .pb-\[6px\] {
@@ -840,6 +902,12 @@ video {
   padding-top: 0.5rem;
 }
 
+<<<<<<<<< Temporary merge branch 1
+=========
+.pt-3 {
+  padding-top: 0.75rem;
+}
+
 .pt-4 {
   padding-top: 1rem;
 }
@@ -848,6 +916,11 @@ video {
   padding-top: 1.5rem;
 }
 
+.pt-8 {
+  padding-top: 2rem;
+}
+
+>>>>>>>>> Temporary merge branch 2
 .text-center {
   text-align: center;
 }
@@ -870,6 +943,17 @@ video {
 .text-6xl {
   font-size: 3.75rem;
   line-height: 1;
+}
+
+<<<<<<<<< Temporary merge branch 1
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+=========
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+>>>>>>>>> Temporary merge branch 2
 }
 
 .text-lg {
@@ -907,6 +991,8 @@ video {
   color: rgb(231 215 193 / var(--tw-text-opacity));
 }
 
+<<<<<<<<< Temporary merge branch 1
+=========
 .text-black-900 {
   --tw-text-opacity: 1;
   color: rgb(1 2 9 / var(--tw-text-opacity));
@@ -915,6 +1001,11 @@ video {
 .text-blue-800 {
   --tw-text-opacity: 1;
   color: rgb(30 64 175 / var(--tw-text-opacity));
+}
+
+.text-burgundy-500 {
+  --tw-text-opacity: 1;
+  color: rgb(140 28 19 / var(--tw-text-opacity));
 }
 
 .text-burgundy-900 {
@@ -932,11 +1023,7 @@ video {
   color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
-.text-green-500 {
-  --tw-text-opacity: 1;
-  color: rgb(34 197 94 / var(--tw-text-opacity));
-}
-
+>>>>>>>>> Temporary merge branch 2
 .text-neutral-50 {
   --tw-text-opacity: 1;
   color: rgb(250 250 250 / var(--tw-text-opacity));
@@ -947,6 +1034,11 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+<<<<<<<<< Temporary merge branch 1
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
+=========
 .opacity-25 {
   opacity: 0.25;
 }
@@ -955,9 +1047,11 @@ video {
   opacity: 0.75;
 }
 
-.text-gray-600 {
-  --tw-text-opacity: 1;
-  color: rgb(75 85 99 / var(--tw-text-opacity));
+.shadow {
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+>>>>>>>>> Temporary merge branch 2
 }
 
 .shadow-2xl {
@@ -1021,6 +1115,9 @@ video {
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
 }
 
+<<<<<<<<< Temporary merge branch 1
+.hover\:bg-green-700:hover {
+=========
 .hover\:bg-burgundy-900:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(42 8 6 / var(--tw-bg-opacity));
@@ -1031,7 +1128,8 @@ video {
   background-color: rgb(34 197 94 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-green-700:hover {
+.hover\:bg-neutral-500:hover {
+>>>>>>>>> Temporary merge branch 2
   --tw-bg-opacity: 1;
   background-color: rgb(21 128 61 / var(--tw-bg-opacity));
 }
@@ -1113,6 +1211,8 @@ video {
 }
 
 @media (min-width: 768px) {
+<<<<<<<<< Temporary merge branch 1
+=========
   .md\:mr-6 {
     margin-right: 1.5rem;
   }
@@ -1133,6 +1233,11 @@ video {
     justify-content: space-between;
   }
 
+  .md\:p-12 {
+    padding: 3rem;
+  }
+
+>>>>>>>>> Temporary merge branch 2
   .md\:px-12 {
     padding-left: 3rem;
     padding-right: 3rem;
@@ -1185,6 +1290,9 @@ video {
   .lg\:items-center {
     align-items: center;
   }
+<<<<<<<<< Temporary merge branch 1
+}
+=========
 
   .lg\:justify-start {
     justify-content: flex-start;
@@ -1221,3 +1329,4 @@ video {
     line-height: 1.25rem;
   }
 }
+>>>>>>>>> Temporary merge branch 2

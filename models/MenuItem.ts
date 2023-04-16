@@ -21,5 +21,9 @@ export const menuItemMutationSchema = z.object({
   category_id: z.number(),
 })
 
+export type MenuItemMutationWithQuantity = MenuItemMutation & {
+  quantity: number
+}
+
 export type MenuItemDb = z.infer<typeof menuItemSchema>
 export type MenuItemMutation = z.infer<typeof menuItemMutationSchema>

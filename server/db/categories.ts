@@ -51,10 +51,18 @@ interface Categories {
 export interface MenuItemsSortedByCategory {
   categories: Categories
 }
-
 export async function getMenuItemsSortedByCategory(db = connection) {
   const menuItems = await db('menu_items')
-    .select('*')
+    .select(
+      'menu_items.id as item_id',
+      'menu_items.name',
+      'menu_items.description',
+      'menu_items.price',
+      'menu_items.stock',
+      'menu_items.image_url',
+      'menu_items.category_id',
+      'categories.category_name'
+    )
     .join('categories', 'menu_items.category_id', '=', 'categories.id')
     .orderBy('categories.category_name')
 
@@ -66,9 +74,10 @@ export async function getMenuItemsSortedByCategory(db = connection) {
       categories[categoryName] = []
     }
 
-    const { id, name, description, price, stock, image_url, category_id } = item
+    const { item_id, name, description, price, stock, image_url, category_id } =
+      item
     categories[categoryName].push({
-      id,
+      id: item_id,
       name,
       description,
       price,
