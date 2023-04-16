@@ -13,21 +13,32 @@ export default function MenuItems() {
   })
 
   if (isLoading) return <div>Loading...</div>
+
+  //This line protects against database table not existing errors.
+  if (data.error) {
+    console.log(data)
+    return <div>Error! {data.error.title} </div>
+  }
+
   //Getting Menu Items by categories
   //APPETIZERS-1
-  const appetizersArr = data.menuItems.filter((item: MenuItemMutation) => {
-    return item.category_id === 1
-  })
+  const appetizersArr = (data || []).menuItems.filter(
+    (item: MenuItemMutation) => {
+      return item.category_id === 1
+    }
+  )
   //FRIED RICE -2
-  const friedRiceArr = data.menuItems.filter((item: MenuItemMutation) => {
-    return item.category_id === 2
-  })
+  const friedRiceArr = (data || []).menuItems.filter(
+    (item: MenuItemMutation) => {
+      return item.category_id === 2
+    }
+  )
   //NOODLES-3
-  const noodlesArr = data.menuItems.filter((item: MenuItemMutation) => {
+  const noodlesArr = (data || []).menuItems.filter((item: MenuItemMutation) => {
     return item.category_id === 3
   })
   //DRINKS-4
-  const drinksArr = data.menuItems.filter((item: MenuItemMutation) => {
+  const drinksArr = (data || []).menuItems.filter((item: MenuItemMutation) => {
     return item.category_id === 4
   })
 
