@@ -23,7 +23,7 @@ function CustomerRoutes() {
               <div>
                 <HomeMenu />
               </div>
-              <SeanTestingMenu />
+              <MenuItems />
             </>
           }
         />
