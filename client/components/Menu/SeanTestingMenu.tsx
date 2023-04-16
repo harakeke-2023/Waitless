@@ -6,8 +6,7 @@ import {
   MenuItemMutation,
   MenuItemMutationWithQuantity,
 } from '../../../models/MenuItem'
-import Categories from './Categories'
-import CategoriesNavBar from './CategoriesNavBar'
+
 import { MenuItemsSortedByCategory } from '../../../server/db/categories'
 
 export default function SeanTestingMenu() {
