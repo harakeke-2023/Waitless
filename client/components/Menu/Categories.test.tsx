@@ -74,3 +74,5 @@ describe('Categories component', () => {
     expect(items).not.toBeInTheDocument();
   });
 });
+
+
