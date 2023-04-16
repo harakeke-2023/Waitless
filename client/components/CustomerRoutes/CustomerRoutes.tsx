@@ -38,7 +38,7 @@ function CustomerRoutes() {
         />
         <Route
           path="/table/:tableNo/order/fail"
-          element={<FailedPage message="test" retry={() => {}} />}
+          element={<FailedPage name={'test'} retry={() => {}} />}
         />
       </Routes>
     </>
