@@ -46,7 +46,7 @@ function HomeMenu() {
 
           <li>
             <Link
-              to={`/table/${tableNo}/contact`}
+              to={`/contact`}
               className="rounded text-beige-500  hover:bg-black-300 text-2xl font-medium uppercase leading-normal hover:text-green block my-6 py-2 px-6 transition duration-150 ease-in-out hover:border-neutral-100"
             >
               Contact

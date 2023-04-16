@@ -1,8 +1,9 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 
 export default function About() {
   return (
-    <div className="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
+    <div className="max-w-4xl flex items-center h-auto lg:h-full flex-wrap mx-auto my-64">
       {/* <!--Main Col--> */}
       <div
         id="profile"
