@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import HomeMenu from './HomeMenu'
-import CategoriesNavBar from './Menu/CategoriesNavBar'
 
+import HomeMenu from './HomeMenu'
+import { Header } from './Header'
+import { Signup } from './Signup'
+import CategoriesNavBar from './Menu/CategoriesNavBar'
 import Cart from './Cart'
 import SuccessPage from './SuccessPage' // import your SuccessPage component here
-
-import { Header } from './Header'
 import FailedPage from './FailedPage'
 
 export default function Home() {
@@ -38,6 +38,7 @@ export default function Home() {
       ) : (
         <Cart handlePaymentSubmit={handlePaymentSubmit} />
       )} */}
+      <Signup />
     </div>
   )
 }
