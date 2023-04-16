@@ -46,20 +46,28 @@ export default function MenuItems() {
     <>
       <CategoriesNavBar />
       <div>
-        <h2>Appetizers</h2>
+        <a id="appetizers" href="#appetizers">
+          <h2>Appetizers</h2>
+        </a>
         <Categories category={appetizersArr} />
       </div>
 
       <div>
-        <h2>Fried Rice</h2>
+        <a id="fried rice" href="#fried rice">
+          <h2>Fried Rice</h2>
+        </a>
         <Categories category={friedRiceArr} />
       </div>
       <div>
-        <h2>Noodles</h2>
+        <a id="noodles" href="#noodles">
+          <h2>Noodles</h2>
+        </a>
         <Categories category={noodlesArr} />
       </div>
       <div>
-        <h2>Drinks</h2>
+        <a id="drinks" href="#drinks">
+          <h2>Drinks</h2>
+        </a>
         <Categories category={drinksArr} />
       </div>
     </>

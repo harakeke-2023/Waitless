@@ -28,10 +28,10 @@ const SuccessPage = ({ name, handleReturnButton }: Props) => {
         <div className="max-w-md mx-auto">
           <div className="border border-gray-500 rounded-lg px-6 py-4 mb-6">
             <h1 className="text-3xl font-bold mb-2">Hey {name}</h1>
-            <p className="text-lg text-gray-600 mb-4">
+            <p className="text-lg text-white-600 mb-4">
               Your order is confirmed!
             </p>
-            <p className="text-lg text-gray-600 mb-4">
+            <p className="text-lg text-white-600 mb-4">
               We'll send you a shipping confirmation email
             </p>
           </div>
