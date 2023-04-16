@@ -8,7 +8,7 @@ import { IoClose } from 'react-icons/io5'
 
 function HomeMenu() {
   const { tableNo } = useParams()
-  console.log('tablet num',tableNo)
+  console.log('tablet num', tableNo)
 
   const [open, setOpen] = useState(false)
 
@@ -28,7 +28,7 @@ function HomeMenu() {
         <ul className="lg:flex text-center md:text-align ">
           <li>
             <Link
-              to="/"
+              to={`/table/${tableNo}/`}
               className="rounded text-beige-500  hover:bg-black-300 text-2xl font-medium uppercase leading-normal hover:text-green block my-6 py-2 px-6 transition duration-150 ease-in-out hover:border-neutral-100"
             >
               Home
@@ -37,7 +37,7 @@ function HomeMenu() {
 
           <li>
             <Link
-              to="/table/:tableNo/menu"
+              to={`/table/${tableNo}/menu`}
               className="rounded text-beige-500  hover:bg-black-300 text-2xl font-medium uppercase leading-normal hover:text-green block my-6 py-2 px-6 transition duration-150 ease-in-out hover:border-neutral-100"
             >
               Menu
@@ -46,7 +46,7 @@ function HomeMenu() {
 
           <li>
             <Link
-              to="/table/:tableNo/contact"
+              to={`/table/${tableNo}/contact`}
               className="rounded text-beige-500  hover:bg-black-300 text-2xl font-medium uppercase leading-normal hover:text-green block my-6 py-2 px-6 transition duration-150 ease-in-out hover:border-neutral-100"
             >
               Contact

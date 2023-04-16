@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { CategoryMutation } from '../../../models/Category'
 import { useQuery } from 'react-query'
@@ -7,7 +6,6 @@ export default function CategoriesNavBar() {
   const { isLoading, error, data } = useQuery('repoData', () =>
     fetch('/api/v1/categories').then((res) => res.json())
   )
-  console.log(data)
 
   if (isLoading) return <div>Loading...</div>
 
