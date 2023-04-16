@@ -27,6 +27,7 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
   const handlePaymentButtonClick = () => {
     handlePaymentSubmit()
     setPaymentSubmitted(true)
+    console.log('payment successful')
   }
 
   const addToCart = (item: CartItem) => {
@@ -53,7 +54,8 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
       ) : (
         <div>
           <h1>Cart items</h1>
-          <div className="border border-gray-200 rounded p-4">
+          <div className="container rounded">
+            {/* <div className="border border-red-200 rounded p-4"> */}
             {cartItems.length > 0 ? (
               <ul>
                 {cartItems.map((item) => (
