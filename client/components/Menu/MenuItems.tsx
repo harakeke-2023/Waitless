@@ -12,7 +12,7 @@ export default function MenuItems() {
     queryFn: () => fetch('/api/v1/menuitems').then((res) => res.json()),
   })
 
-  if (isLoading) return <div>Loading...</div>
+  if (isLoading){return <div>Loading...</div>}
 
   //This line protects against database table not existing errors.
   if (data.error) {
