@@ -3,8 +3,6 @@
  * @returns { Promise<void> }
  */
 exports.seed = async function (knex) {
-  await knex('menu_items').del()
-  await knex('categories').del()
   await knex('categories').insert([
     {
       id: 1,

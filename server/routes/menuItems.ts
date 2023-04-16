@@ -41,7 +41,6 @@ router.get('/:id', async (req, res) => {
 //POST /api/v1/menuitems
 router.post('/', async (req, res) => {
   try {
-    console.log('sean: ', req.body)
     await db.addMenuItem(menuItemSchema.parse(req.body))
 
     res.sendStatus(201)
