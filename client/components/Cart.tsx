@@ -15,8 +15,6 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
   const [totalCost, setTotalCost] = useState(0)
   //count is only here to make the total update. I was very tired.
   const [count, addCount] = useState(0)
-  const [showCustomerDetailsModal, setShowCustomerDetailsModal] =
-    useState(false)
 
   const submitOrderToDb = () => {
     handlePaymentSubmit()
@@ -73,15 +71,13 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
         // render the SuccessPage component if payment is submitted *Mock*
         <SuccessPage
           name={''}
-          checkStatus={function (): void {
+          handleReturnButton={function (): void {
             throw new Error('Function not implemented.')
           }}
         />
       ) : (
         <div>
-
           <div className="p-4">
-
             {cartItems.length > 0 ? (
               <article className="my-4 rounded-md shadow-lg">
                 <ul>

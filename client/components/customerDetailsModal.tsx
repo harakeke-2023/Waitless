@@ -3,51 +3,58 @@ import { Modal, Button, Form } from 'react-bootstrap'
 
 interface Props {
   show: boolean
-  setShowCustomerDetailsModal: React.Dispatch<React.SetStateAction<boolean>>
+  setShowCustomOptions: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-interface CustomerDetails {
-  name: string
-  email: string
+interface FoodOptions {
+  spice: string
+  notes: string
 }
 
 export default function CustomerDetailsModal(props: Props) {
-  const [customerDetails, setCustomerDetails] = useState({
-    name: '',
-    email: '',
-  } as CustomerDetails)
-  const [customerEmail, setCustomerEmail] = useState('')
+  const [foodOptions, setFoodOptions] = useState({
+    spice: '',
+    notes: '',
+  } as FoodOptions)
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     // collect user information
     // ...
-    props.setShowCustomerDetailsModal(() => false)
+    props.setShowCustomOptions(() => false)
   }
   return (
     <Modal show={props.show}>
       <Modal.Header closeButton>
-        <Modal.Title>Enter Your Information</Modal.Title>
+        <Modal.Title>Select Extras</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <form onSubmit={handleSubmit}>
-          <label htmlFor={'name'}>Enter Your Name</label>
+          <label htmlFor={'spice'}>Enter Your Spice Level</label>
           <input
             type="text"
-            onChange={}
-            name="name"
-            value={customerDetails.name}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              setFoodOptions({
+                ...foodOptions,
+                spice: event.target.value,
+              })
+            }}
+            name="spice"
+            value={foodOptions.spice}
           />
 
-          <Form.Group>
-            <Form.Label>Enter Your Email</Form.Label>
-            <Form.Control
-              type="email"
-              onChange={handleChange}
-              name="email"
-              value={customerDetails.email}
-            />
-          </Form.Group>
+          <label htmlFor={'notes'}>Any Notes? Allergies? Last Requests?</label>
+          <input
+            type="text"
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              setFoodOptions({
+                ...foodOptions,
+                notes: event.target.value,
+              })
+            }}
+            name="notes"
+            value={foodOptions.spice}
+          />
 
           <Button variant="primary" type="submit">
             Submit

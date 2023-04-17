@@ -1,10 +1,52 @@
+import { CustomerOrderDb } from '../../models/CustomerOrders'
 import connection from './connection'
 
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<Array> }
  */
-export async function getAllCustomerOrdersWithDetails(db = connection) {
+
+export async function addCustomerOrder(
+  newCustomerOrder: CustomerOrderDb,
+  db = connection
+) {
+  console.log('in DB: ', newCustomerOrder)
+  const {
+    total_cost,
+    customer_name,
+    customer_email,
+    table_number,
+    order_details,
+  } = newCustomerOrder
+  const order_id = await db('customer_orders').insert({
+    total_cost,
+    customer_name,
+    customer_email,
+    table_number,
+  })
+
+  console.log('ID: ', order_id)
+
+  order_details.forEach((orderedItem) => {
+    const { quantity, price, menu_item_id } = orderedItem
+    console.log(orderedItem)
+    db('customer_order_items')
+      .insert({
+        order_id: order_id[0],
+        quantity: quantity,
+        price: price,
+        menu_item_id: menu_item_id,
+      })
+      .then((thing) => {
+        console.log(thing)
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  })
+}
+
+async function getAllCustomerOrdersWithDetails(db = connection) {
   const orders = await db
     .select(
       'customer_orders.id',
