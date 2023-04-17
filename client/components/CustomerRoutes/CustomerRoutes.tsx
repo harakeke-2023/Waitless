@@ -11,7 +11,6 @@ import HomeMenu from '../HomeMenu'
 import About from '../About'
 import SeanTestingMenu from '../Menu/SeanTestingMenu'
 
-
 function CustomerRoutes() {
   return (
     <>
@@ -27,7 +26,7 @@ function CustomerRoutes() {
               <div>
                 <HomeMenu />
               </div>
-              <MenuItems />
+              <SeanTestingMenu />
             </>
           }
         />
