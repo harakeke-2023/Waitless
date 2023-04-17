@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for server/db/seeds/02_customer_orders.js</title>
+    <title>Code coverage report for client/components/Contact.tsx</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../../prettify.css" />
-    <link rel="stylesheet" href="../../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../../sort-arrow-sprite.png);
+            background-image: url(../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">server/db/seeds</a> 02_customer_orders.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">client/components</a> Contact.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
@@ -95,22 +95,18 @@
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a>
-<a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -131,51 +127,37 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
- * @param { import("knex").Knex } knex
- * @returns { Promise&lt;void&gt; }
- */
-exports.seed = async function (knex) {
-  // Deletes ALL existing entries
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react'
+import {
+  AiFillFacebook,
+  AiFillTwitterCircle,
+  AiFillYoutube,
+} from 'react-icons/ai'
 &nbsp;
-  await knex('customer_orders').insert([
-    {
-      id: 1,
-      total_cost: 100,
-      customer_name: 'Guy Incognito',
-      customer_email: 'thismanismy@exact.double',
-      table_number: 1,
-    },
-    {
-      id: 2,
-      total_cost: 200,
-      customer_name: 'Joey Jo Jo Junior Shabadoo',
-      customer_email: 'thatstheworstnameive@ever.heard',
-      table_number: 3,
-    },
-    {
-      id: 3,
-      total_cost: 400,
-      customer_name: 'Brian McGee',
-      customer_email: 'stayeduplatelistening@to.queen',
-      table_number: 4,
-    },
-    {
-      id: 4,
-      total_cost: 400,
-      customer_name: 'Lord Thistlewick Flanders',
-      customer_email: 'charmed@agoogly.smoogly',
-      table_number: 5,
-    },
-  ])
+import HomeMenu from './HomeMenu'
+import CategoriesNavBar from './Menu/CategoriesNavBar'
+&nbsp;
+export default function Contact() {
+  return (
+    &lt;&gt;
+      {/* &lt;h1 className="text-center text-black-900 pt-6 text-4xl font-bold "&gt;
+        Contact Us
+      &lt;/h1&gt; */}
+      &lt;div className="text-center text-burgundy-900 pt-4 text-1xl"&gt;
+        &lt;h2&gt;AUCKLAND&lt;/h2&gt;
+        &lt;p&gt;Address : 261 Karangahape Road,&lt;/p&gt;
+        &lt;p&gt;Auckland CBD&lt;/p&gt;
+        &lt;p&gt;Phone : 09 9639987&lt;/p&gt;
+        &lt;p className="pt-4"&gt;Operating Hour 5pm - 10pm&lt;/p&gt;
+        &lt;p&gt;Order now for PICK UP &amp; DELIVERY &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div className="flex justify-center text-5xl gap-16 py-6 text-blue-800"&gt;
+        &lt;AiFillFacebook /&gt;
+        &lt;AiFillTwitterCircle /&gt;
+        &lt;AiFillYoutube /&gt;
+      &lt;/div&gt;
+    &lt;/&gt;
+  )
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -186,14 +168,14 @@ exports.seed = async function (knex) {
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
                 at 2023-04-17T02:24:31.303Z
             </div>
-        <script src="../../../prettify.js"></script>
+        <script src="../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../../sorter.js"></script>
-        <script src="../../../block-navigation.js"></script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
     </body>
 </html>
     

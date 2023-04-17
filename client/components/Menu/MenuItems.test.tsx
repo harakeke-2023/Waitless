@@ -79,7 +79,7 @@ describe('MenuItems component', () => {
     expect(screen.getByText('Loading...')).toBeInTheDocument()
   })
 
-  it.only('renders categories and menu items when data is fetched', async () => {
+  it('renders categories and menu items when data is fetched', async () => {
     jest.spyOn(ReactQuery, 'useQuery')
       .mockImplementation(
         jest.fn().mockReturnValue({
@@ -91,7 +91,7 @@ describe('MenuItems component', () => {
                 description: '',
                 image_url: 'dumplings.jpeg',
                 price: 'NZD$10',
-                stock: 2,
+                stock: 2.00,
                 category_id: 1,
               },
               {
@@ -100,7 +100,7 @@ describe('MenuItems component', () => {
                 description: '',
                 image_url: 'fried-rice.jpeg',
                 price: 'NZD$12',
-                stock: 30,
+                stock: 30.00,
                 category_id: 2,
               },
               {
@@ -118,7 +118,7 @@ describe('MenuItems component', () => {
                 description: '',
                 image_url: 'coke.jpeg',
                 price: 'NZD$3',
-                stock: 20,
+                stock: 20.00,
                 category_id: 4,
               },
             ],
@@ -141,81 +141,3 @@ describe('MenuItems component', () => {
   })
 })
 
-describe('MenuItems component', () => {
-  const menuItems: MenuItemMutation[] = [
-    {
-      id: 1,
-      name: 'test 1',
-      description: 'description 1',
-      price: 15,
-      stock: 20,
-      image_url: 'test1.jpeg',
-      category_id: 2,
-    },
-    {
-      id: 2,
-      name: 'test 2',
-      description: 'description 2',
-      price: 15,
-      stock: 20,
-      image_url: 'test2.jpeg',
-      category_id: 4,
-    },
-    {
-      id: 3,
-      name: 'test 3',
-      description: 'description 3',
-      price: 15,
-      stock: 20,
-      image_url: 'test3.jpeg',
-      category_id: 2,
-    },
-  ]
-
-  it('renders loading message when fetching data', () => {
-    const queryClient = new QueryClient()
-    act(() => {
-      render(
-        <QueryClientProvider client={queryClient}>
-          <MenuItems />
-        </QueryClientProvider>
-      )
-    })
-
-    const loading = screen.getByText(/Loading/i)
-    expect(loading).toBeInTheDocument()
-  })
-
-  it('renders categories and menu items when data is fetched', async () => {
-    const queryClient = new QueryClient()
-    act(() => {
-      render(
-        <QueryClientProvider client={queryClient}>
-          <MenuItems />
-        </QueryClientProvider>
-      )
-    })
-    expect(screen.findByRole('heading', { level: 2 })).toBeInTheDocument()
-
-    //   it('Renders items with name and price only if category_id is 4', () => {
-    //     render(<Categories category={menuItems} />);
-    //     const item2Prices = screen.queryAllByText('NZD$15');
-    //     expect(item2Prices).toHaveLength(2);
-    //     item2Prices.forEach((item) => {
-    //         expect(item).toBeInTheDocument();
-    // });
-
-    //   });
-
-    //   it('Renders the correct number of items', () => {
-    //     render(<Categories category={menuItems} />);
-    //     const items = screen.getAllByRole('img');
-    //     expect(items).toHaveLength(2);
-    //   });
-
-    //   it('Does not render any items if the category array is empty', () => {
-    //     render(<Categories category={[]} />);
-    //     const items = screen.queryByRole('img');
-    //     expect(items).not.toBeInTheDocument();
-  })
-})
