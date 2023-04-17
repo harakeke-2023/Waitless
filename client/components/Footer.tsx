@@ -3,8 +3,8 @@ import React from 'react'
 export default function Footer() {
   return (
     <>
-      <footer className="bg-burgundy-500 shadow h-40">
-        <div className="w-full mx-auto max-w-screen-xl p-12 md:flex md:items-center md:justify-between">
+      <footer className="bg-burgundy-500 shadow h-28 max-h-32 sm:h-20">
+        <div className="w-full mx-auto max-w-screen-xl py-8 px-5 md:flex md:items-center md:justify-between max-sm:text-base">
           <span className="text-xl text-beige-500 sm:text-center">
             © 2023{' '}
             <a href="/" className="hover:underline">
