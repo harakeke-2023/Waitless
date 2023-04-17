@@ -37,11 +37,7 @@ export default function Footer() {
                 Licensing
               </a>
             </li>
-            <li>
-              <a href="/contact" className="text-beige-300 hover:underline">
-                Contact
-              </a>
-            </li>
+        
           </ul>
         </div>
       </footer>

@@ -20,7 +20,7 @@ function HomeMenu() {
       <nav
         className={
           open
-            ? 'block max-w-screen-full flex-wrap items-center justify-between mx-auto p-4 border-2 border-solid bg-burgundy-500'
+            ? 'block max-w-screen-full flex-wrap items-center justify-between mx-auto p-4 bg-burgundy-500'
             : 'hidden' +
               ' w-full lg:flex justify-between items-center lg:items-center lg:w-auto  bg-burgundy-500'
         }
@@ -29,7 +29,7 @@ function HomeMenu() {
           <li>
             <Link
               to={`/table/${tableNo}/`}
-              className="rounded text-beige-500  hover:bg-black-300 text-2xl font-medium uppercase leading-normal hover:text-green block my-6 py-2 px-6 transition duration-150 ease-in-out hover:border-neutral-100"
+              className="rounded text-beige-500  hover:bg-black-600 text-xl after:font-medium uppercase leading-normal hover:text-green block my-6 py-2 px-6 transition duration-150 ease-in-out hover:border-neutral-100"
             >
               Home
             </Link>
@@ -38,7 +38,7 @@ function HomeMenu() {
           <li>
             <Link
               to={`/table/${tableNo}/menu`}
-              className="rounded text-beige-500  hover:bg-black-300 text-2xl font-medium uppercase leading-normal hover:text-green block my-6 py-2 px-6 transition duration-150 ease-in-out hover:border-neutral-100"
+              className="rounded text-beige-500  hover:bg-black-600 text-xl font-medium uppercase leading-normal hover:text-green block my-6 py-2 px-6 transition duration-150 ease-in-out hover:border-neutral-100"
             >
               Menu
             </Link>
@@ -46,10 +46,10 @@ function HomeMenu() {
 
           <li>
             <Link
-              to={`/contact`}
-              className="rounded text-beige-500  hover:bg-black-300 text-2xl font-medium uppercase leading-normal hover:text-green block my-6 py-2 px-6 transition duration-150 ease-in-out hover:border-neutral-100"
+              to={`/about`}
+              className="rounded text-beige-500  hover:bg-black-600 text-xl font-medium uppercase leading-normal hover:text-green block my-6 py-2 px-6 transition duration-150 ease-in-out hover:border-neutral-100"
             >
-              Contact
+              About
             </Link>
           </li>
         </ul>
