@@ -6,14 +6,10 @@ import {
 } from '../../../models/MenuItem'
 import Categories from './Categories'
 import CategoriesNavBar from './CategoriesNavBar'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 export default function MenuItems() {
   const [numberOfCartItems, setNumberOfCartItems] = useState(0)
-
-  useEffect(() => {
-    fetchNumberOfCartItems()
-  }, [fetchNumberOfCartItems, numberOfCartItems])
 
   function fetchNumberOfCartItems() {
     const cartItems = (JSON.parse(localStorage.getItem('cart') as string) ||

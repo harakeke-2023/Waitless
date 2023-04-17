@@ -20,6 +20,8 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
     handlePaymentSubmit()
     setPaymentSubmitted(true)
     console.log('payment successful')
+    console.log('cart Items: ', cartItems)
+    console.log('total cost: ', totalCost)
   }
 
   // const addToCart = (item: CartItem) => {

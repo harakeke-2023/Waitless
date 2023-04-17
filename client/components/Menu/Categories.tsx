@@ -14,7 +14,6 @@ export default function Categories(props: Props) {
     evt: React.MouseEvent<HTMLButtonElement>,
     newItem: MenuItemMutation
   ) => {
-    props.fetchNumberOfCartItems()
     const currentCartJson = localStorage.getItem('cart')
     const currentCartArr = JSON.parse(currentCartJson as string) || []
     let newCartArray = []
@@ -41,6 +40,7 @@ export default function Categories(props: Props) {
     numberInCart++
     numberInCart = JSON.stringify(numberInCart)
     localStorage.setItem('numberInCart', numberInCart)
+    props.fetchNumberOfCartItems()
   }
 
   return (
