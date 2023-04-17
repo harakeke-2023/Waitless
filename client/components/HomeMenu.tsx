@@ -8,7 +8,6 @@ import { IoClose } from 'react-icons/io5'
 
 function HomeMenu() {
   const { tableNo } = useParams()
-  console.log('tablet num', tableNo)
 
   const [open, setOpen] = useState(false)
 

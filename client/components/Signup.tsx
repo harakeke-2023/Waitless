@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { CustomerDetails } from '../../models/CustomerOrders'
 
 export function Signup() {
   // Handles navigation of form submission having email and name
@@ -7,7 +8,7 @@ export function Signup() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-  })
+  } as CustomerDetails)
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleChange = (event: any) => {
@@ -59,6 +60,9 @@ export function Signup() {
       setTableNo('Invalid')
     }
   }, [])
+  function orderNowClick() {
+    localStorage.setItem('customerDetails', JSON.stringify(formData))
+  }
 
   return (
     <div className="bg-white dark:bg-zinc-900">
@@ -89,7 +93,7 @@ export function Signup() {
           <div className="flex-1">
             <div className="text-center my-8 border-scarlet-400 border-t-4 border-b-4">
               <h1 className="text-4xl font-bold text-center text-gray-700 my-4 dark:text-scarlet-400">
-                Table No: {tableNo}
+                Table No: {Number(tableNo) || 0}
               </h1>
             </div>
             <div className="text-center">
@@ -146,7 +150,10 @@ export function Signup() {
                 </div>
 
                 <div className="mt-6">
-                  <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-scarlet-500 rounded-md hover:bg-scarlet-700 focus:outline-none focus:bg-scarlet-400 focus:ring focus:ring-bungundy-300 focus:ring-opacity-50">
+                  <button
+                    onClick={orderNowClick}
+                    className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-scarlet-500 rounded-md hover:bg-scarlet-700 focus:outline-none focus:bg-scarlet-400 focus:ring focus:ring-bungundy-300 focus:ring-opacity-50"
+                  >
                     Order Now
                   </button>
                 </div>

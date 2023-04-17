@@ -34,7 +34,7 @@ export default function MenuItems() {
 
   //This line protects against database table not existing errors.
   if (data.error) {
-    console.log(data)
+    console.error(data)
     return <div>Error! {data.error.title} </div>
   }
 

@@ -1,5 +1,4 @@
 import { useLocation } from 'react-router-dom'
-import HomeMenu from './HomeMenu'
 
 export function Header() {
   const location = useLocation()
@@ -65,7 +64,6 @@ export function Header() {
           </div>
         </div>
       </header>
-      <HomeMenu />
     </>
   )
 }

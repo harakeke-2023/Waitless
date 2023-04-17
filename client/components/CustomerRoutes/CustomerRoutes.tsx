@@ -7,9 +7,7 @@ import Cart from '../Cart'
 import SuccessPage from '../SuccessPage'
 import FailedPage from '../FailedPage'
 import HomeMenu from '../HomeMenu'
-
 import About from '../About'
-import SeanTestingMenu from '../Menu/SeanTestingMenu'
 
 function CustomerRoutes() {
   return (
@@ -23,9 +21,9 @@ function CustomerRoutes() {
           path="/table/:tableNo/menu"
           element={
             <>
-              {/* <div>
+              <div>
                 <HomeMenu />
-              </div> */}
+              </div>
               <MenuItems />
             </>
           }
@@ -44,11 +42,25 @@ function CustomerRoutes() {
         />
         <Route
           path="/table/:tableNo/order/success"
-          element={<SuccessPage handleReturnButton={() => {}} />}
+          element={
+            <>
+              <div>
+                <HomeMenu />
+              </div>
+              <SuccessPage handleReturnButton={() => {}} />
+            </>
+          }
         />
         <Route
           path="/table/:tableNo/order/fail"
-          element={<FailedPage name={'test'} retry={() => {}} />}
+          element={
+            <>
+              <div>
+                <HomeMenu />
+              </div>
+              <FailedPage name={'test'} retry={() => {}} />
+            </>
+          }
         />
       </Routes>
     </>
