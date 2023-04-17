@@ -62,6 +62,17 @@ function CustomerRoutes() {
             </>
           }
         />
+        <Route
+          path="/"
+          element={
+            <>
+              <div>
+                <HomeMenu />
+              </div>
+              <FailedPage name={'test'} retry={() => {}} />
+            </>
+          }
+        />
       </Routes>
     </>
   )

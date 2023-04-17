@@ -51,7 +51,6 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
 
     sendCustomerOrder(fullCustomerOrder)
       .then((res) => {
-        console.log('res: ', res)
         if (res) {
           navigate(`/table/${tableNo}/order/success`)
         } else {
