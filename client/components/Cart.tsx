@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import SuccessPage from './SuccessPage'
 import { MenuItemMutationWithQuantity } from '../../models/MenuItem'
+import {
+  CustomerDetails,
+  CustomerOrderDb,
+  OrderDetails,
+} from '../../models/CustomerOrders'
+import { useNavigate, useParams } from 'react-router-dom'
+import { sendCustomerOrder } from '../apis/customerOrders'
 
 interface CartProps {
   handlePaymentSubmit: () => void
@@ -8,6 +15,8 @@ interface CartProps {
 //const Cart: React.FC<CartProps> is a functional component that takes in CartProps as a prop.
 //The handlePaymentSubmit prop is expected to be a function that is called when the user clicks the "Submit Payment Method" button
 const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
+  const navigate = useNavigate()
+  const { tableNo } = useParams() as { tableNo: string }
   const [isPaymentSubmitted, setPaymentSubmitted] = useState(false)
   const [cartItems, setCartItems] = useState(
     [] as MenuItemMutationWithQuantity[]
@@ -19,9 +28,36 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
   const submitOrderToDb = () => {
     handlePaymentSubmit()
     setPaymentSubmitted(true)
-    console.log('payment successful')
-    console.log('cart Items: ', cartItems)
-    console.log('total cost: ', totalCost)
+
+    const customerDetails: CustomerDetails = JSON.parse(
+      localStorage.getItem('customerDetails') as string
+    ) || { name: '', email: '' }
+
+    const itemsToOrder = cartItems.map((item) => {
+      return {
+        menu_item_id: item.id,
+        quantity: item.quantity,
+        price: item.quantity * item.price,
+      }
+    }) as OrderDetails[]
+
+    const fullCustomerOrder: CustomerOrderDb = {
+      total_cost: totalCost,
+      customer_name: customerDetails.name,
+      customer_email: customerDetails.email,
+      table_number: Number(tableNo),
+      order_details: itemsToOrder,
+    }
+
+    sendCustomerOrder(fullCustomerOrder)
+      .then((res) => {
+        if (res) {
+          navigate(`/table/${tableNo}/order/success`)
+        } else {
+          navigate(`/table/${tableNo}/order/fail`)
+        }
+      })
+      .catch((error) => console.error(error))
   }
 
   // const addToCart = (item: CartItem) => {
@@ -72,7 +108,6 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
       {isPaymentSubmitted ? (
         // render the SuccessPage component if payment is submitted *Mock*
         <SuccessPage
-          name={''}
           handleReturnButton={function (): void {
             throw new Error('Function not implemented.')
           }}

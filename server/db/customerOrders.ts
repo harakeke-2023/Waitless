@@ -34,8 +34,8 @@ export async function addCustomerOrder(
         price: price,
         menu_item_id: menu_item_id,
       })
-      .then((thing) => {
-        console.log(thing)
+      .then((res) => {
+        return res
       })
       .catch((error) => {
         console.error(error)

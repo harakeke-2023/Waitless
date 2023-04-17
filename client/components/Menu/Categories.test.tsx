@@ -43,7 +43,7 @@ describe('Categories component', () => {
     const item1Image = screen.getByAltText('test 1');
     expect(item1Image).toHaveAttribute('src', '/images/test1.jpeg');
 
-    const item1Prices = screen.getAllByText('NZD$15');
+    const item1Prices = screen.getAllByText('NZD$15.00');
     item1Prices.forEach((price) => {
         expect(price).toBeInTheDocument();
     });
@@ -54,7 +54,7 @@ describe('Categories component', () => {
 
   it('Renders items with name and price only if category_id is 4', () => {
     render(<Categories category={menuItems} />);
-    const item2Prices = screen.queryAllByText('NZD$15');
+    const item2Prices = screen.queryAllByText('NZD$15.00');
     expect(item2Prices).toHaveLength(2);
     item2Prices.forEach((item) => {
         expect(item).toBeInTheDocument();

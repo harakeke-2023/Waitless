@@ -17,3 +17,8 @@ export type CustomerOrderDb = {
 export type CustomerOrder = CustomerOrderDb & {
   id: number
 }
+
+export type CustomerDetails = {
+  name: string
+  email: string
+}

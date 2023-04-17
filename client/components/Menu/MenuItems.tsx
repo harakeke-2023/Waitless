@@ -35,7 +35,7 @@ export default function MenuItems() {
 
   //This line protects against database table not existing errors.
   if (data.error) {
-    console.log(data)
+    console.error(data)
     return <div>Error! {data.error.title} </div>
   }
 
@@ -95,7 +95,7 @@ export default function MenuItems() {
           fetchNumberOfCartItems={fetchNumberOfCartItems}
         />
       </div>
-      <div>
+      <div className='flex flex-col'>
         <a id="drinks" href="#drinks">
           <h2 className="m-8 text-2xl font-bold">Drinks</h2>
         </a>
