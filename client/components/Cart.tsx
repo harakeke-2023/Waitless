@@ -20,6 +20,8 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
     handlePaymentSubmit()
     setPaymentSubmitted(true)
     console.log('payment successful')
+    console.log('cart Items: ', cartItems)
+    console.log('total cost: ', totalCost)
   }
 
   // const addToCart = (item: CartItem) => {
@@ -50,12 +52,12 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
     setCartItems(() => updatedCartItems)
   }
 
-  const changeQuantity = (plutOrMinus: number, itemId: number) => {
+  const changeQuantity = (plusOrMinus: number, itemId: number) => {
     addCount((count) => count + 1)
     const newCart = [
       ...cartItems.map((item) => {
         if (item.id === itemId) {
-          return { ...item, quantity: item.quantity + plutOrMinus }
+          return { ...item, quantity: item.quantity + plusOrMinus }
         }
         return item
       }),
