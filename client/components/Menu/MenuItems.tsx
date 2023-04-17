@@ -64,7 +64,7 @@ export default function MenuItems() {
         </a>
         <Categories category={noodlesArr} />
       </div>
-      <div>
+      <div className='flex flex-col'>
         <a id="drinks" href="#drinks">
           <h2 className="m-8 text-2xl font-bold">Drinks</h2>
         </a>

@@ -20,18 +20,18 @@ export default function Categories(props: Props) {
                 <h2 className="text-xs md:text-base lg:text-xl text-center">
                   <strong>{item.name}</strong>
                 </h2>
-                <p className="text-sm md:text-base lg:text-xl text-center">NZD${item.price.toFixed(2)}</p>
+                <p className="text-sm md:text-base lg:text-xl text-center">NZD${item.price.toFixed(2) || 0}</p>
                 <button type="button" onClick={addToCart} className="border-solid border-2 border-red-900 bg-slate-100 hover:bg-red-900 rounded-md cursor-pointer px-4 py-2 m-2">Add to Cart</button>
               </div>
             )
           } else {
             return (
-              <div key={item.id}>
-                <p>
-                  <strong>{item.name}</strong> - NZD${item.price}
-                  <button onClick={addToCart}>Add to Cart</button>
-
+              <div key={item.id} className="col-span-2 flex justify-between pr-10" >
+                <p className="text-sm sm:text-base lg:text-xl">
+                  <strong>{item.name}</strong> - NZD${item.price.toFixed(2)}
                 </p>
+                <button onClick={addToCart} className="border-solid border-2 border-red-900 bg-slate-100 hover:bg-red-900 rounded-md cursor-pointer px-2 mr-0"> Add </button>
+
               </div>
             )
           }
