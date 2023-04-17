@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
 router.get('/menuitems', async (req, res) => {
   try {
     const categories = await db.getMenuItemsSortedByCategory()
-    
+
     res.json(categories)
   } catch (error) {
     if (error instanceof Error) {

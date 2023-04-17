@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query'
-import React from 'react'
+import React, { useState } from 'react'
 import { MenuItem } from './MenuItem'
 
 import {
@@ -8,8 +8,10 @@ import {
 } from '../../../models/MenuItem'
 
 import { MenuItemsSortedByCategory } from '../../../server/db/categories'
+import CustomerDetailsModal from '../customerDetailsModal'
 
 export default function SeanTestingMenu() {
+  const [showCustomOptions, setShowCustomOptions] = useState(false)
   const { isLoading, error, data } = useQuery({
     queryKey: ['menu'],
     queryFn: () =>
@@ -24,6 +26,7 @@ export default function SeanTestingMenu() {
     evt: React.MouseEvent<HTMLButtonElement>,
     newItem: MenuItemMutation
   ) {
+    setShowCustomOptions(true)
     const currentCartJson = localStorage.getItem('cart')
     const currentCartArr = JSON.parse(currentCartJson as string) || []
     let newCartArray = []
@@ -48,6 +51,10 @@ export default function SeanTestingMenu() {
 
   return (
     <>
+      <CustomerDetailsModal
+        show={showCustomOptions}
+        setShowCustomOptions={setShowCustomOptions}
+      />
       {data &&
         Object.keys(menuItemsByCategory.categories).map((category, index) => {
           return (

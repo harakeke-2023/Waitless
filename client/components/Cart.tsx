@@ -15,8 +15,6 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
   const [totalCost, setTotalCost] = useState(0)
   //count is only here to make the total update. I was very tired.
   const [count, addCount] = useState(0)
-  const [showCustomerDetailsModal, setShowCustomerDetailsModal] =
-    useState(false)
 
   const submitOrderToDb = () => {
     handlePaymentSubmit()

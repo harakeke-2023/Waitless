@@ -12,7 +12,7 @@ export default function MenuItems() {
     queryFn: () => fetch('/api/v1/menuitems').then((res) => res.json()),
   })
 
-  if (isLoading) return <div>Loading...</div>
+  if (isLoading){return <div>Loading...</div>}
 
   //This line protects against database table not existing errors.
   if (data.error) {
@@ -46,20 +46,28 @@ export default function MenuItems() {
     <>
       <CategoriesNavBar />
       <div>
-        <h2>Appetizers</h2>
+        <a id="appetizers" href="#appetizers">
+          <h2 className="m-8 text-2xl font-bold">Appetizers</h2>
+        </a>
         <Categories category={appetizersArr} />
       </div>
 
       <div>
-        <h2>Fried Rice</h2>
+        <a id="fried rice" href="#fried rice">
+          <h2 className="m-8 text-2xl font-bold">Fried Rice</h2>
+        </a>
         <Categories category={friedRiceArr} />
       </div>
       <div>
-        <h2>Noodles</h2>
+        <a id="noodles" href="#noodles">
+          <h2 className="m-8 text-2xl font-bold">Noodles</h2>
+        </a>
         <Categories category={noodlesArr} />
       </div>
       <div>
-        <h2>Drinks</h2>
+        <a id="drinks" href="#drinks">
+          <h2 className="m-8 text-2xl font-bold">Drinks</h2>
+        </a>
         <Categories category={drinksArr} />
       </div>
     </>
