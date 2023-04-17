@@ -23,9 +23,9 @@ function CustomerRoutes() {
           path="/table/:tableNo/menu"
           element={
             <>
-              <div>
+              {/* <div>
                 <HomeMenu />
-              </div>
+              </div> */}
               <MenuItems />
             </>
           }

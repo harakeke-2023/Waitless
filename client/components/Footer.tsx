@@ -8,7 +8,7 @@ export default function Footer() {
           <span className="text-xl text-beige-500 sm:text-center">
             © 2023{' '}
             <a href="/" className="hover:underline">
-              ODAEATS
+              WAITLESS
             </a>
             . All Rights Reserved.
           </span>
@@ -37,7 +37,6 @@ export default function Footer() {
                 Licensing
               </a>
             </li>
-        
           </ul>
         </div>
       </footer>
