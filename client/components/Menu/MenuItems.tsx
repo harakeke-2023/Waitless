@@ -1,18 +1,36 @@
 import { useQuery } from 'react-query'
 
-import { MenuItemMutation } from '../../../models/MenuItem'
+import {
+  MenuItemMutation,
+  MenuItemMutationWithQuantity,
+} from '../../../models/MenuItem'
 import Categories from './Categories'
 import CategoriesNavBar from './CategoriesNavBar'
+import { useEffect, useState } from 'react'
 
 export default function MenuItems() {
+  const [numberOfCartItems, setNumberOfCartItems] = useState(0)
+
+  function fetchNumberOfCartItems() {
+    const cartItems = (JSON.parse(localStorage.getItem('cart') as string) ||
+      []) as MenuItemMutationWithQuantity[]
+
+    setNumberOfCartItems(() =>
+      cartItems.reduce(
+        (accumulator, currentValue) => accumulator + currentValue.quantity,
+        0
+      )
+    )
+  }
+
   const { isLoading, data } = useQuery({
     queryKey: ['menu'],
     queryFn: () => fetch('/api/v1/menuitems').then((res) => res.json()),
   })
 
-  console.log(isLoading, data);
-
-  if (isLoading) { return <div>Loading...</div> }
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
 
   //This line protects against database table not existing errors.
   if (data.error) {
@@ -44,7 +62,10 @@ export default function MenuItems() {
 
   return (
     <>
-      <CategoriesNavBar />
+      <CategoriesNavBar
+        numberOfCartItems={numberOfCartItems}
+        fetchNumberOfCartItems={fetchNumberOfCartItems}
+      />
       <div>
         <a id="appetizers" href="#appetizers">
           <h2 className="m-8 text-2xl font-bold">Appetizers</h2>

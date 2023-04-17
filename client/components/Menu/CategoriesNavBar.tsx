@@ -2,9 +2,21 @@ import { useParams } from 'react-router-dom'
 import { CategoryMutation } from '../../../models/Category'
 import { useQuery } from 'react-query'
 import { HashLink as Link } from 'react-router-hash-link'
+import { useEffect } from 'react'
 
-export default function CategoriesNavBar() {
+interface Props {
+  numberOfCartItems: number
+  fetchNumberOfCartItems: () => void
+}
+
+export default function CategoriesNavBar(props: Props) {
   const { tableNo } = useParams()
+  const { fetchNumberOfCartItems, numberOfCartItems } = props
+
+  useEffect(() => {
+    fetchNumberOfCartItems()
+  }, [fetchNumberOfCartItems, numberOfCartItems])
+
   const { isLoading, error, data } = useQuery('repoData', () =>
     fetch('/api/v1/categories').then((res) => res.json())
   )
@@ -54,7 +66,8 @@ export default function CategoriesNavBar() {
                 transform: 'translate(25%, 25%)',
               }}
             >
-              3
+              {/* 3 */}
+              {props.numberOfCartItems}
             </div>
           </button>
         </div>

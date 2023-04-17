@@ -50,12 +50,12 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
     setCartItems(() => updatedCartItems)
   }
 
-  const changeQuantity = (plutOrMinus: number, itemId: number) => {
+  const changeQuantity = (plusOrMinus: number, itemId: number) => {
     addCount((count) => count + 1)
     const newCart = [
       ...cartItems.map((item) => {
         if (item.id === itemId) {
-          return { ...item, quantity: item.quantity + plutOrMinus }
+          return { ...item, quantity: item.quantity + plusOrMinus }
         }
         return item
       }),
