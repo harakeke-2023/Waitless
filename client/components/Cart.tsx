@@ -73,15 +73,13 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
         // render the SuccessPage component if payment is submitted *Mock*
         <SuccessPage
           name={''}
-          checkStatus={function (): void {
+          handleReturnButton={function (): void {
             throw new Error('Function not implemented.')
           }}
         />
       ) : (
         <div>
-
           <div className="p-4">
-
             {cartItems.length > 0 ? (
               <article className="my-4 rounded-md shadow-lg">
                 <ul>
