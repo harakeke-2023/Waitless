@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   MenuItemMutation,
   MenuItemMutationWithQuantity,
 } from '../../../models/MenuItem'
+import { MenuItem } from './MenuItem'
 
 interface Props {
   category: MenuItemMutation[]
@@ -10,10 +11,12 @@ interface Props {
 }
 
 export default function Categories(props: Props) {
+  const [addedToCart, setAddedToCart] = useState(false)
   const addToCart = (
     evt: React.MouseEvent<HTMLButtonElement>,
     newItem: MenuItemMutation
   ) => {
+    setAddedToCart(() => true)
     const currentCartJson = localStorage.getItem('cart')
     const currentCartArr = JSON.parse(currentCartJson as string) || []
     let newCartArray = []
@@ -46,7 +49,16 @@ export default function Categories(props: Props) {
   return (
     <>
       <section className=" grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2 xl:px-16">
-        {props.category.map((item) => {
+        {props.category.map((item: MenuItemMutation) => {
+          return (
+            <MenuItem
+              item={item}
+              key={item.id}
+              fetchNumberOfCartItems={props.fetchNumberOfCartItems}
+            />
+          )
+        })}
+        {/* {props.category.map((item) => {
           if (item.category_id !== 4) {
             return (
               <div
@@ -60,13 +72,22 @@ export default function Categories(props: Props) {
                 <p className="text-sm md:text-base lg:text-xl text-center">
                   NZD${item.price.toFixed(2)}
                 </p>
-                <button
-                  type="button"
-                  onClick={(evt) => addToCart(evt, item)}
-                  className="border-solid border-2 border-red-900 bg-slate-100 hover:bg-red-900 rounded-md cursor-pointer px-4 py-2 m-2"
-                >
-                  Add to Cart
-                </button>
+                {!addedToCart && (
+                  <button
+                    type="button"
+                    onClick={(evt) => addToCart(evt, item)}
+                    className="border-solid border-2 border-red-900 bg-slate-100 hover:bg-red-900 rounded-md cursor-pointer px-4 py-2 m-2"
+                  >
+                    Add to Cart
+                  </button>
+                )}
+                {addedToCart && (
+                  <div>
+                    <button>-</button>
+                    <span>1</span>
+                    <button>+</button>
+                  </div>
+                )}
               </div>
             )
           } else {
@@ -81,7 +102,7 @@ export default function Categories(props: Props) {
               </div>
             )
           }
-        })}
+        })} */}
       </section>
     </>
   )

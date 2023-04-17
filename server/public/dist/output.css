@@ -543,10 +543,6 @@ video {
   top: 1rem;
 }
 
-.col-span-2 {
-  grid-column: span 2 / span 2;
-}
-
 .m-2 {
   margin: 0.5rem;
 }
@@ -614,10 +610,6 @@ video {
 
 .ml-5 {
   margin-left: 1.25rem;
-}
-
-.mr-0 {
-  margin-right: 0px;
 }
 
 .mr-20 {
@@ -702,6 +694,26 @@ video {
 
 .h-screen {
   height: 100vh;
+}
+
+.h-2\/5 {
+  height: 40%;
+}
+
+.h-1\/5 {
+  height: 20%;
+}
+
+.h-1\/4 {
+  height: 25%;
+}
+
+.h-1\/6 {
+  height: 16.666667%;
+}
+
+.h-1\/2 {
+  height: 50%;
 }
 
 .w-1\/2 {
@@ -1073,10 +1085,6 @@ video {
   padding-top: 2rem;
 }
 
-.pr-10 {
-  padding-right: 2.5rem;
-}
-
 .text-center {
   text-align: center;
 }
@@ -1146,6 +1154,10 @@ video {
 
 .font-semibold {
   font-weight: 600;
+}
+
+.font-extrabold {
+  font-weight: 800;
 }
 
 .uppercase {
@@ -1551,11 +1563,6 @@ video {
 
   .sm\:text-center {
     text-align: center;
-  }
-
-  .sm\:text-base {
-    font-size: 1rem;
-    line-height: 1.5rem;
   }
 }
 

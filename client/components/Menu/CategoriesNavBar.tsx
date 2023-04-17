@@ -10,12 +10,12 @@ interface Props {
 }
 
 export default function CategoriesNavBar(props: Props) {
+  const { fetchNumberOfCartItems, numberOfCartItems } = props
   const navigate = useNavigate()
   useEffect(() => {
     fetchNumberOfCartItems()
-  }, [])
+  }, [fetchNumberOfCartItems])
   const { tableNo } = useParams()
-  const { fetchNumberOfCartItems, numberOfCartItems } = props
 
   const { isLoading, error, data } = useQuery('repoData', () =>
     fetch('/api/v1/categories').then((res) => res.json())
