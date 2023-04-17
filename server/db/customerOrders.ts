@@ -10,7 +10,6 @@ export async function addCustomerOrder(
   newCustomerOrder: CustomerOrderDb,
   db = connection
 ) {
-  console.log('in DB: ', newCustomerOrder)
   const {
     total_cost,
     customer_name,
@@ -25,11 +24,9 @@ export async function addCustomerOrder(
     table_number,
   })
 
-  console.log('ID: ', order_id)
-
   order_details.forEach((orderedItem) => {
     const { quantity, price, menu_item_id } = orderedItem
-    console.log(orderedItem)
+
     db('customer_order_items')
       .insert({
         order_id: order_id[0],
@@ -46,7 +43,7 @@ export async function addCustomerOrder(
   })
 }
 
-async function getAllCustomerOrdersWithDetails(db = connection) {
+export async function getAllCustomerOrdersWithDetails(db = connection) {
   const orders = await db
     .select(
       'customer_orders.id',
