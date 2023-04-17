@@ -1,18 +1,36 @@
 import { useQuery } from 'react-query'
 
-import { MenuItemMutation } from '../../../models/MenuItem'
+import {
+  MenuItemMutation,
+  MenuItemMutationWithQuantity,
+} from '../../../models/MenuItem'
 import Categories from './Categories'
 import CategoriesNavBar from './CategoriesNavBar'
+import { useState } from 'react'
 
 export default function MenuItems() {
+  const [numberOfCartItems, setNumberOfCartItems] = useState(0)
+
+  function fetchNumberOfCartItems() {
+    const cartItems = (JSON.parse(localStorage.getItem('cart') as string) ||
+      []) as MenuItemMutationWithQuantity[]
+
+    setNumberOfCartItems(() =>
+      cartItems.reduce(
+        (accumulator, currentValue) => accumulator + currentValue.quantity,
+        0
+      )
+    )
+  }
+
   const { isLoading, data } = useQuery({
     queryKey: ['menu'],
     queryFn: () => fetch('/api/v1/menuitems').then((res) => res.json()),
   })
 
-  console.log(isLoading, data);
-
-  if (isLoading) { return <div>Loading...</div> }
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
 
   //This line protects against database table not existing errors.
   if (data.error) {
@@ -44,31 +62,46 @@ export default function MenuItems() {
 
   return (
     <>
-      <CategoriesNavBar />
+      <CategoriesNavBar
+        numberOfCartItems={numberOfCartItems}
+        fetchNumberOfCartItems={fetchNumberOfCartItems}
+      />
       <div>
         <a id="appetizers" href="#appetizers">
           <h2 className="m-8 text-2xl font-bold">Appetizers</h2>
         </a>
-        <Categories category={appetizersArr} />
+        <Categories
+          category={appetizersArr}
+          fetchNumberOfCartItems={fetchNumberOfCartItems}
+        />
       </div>
 
       <div>
         <a id="fried rice" href="#fried rice">
           <h2 className="m-8 text-2xl font-bold">Fried Rice</h2>
         </a>
-        <Categories category={friedRiceArr} />
+        <Categories
+          category={friedRiceArr}
+          fetchNumberOfCartItems={fetchNumberOfCartItems}
+        />
       </div>
       <div>
         <a id="noodles" href="#noodles">
           <h2 className="m-8 text-2xl font-bold">Noodles</h2>
         </a>
-        <Categories category={noodlesArr} />
+        <Categories
+          category={noodlesArr}
+          fetchNumberOfCartItems={fetchNumberOfCartItems}
+        />
       </div>
       <div>
         <a id="drinks" href="#drinks">
           <h2 className="m-8 text-2xl font-bold">Drinks</h2>
         </a>
-        <Categories category={drinksArr} />
+        <Categories
+          category={drinksArr}
+          fetchNumberOfCartItems={fetchNumberOfCartItems}
+        />
       </div>
     </>
   )
