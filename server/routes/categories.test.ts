@@ -68,8 +68,6 @@ describe('GET /api/v1/categories/:id', () => {
       .expect('Content-Type', /json/)
       .expect(200)
 
-    
-
     expect(res.body.id).toBe(1)
     expect(res.body.category_name).toBe('Bites')
   })

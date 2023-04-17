@@ -23,7 +23,7 @@ export default function CategoriesNavBar() {
               <Link
                 key={index}
                 to={`/table/${tableNo}/menu#${cat.category_name.toLowerCase()}`}
-                className="lock py-2 pl-3 pr-4 text-beige-500 bg-red-900 hover:border-4 border-slate-400 rounded "
+                className="px-4 py-3 font-medium text-xl text-gray-300 hover:text-white hover:bg-gray-700 rounded "
               >
                 {cat.category_name}
               </Link>

@@ -4,7 +4,7 @@ import connection from './connection'
  * @param { import("knex").Knex } knex
  * @returns { Promise<Array> }
  */
-async function getAllCustomerOrdersWithDetails(db = connection) {
+export async function getAllCustomerOrdersWithDetails(db = connection) {
   const orders = await db
     .select(
       'customer_orders.id',
