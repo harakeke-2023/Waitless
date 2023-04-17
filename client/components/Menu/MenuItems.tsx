@@ -7,6 +7,7 @@ import {
 import Categories from './Categories'
 import CategoriesNavBar from './CategoriesNavBar'
 import { useState } from 'react'
+import ScrollToTop from './Scroll/ScrollToTop'
 
 export default function MenuItems() {
   const [numberOfCartItems, setNumberOfCartItems] = useState(0)
@@ -103,6 +104,7 @@ export default function MenuItems() {
           fetchNumberOfCartItems={fetchNumberOfCartItems}
         />
       </div>
+      <ScrollToTop />
     </>
   )
 }
