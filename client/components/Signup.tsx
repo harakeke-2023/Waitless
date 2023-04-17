@@ -51,7 +51,7 @@ export function Signup() {
     //split url by /
     const urlArray = url.split('/')
     //get last item in array
-    const tableNo = urlArray[urlArray.length - 1]
+    const tableNo = urlArray[urlArray.length - 2]
 
     if (!isNaN(parseInt(tableNo))) {
       setTableNo(tableNo)
