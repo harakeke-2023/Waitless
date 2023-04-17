@@ -61,15 +61,17 @@ export default function About() {
               </svg>
               Open Hours: 5:30pm - 10:00pm (Mon - Sun)
             </p>
+            <p className="pt-8 text-base font-bold">
+              “POKPOK” IS AN AUTHENTIC THAI CUISINE WITH A DIFFERENCE.
+            </p>
             <p className="pt-8 text-base">
-              “POKPOK” IS AN AUTHENTIC THAI CUISINE WITH A DIFFERENCE. We were
-              inspired to establish ‘POKPOK’ with unique Thai cuisine. Using
-              well-known authentic Thai cooking combined with modern Western
-              menus to bring something new to Auckland dinners. Our menu is
-              constantly evolving like a culinary tour of Thailand, ranging from
-              dishes influenced by the north, northeast, middle and south of
-              Thailand. Everyday, we strive to deliver authentic street food to
-              our customers, using only the freshest, premium quality
+              We were inspired to establish ‘POKPOK’ with unique Thai cuisine.
+              Using well-known authentic Thai cooking combined with modern
+              Western menus to bring something new to Auckland dinners. Our menu
+              is constantly evolving like a culinary tour of Thailand, ranging
+              from dishes influenced by the north, northeast, middle and south
+              of Thailand. Everyday, we strive to deliver authentic street food
+              to our customers, using only the freshest, premium quality
               ingredients sourced locally. Everything we do, we do it with love.
               We want all our customers to leave with wonderful memories, having
               enjoyed some new dishes or flavours.
