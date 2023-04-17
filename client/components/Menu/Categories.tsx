@@ -48,6 +48,7 @@ export default function Categories(props: Props) {
 
   return (
     <>
+
       <section className=" grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2 xl:px-16">
         {props.category.map((item: MenuItemMutation) => {
           return (
@@ -92,13 +93,13 @@ export default function Categories(props: Props) {
             )
           } else {
             return (
-              <div key={item.id}>
+              <div key={item.id} className="col-span-2 text-base md:text-xl flex justify-between mx-11 ">
                 <p>
                   <strong>{item.name}</strong> - NZD${item.price}
-                  <button onClick={(evt) => addToCart(evt, item)}>
-                    Add to Cart
-                  </button>
                 </p>
+                  <button onClick={(evt) => addToCart(evt, item)} className="border-solid border-2 border-red-900 bg-slate-100 hover:bg-red-900 rounded-md cursor-pointer p-2">
+                    Add
+                  </button>
               </div>
             )
           }
