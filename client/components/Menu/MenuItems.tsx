@@ -11,6 +11,10 @@ import { useEffect, useState } from 'react'
 export default function MenuItems() {
   const [numberOfCartItems, setNumberOfCartItems] = useState(0)
 
+  useEffect(() => {
+    fetchNumberOfCartItems()
+  }, [fetchNumberOfCartItems, numberOfCartItems])
+
   function fetchNumberOfCartItems() {
     const cartItems = (JSON.parse(localStorage.getItem('cart') as string) ||
       []) as MenuItemMutationWithQuantity[]
@@ -70,26 +74,38 @@ export default function MenuItems() {
         <a id="appetizers" href="#appetizers">
           <h2 className="m-8 text-2xl font-bold">Appetizers</h2>
         </a>
-        <Categories category={appetizersArr} />
+        <Categories
+          category={appetizersArr}
+          fetchNumberOfCartItems={fetchNumberOfCartItems}
+        />
       </div>
 
       <div>
         <a id="fried rice" href="#fried rice">
           <h2 className="m-8 text-2xl font-bold">Fried Rice</h2>
         </a>
-        <Categories category={friedRiceArr} />
+        <Categories
+          category={friedRiceArr}
+          fetchNumberOfCartItems={fetchNumberOfCartItems}
+        />
       </div>
       <div>
         <a id="noodles" href="#noodles">
           <h2 className="m-8 text-2xl font-bold">Noodles</h2>
         </a>
-        <Categories category={noodlesArr} />
+        <Categories
+          category={noodlesArr}
+          fetchNumberOfCartItems={fetchNumberOfCartItems}
+        />
       </div>
       <div>
         <a id="drinks" href="#drinks">
           <h2 className="m-8 text-2xl font-bold">Drinks</h2>
         </a>
-        <Categories category={drinksArr} />
+        <Categories
+          category={drinksArr}
+          fetchNumberOfCartItems={fetchNumberOfCartItems}
+        />
       </div>
     </>
   )
