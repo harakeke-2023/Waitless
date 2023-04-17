@@ -23,14 +23,14 @@ function CustomerRoutes() {
           path="/table/:tableNo/menu"
           element={
             <>
-              <div>
+              {/* <div>
                 <HomeMenu />
-              </div>
-              <SeanTestingMenu />
+              </div> */}
+              <MenuItems />
             </>
           }
         />
-        <Route path="/table/:tableNo/contact" element={<Contact />} />
+        <Route path="/contact" element={<Contact />} />
         <Route
           path="/table/:tableNo/cart"
           element={

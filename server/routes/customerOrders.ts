@@ -6,7 +6,6 @@ const router = express.Router()
 //POST /api/v1/customerorders
 router.post('/', async (req, res) => {
   try {
-    console.log('in Routes: ', req.body)
     await db.addCustomerOrder(req.body)
 
     res.sendStatus(201)
