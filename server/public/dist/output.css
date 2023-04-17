@@ -543,6 +543,10 @@ video {
   top: 1rem;
 }
 
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+
 .m-2 {
   margin: 0.5rem;
 }
@@ -610,6 +614,10 @@ video {
 
 .ml-5 {
   margin-left: 1.25rem;
+}
+
+.mr-0 {
+  margin-right: 0px;
 }
 
 .mr-20 {
@@ -1063,6 +1071,10 @@ video {
 
 .pt-8 {
   padding-top: 2rem;
+}
+
+.pr-10 {
+  padding-right: 2.5rem;
 }
 
 .text-center {
@@ -1540,6 +1552,11 @@ video {
   .sm\:text-center {
     text-align: center;
   }
+
+  .sm\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -1697,3 +1714,4 @@ video {
     padding-right: 4rem;
   }
 }
+ 
