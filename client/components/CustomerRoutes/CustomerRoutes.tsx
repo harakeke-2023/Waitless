@@ -11,7 +11,6 @@ import HomeMenu from '../HomeMenu'
 import About from '../About'
 import SeanTestingMenu from '../Menu/SeanTestingMenu'
 
-
 function CustomerRoutes() {
   return (
     <>
@@ -31,7 +30,7 @@ function CustomerRoutes() {
             </>
           }
         />
-        <Route path="/table/:tableNo/contact" element={<Contact />} />
+        <Route path="/contact" element={<Contact />} />
         <Route
           path="/table/:tableNo/cart"
           element={
