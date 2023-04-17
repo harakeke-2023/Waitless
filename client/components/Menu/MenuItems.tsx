@@ -1,18 +1,18 @@
 import { useQuery } from 'react-query'
-import React from 'react'
-import { MenuItem } from './MenuItem'
 
 import { MenuItemMutation } from '../../../models/MenuItem'
 import Categories from './Categories'
 import CategoriesNavBar from './CategoriesNavBar'
 
 export default function MenuItems() {
-  const { isLoading, error, data } = useQuery({
+  const { isLoading, data } = useQuery({
     queryKey: ['menu'],
     queryFn: () => fetch('/api/v1/menuitems').then((res) => res.json()),
   })
 
-  if (isLoading){return <div>Loading...</div>}
+  console.log(isLoading, data);
+
+  if (isLoading) { return <div>Loading...</div> }
 
   //This line protects against database table not existing errors.
   if (data.error) {
