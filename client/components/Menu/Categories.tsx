@@ -71,12 +71,13 @@ export default function Categories(props: Props) {
             )
           } else {
             return (
-              <div key={item.id} className="col-span-2 flex justify-between pr-10" >
-                <p className="text-sm sm:text-base lg:text-xl">
-                  <strong>{item.name}</strong> - NZD${item.price.toFixed(2)}
+              <div key={item.id}>
+                <p>
+                  <strong>{item.name}</strong> - NZD${item.price}
+                  <button onClick={(evt) => addToCart(evt, item)}>
+                    Add to Cart
+                  </button>
                 </p>
-                <button onClick={(evt) => addToCart(evt, item)} className="border-solid border-2 border-red-900 bg-slate-100 hover:bg-red-900 rounded-md cursor-pointer px-2 mr-0"> Add </button>
-
               </div>
             )
           }
