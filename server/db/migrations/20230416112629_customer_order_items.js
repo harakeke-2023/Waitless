@@ -5,7 +5,6 @@
 exports.up = function (knex) {
   return knex.schema.createTable('customer_order_items', (table) => {
     table.increments('id').primary()
-
     table.integer('quantity')
     table.integer('price')
     table.integer('order_id').references('customer_orders.id')
