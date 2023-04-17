@@ -1,6 +1,6 @@
 import request from 'supertest'
 import server from '../server'
-import * as db from '../db/customer_orders'
+import * as db from '../db/customerOrders'
 
 jest.mock('../db/customer_orders')
 
