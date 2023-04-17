@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.33% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/15</span>
+                <span class='fraction'>6/15</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.33% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/15</span>
+                <span class='fraction'>6/15</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -98,74 +98,74 @@
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import connection from './connection'
 import { MenuItemDb, MenuItem } from '../../models/MenuItem'
 &nbsp;
-export async function getAllMenuItems(db = <span class="branch-0 cbranch-no" title="branch not covered" >connection)</span> {
-  return await db('menu_items')
+export async function <span class="fstat-no" title="function not covered" >getAllMenuItems(</span>db = <span class="branch-0 cbranch-no" title="branch not covered" >connection)</span> {
+<span class="cstat-no" title="statement not covered" >  return await db('menu_items')</span>
     .join('categories', 'menu_items.category_id', '=', 'categories.id')
     .select('menu_items.*', 'category_name')
 }
 &nbsp;
-export async function addMenuItem(newMenuItem: MenuItemDb, db = <span class="branch-0 cbranch-no" title="branch not covered" >connection)</span> {
-  const result = await db('menu_items').insert(newMenuItem)
-  return result
+export async function <span class="fstat-no" title="function not covered" >addMenuItem(</span>newMenuItem: MenuItemDb, db = <span class="branch-0 cbranch-no" title="branch not covered" >connection)</span> {
+  const result = <span class="cstat-no" title="statement not covered" >await db('menu_items').insert(newMenuItem)</span>
+<span class="cstat-no" title="statement not covered" >  return result</span>
 }
 &nbsp;
-export async function getMenuItemById(menuItemId: number, db = <span class="branch-0 cbranch-no" title="branch not covered" >connection)</span> {
-  const fetchedItem = await db('menu_items')
+export async function <span class="fstat-no" title="function not covered" >getMenuItemById(</span>menuItemId: number, db = <span class="branch-0 cbranch-no" title="branch not covered" >connection)</span> {
+  const fetchedItem = <span class="cstat-no" title="statement not covered" >await db('menu_items')</span>
     .join('categories', 'menu_items.category_id', '=', 'categories.id')
     .select('menu_items.*', 'category_name')
     .where('menu_items.id', '=', menuItemId)
     .first()
 &nbsp;
-  return fetchedItem
+<span class="cstat-no" title="statement not covered" >  return fetchedItem</span>
 }
 &nbsp;
-export async function updateMenuItem(newMenuItem: MenuItem, db = <span class="branch-0 cbranch-no" title="branch not covered" >connection)</span> {
-  const result = await db('menu_Items')
+export async function <span class="fstat-no" title="function not covered" >updateMenuItem(</span>newMenuItem: MenuItem, db = <span class="branch-0 cbranch-no" title="branch not covered" >connection)</span> {
+  const result = <span class="cstat-no" title="statement not covered" >await db('menu_Items')</span>
     .where('id', newMenuItem.id)
     .update(newMenuItem)
-  return result
+<span class="cstat-no" title="statement not covered" >  return result</span>
 }
 &nbsp;
-export async function deleteMenuItem(menuItemId: number, db = <span class="branch-0 cbranch-no" title="branch not covered" >connection)</span> {
-  const result = await db('menu_items').where('id', menuItemId).delete()
+export async function <span class="fstat-no" title="function not covered" >deleteMenuItem(</span>menuItemId: number, db = <span class="branch-0 cbranch-no" title="branch not covered" >connection)</span> {
+  const result = <span class="cstat-no" title="statement not covered" >await db('menu_items').where('id', menuItemId).delete()</span>
 <span class="cstat-no" title="statement not covered" >  return result</span>
 }
 &nbsp;</pre></td></tr></table></pre>
@@ -175,7 +175,7 @@ export async function deleteMenuItem(menuItemId: number, db = <span class="branc
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-04-16T23:53:27.439Z
+                at 2023-04-17T04:53:42.980Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
