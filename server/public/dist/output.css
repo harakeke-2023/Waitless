@@ -668,6 +668,18 @@ video {
   display: none;
 }
 
+.h-1\/2 {
+  height: 50%;
+}
+
+.h-1\/4 {
+  height: 25%;
+}
+
+.h-1\/5 {
+  height: 20%;
+}
+
 .h-4 {
   height: 1rem;
 }
@@ -694,26 +706,6 @@ video {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-2\/5 {
-  height: 40%;
-}
-
-.h-1\/5 {
-  height: 20%;
-}
-
-.h-1\/4 {
-  height: 25%;
-}
-
-.h-1\/6 {
-  height: 16.666667%;
-}
-
-.h-1\/2 {
-  height: 50%;
 }
 
 .w-1\/2 {
@@ -1148,16 +1140,16 @@ video {
   font-weight: 700;
 }
 
+.font-extrabold {
+  font-weight: 800;
+}
+
 .font-medium {
   font-weight: 500;
 }
 
 .font-semibold {
   font-weight: 600;
-}
-
-.font-extrabold {
-  font-weight: 800;
 }
 
 .uppercase {

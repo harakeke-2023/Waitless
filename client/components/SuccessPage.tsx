@@ -18,14 +18,6 @@ const SuccessPage = ({ name, handleReturnButton }: Props) => {
   if (isReturning) {
     return (
       <>
-        <div>
-          <Link to="/table/1/menu">
-            {/* Render the HomeMenu component */}
-            <MenuItem />
-          </Link>
-        </div>
-        {/* <MenuItems />
-        <MenuItem /> */}
         <div className="flex items-center justify-center h-screen">
           <div className="bg-burgundy-600 p-8 rounded-lg text-center">
             <div className="max-w-md mx-auto">
