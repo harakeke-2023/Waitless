@@ -3,16 +3,16 @@ import React from 'react'
 export default function Footer() {
   return (
     <>
-      <footer className="bg-burgundy-500 shadow h-28 max-h-32 sm:h-20">
-        <div className="w-full mx-auto max-w-screen-xl py-8 px-5 md:flex md:items-center md:justify-between max-sm:text-base">
-          <span className="text-xl text-beige-500 sm:text-center">
+      <footer className="bg-burgundy-500 shadow h-40 sm:h-20">
+        <div className="w-full mx-auto max-w-screen-xl p-3 px-5 md:flex md:items-center md:justify-between max-sm:text-sm">
+          <span className="text-xl text-beige-500 sm:text-center max-sm:text-sm">
             © 2023{' '}
             <a href="/" className="hover:underline">
               WAITLESS
             </a>
             . All Rights Reserved.
           </span>
-          <ul className="flex flex-wrap items-center mt-3 text-xl font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+          <ul className="flex flex-wrap items-center mt-3 text-xl font-medium text-gray-500 dark:text-gray-400 sm:mt-0 max-sm:text-sm">
             <li>
               <a
                 href="/about"
