@@ -4,8 +4,8 @@ import { MenuItem } from './Menu/MenuItem'
 import MenuItems from './Menu/MenuItems'
 
 export interface Props {
-  name: string
-  handleReturnButton: () => void
+  name?: string
+  handleReturnButton?: () => void
 }
 
 const SuccessPage = ({ name, handleReturnButton }: Props) => {
@@ -43,7 +43,7 @@ const SuccessPage = ({ name, handleReturnButton }: Props) => {
                       Your order is confirmed!
                     </p>
                     <p className="text-lg text-white-600 mb-4">
-                      We'll send you a shipping confirmation email, Please pay
+                      We will send you a shipping confirmation email, Please pay
                       at the counter ^ ^
                     </p>
                     <p>Estimated food time 30min</p>
@@ -73,6 +73,7 @@ const SuccessPage = ({ name, handleReturnButton }: Props) => {
       </>
     )
   }
+  return <></>
 }
 
 export default SuccessPage

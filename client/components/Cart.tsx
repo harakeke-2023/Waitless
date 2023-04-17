@@ -72,7 +72,6 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
       {isPaymentSubmitted ? (
         // render the SuccessPage component if payment is submitted *Mock*
         <SuccessPage
-          name={''}
           handleReturnButton={function (): void {
             throw new Error('Function not implemented.')
           }}
