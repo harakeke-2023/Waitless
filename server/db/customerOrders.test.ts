@@ -1,76 +1,48 @@
-import knex from 'knex'
-import config from './knexfile'
-const testDb = knex(config.test)
+import * as mockKnex from 'mock-knex'
+import { addCustomerOrder } from './customerOrders'
 
-import * as db from './customerOrders'
-import {
-  OrderDetails,
-  CustomerOrderDb,
-  CustomerOrder,
-} from '../../models/CustomerOrders'
+describe('addCustomerOrder', () => {
+  const dbMock = mockKnex.from('customer_orders')
 
-jest.setTimeout(10000)
+  afterEach(() => {
+    dbMock.mock.reset()
+  })
 
-beforeAll(() => {
-  return testDb.migrate.latest()
-})
+  it('inserts a new customer order and order details', async () => {
+    const newCustomerOrder = {
+      total_cost: 50,
+      customer_name: 'John',
+      customer_email: 'john@example.com',
+      table_number: 2,
+      order_details: [
+        { quantity: 1, price: 10, menu_item_id: 1 },
+        { quantity: 2, price: 15, menu_item_id: 2 },
+      ],
+    }
 
-beforeEach(() => {
-  return testDb.seed.run()
-})
+    // Mock the insert method to return the new order ID
+    dbMock.insert.mockReturnValueOnce([1])
 
-afterAll(() => {
-  return testDb.destroy()
-})
+    await addCustomerOrder(newCustomerOrder, dbMock)
 
-// getAllCustomerOrdersWithDetails
-
-describe('get all customer order with details', () => {
-  it('returns the order detail', async () => {
-    const orders = await db.getAllCustomerOrdersWithDetails(testDb)
-    expect(orders).toBe(1)
+    expect(dbMock.insert).toHaveBeenCalledTimes(3)
+    expect(dbMock.insert.mock.calls[0][0]).toEqual({
+      total_cost: 50,
+      customer_name: 'John',
+      customer_email: 'john@example.com',
+      table_number: 2,
+    })
+    expect(dbMock.insert.mock.calls[1][0]).toEqual({
+      order_id: 1,
+      quantity: 1,
+      price: 10,
+      menu_item_id: 1,
+    })
+    expect(dbMock.insert.mock.calls[2][0]).toEqual({
+      order_id: 1,
+      quantity: 2,
+      price: 15,
+      menu_item_id: 2,
+    })
   })
 })
-
-// describe('addNewOrder', () => {
-//   it('adds a new order', async () => {
-//     const newOrder = {
-//       menu_item_id: 2,
-//       price: 78,
-//       quantity: 3,
-//     } as OrderDetails
-
-//     await db.addCustomerOrder(newOrder, testDb)
-//     const newOrderAdd = await db.getAllCustomerOrdersWithDetails(testDb)
-
-//     const newItemAdd = newOrderAdd[newOrderAdd.length - 1]
-//     expect(newItemAdd.menu_item_id).toBe(2)
-//     expect(newItemAdd.price).toBe(78)
-//     expect(newItemAdd.quantity).toBe(3)
-//   })
-// })
-
-// addCustomerOrder
-// describe('addNewOrder', () => {
-//   it('adds a new order', async () => {
-//     const newOrder = {
-//       total_cost: 100,
-//       customer_name: 'Guy Incognito',
-//       customer_email: 'thismanismy@exact.double',
-//       table_number: 1,
-//       order_details: [{ menu_item_id: 2, quantity: 3, price: 78 }],
-//     } as CustomerOrderDb
-
-//     await db.addCustomerOrder(newOrder, testDb)
-//     const newOrderAdd = await db.getAllCustomerOrdersWithDetails(testDb)
-
-//     const newItemAdd = newOrderAdd[newOrderAdd.length - 1]
-//     expect(newItemAdd.total_cost).toBe(100)
-//     expect(newItemAdd.customer_name).toBe('Guy Incognito')
-//     expect(newItemAdd.customer_email).toBe('thismanismy@exact.double')
-//     expect(newItemAdd.table_number).toBe(1)
-//     expect(newItemAdd.order_details).toBe([
-//       { menu_item_id: 2, quantity: 3, price: 78 },
-//     ])
-//   })
-// })
