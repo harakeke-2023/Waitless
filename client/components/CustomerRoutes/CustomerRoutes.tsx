@@ -44,7 +44,7 @@ function CustomerRoutes() {
         />
         <Route
           path="/table/:tableNo/order/success"
-          element={<SuccessPage name={'test'} checkStatus={() => {}} />}
+          element={<SuccessPage name={'test'} handleReturnButton={() => {}} />}
         />
         <Route
           path="/table/:tableNo/order/fail"
