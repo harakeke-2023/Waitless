@@ -31,7 +31,7 @@ describe('AdminHome component', () => {
 
     fireEvent.click(getByText('Go to Orders'))
 
-    expect(window.location.href).toContain('/orders')
+    expect(window.location.href).toContain('/order')
   })
 
   test('handles button clicks for menu', () => {

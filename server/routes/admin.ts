@@ -7,7 +7,6 @@ const router = express.Router()
 router.get('/orders', async (req, res) => {
   try {
     const customerOrders = await db.getAllCustomerOrdersWithDetails()
-    console.log(customerOrders)
 
     res.json({ customerOrders })
   } catch (error) {
