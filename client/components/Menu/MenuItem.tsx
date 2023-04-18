@@ -14,8 +14,6 @@ export function MenuItem(props: Props) {
   const [quantityToAdd, setQuantityToAdd] = useState(1)
   //count is only here to make the total update. I was very tired.
 
-
-    
   const changeQuantity = (
     plusOrMinus: number,
     itemId: number,
