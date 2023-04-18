@@ -13,6 +13,10 @@ function AdminRoutes() {
   return (
     <>
       <Routes>
+        
+        <Route path="/admin/about" element={<About />} />
+        <Route path="/admin/contact" element={<Contact />} />
+
         <Route
           path="/admin"
           element={
@@ -70,8 +74,6 @@ function AdminRoutes() {
             </>
           }
         />
-        <Route path="/admin/contact" element={<Contact />} />
-
         <Route
           path="/admin/order"
           element={
