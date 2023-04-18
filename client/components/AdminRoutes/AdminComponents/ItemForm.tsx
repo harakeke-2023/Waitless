@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { MenuItemMutation } from '../../../../models/MenuItem'
 import { useLocation } from 'react-router-dom'
-import { addMenuItem } from '../../../apis/menuItems'
+import { addMenuItem, editMenuItem } from '../../../apis/menuItems'
 
 interface Props {
   editItem: MenuItemMutation
@@ -46,12 +46,11 @@ export default function ItemForm(props: Props) {
       await addMenuItem(editItem)
     } else if (location.pathname.includes('/edit')) {
       //stuff in here
-      await 
+      await editMenuItem(editItem, editItem.id)
     }
 
     console.log(editItem)
   }
-
 
   //get url
   const location = useLocation()
@@ -75,7 +74,6 @@ export default function ItemForm(props: Props) {
               value={editItem && editItem.name}
             />
           </div>
-
 
           <div className="field flex flex-col">
             <label htmlFor="description" className="label mt-2">
