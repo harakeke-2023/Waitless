@@ -26,6 +26,7 @@ export async function editMenuItem(newMenuItem: MenuItemMutation) {
 }
 
 export async function deleteMenuItem(id: number) {
+  console.log('API: ', id)
   const res = await request.delete(rootUrl + '/menuitems/' + id).send({ id })
   return res.body
 }

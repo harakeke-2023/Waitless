@@ -1,12 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getAllCustomerOrders } from '../../../apis/customerOrders'
-import {
-  CustomerOrderWithName,
-  OrderDetails,
-} from '../../../../models/CustomerOrders'
+import { CustomerOrderWithName } from '../../../../models/CustomerOrders'
 import ScrollToTop from '../../Menu/Scroll/ScrollToTop'
-
-import MenuItemOrder from './MenuItemOrder'
 import AdminOrders from './AdminOrder'
 
 export default function AdminOrdersList() {
@@ -77,7 +72,7 @@ export default function AdminOrdersList() {
           </thead>
           <tbody>
             {orders.map((order) => (
-              <AdminOrders key={order.customer_name} order={order} />
+              <AdminOrders key={order.id} order={order} />
             ))}
           </tbody>
         </table>

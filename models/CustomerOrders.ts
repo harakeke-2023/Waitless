@@ -1,7 +1,5 @@
-import * as z from 'zod'
-
 export type OrderDetails = {
-  menu_item_name: number
+  menu_item_id: number
   quantity: number
   price: number
 }

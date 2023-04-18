@@ -1,5 +1,8 @@
 import request from 'superagent'
-import { CustomerOrder, CustomerOrderDb } from '../../models/CustomerOrders'
+import {
+  CustomerOrderDb,
+  CustomerOrderWithName,
+} from '../../models/CustomerOrders'
 
 const rootUrl = '/api/v1/'
 
@@ -13,5 +16,5 @@ export async function sendCustomerOrder(newCustomerOrder: CustomerOrderDb) {
 export async function getAllCustomerOrders() {
   const res = await request.get(rootUrl + 'customerorders')
 
-  return res.body as CustomerOrder[]
+  return res.body as CustomerOrderWithName[]
 }

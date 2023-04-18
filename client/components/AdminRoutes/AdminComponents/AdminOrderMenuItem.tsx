@@ -1,11 +1,11 @@
-import { OrderDetails } from '../../../../models/CustomerOrders'
+import { OrderDetailsWithName } from '../../../../models/CustomerOrders'
 
 interface Props {
-  itemOrdered: OrderDetails
+  itemOrdered: OrderDetailsWithName
   isExpanded: boolean
 }
 
-export default function MenuItemOrder(props: Props) {
+export default function AdminOrderMenuItem(props: Props) {
   const { itemOrdered, isExpanded } = props
   return (
     <>
