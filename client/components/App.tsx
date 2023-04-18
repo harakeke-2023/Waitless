@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import CustomerRoutes from './CustomerRoutes/CustomerRoutes'
 import { Header } from './Header'
 

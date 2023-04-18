@@ -1,7 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { MenuItemMutation } from '../../../../models/MenuItem'
-import { useLocation } from 'react-router-dom'
-import { addMenuItem, editMenuItem } from '../../../apis/menuItems'
+import { useLocation, useNavigate } from 'react-router-dom'
+import {
+  addMenuItem,
+  deleteMenuItem,
+  editMenuItem,
+} from '../../../apis/menuItems'
+import { CategoryMutation } from '../../../../models/Category'
+import { getAllCategories } from '../../../apis/categories'
 
 interface Props {
   editItem: MenuItemMutation
@@ -19,25 +25,58 @@ interface Props {
 }
 
 export default function ItemForm(props: Props) {
+  const navigate = useNavigate()
   const { editItem, setMenuItemForEdit } = props
+  const [currentCategories, setCurrentCategories] = useState(
+    [] as CategoryMutation[]
+  )
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  useEffect(() => {
+    getAllCategories()
+      .then((categories) => {
+        setCurrentCategories(() => categories)
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  }, [])
+
+  const handleChange = (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLSelectElement>
+  ) => {
     const newItem = { ...editItem, [event.target.name]: event.target.value }
     setMenuItemForEdit(() => newItem)
+  }
+
+  const handleDelete = async () => {
+    try {
+      await deleteMenuItem(editItem.id)
+      navigate('/admin/menu')
+    } catch (error) {
+      console.error('Error deleting: ', error)
+    }
   }
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
     if (location.pathname.includes('/add')) {
-      //stuff in here
-      await addMenuItem(editItem)
+      try {
+        await addMenuItem(editItem)
+        navigate('/admin/menu')
+      } catch (error) {
+        console.error('Error adding item: ', error)
+      }
     } else if (location.pathname.includes('/edit')) {
-      //stuff in here
-      await editMenuItem(editItem, editItem.id)
+      try {
+        await editMenuItem(editItem)
+        navigate('/admin/menu')
+      } catch (error) {
+        console.error('Error editting item: ', error)
+      }
     }
-
-    console.log(editItem)
   }
 
   //get url
@@ -90,8 +129,29 @@ export default function ItemForm(props: Props) {
               type="text"
               placeholder="Price"
               onChange={handleChange}
-              value={editItem && editItem.price}
+              value={editItem && Number(editItem.price)}
             />
+          </div>
+          <div className="field flex flex-col">
+            <label htmlFor="category" className="label mt-2">
+              Category
+            </label>
+
+            <select
+              name="category_id"
+              id="categories"
+              value={editItem && editItem.category_id}
+              onChange={handleChange}
+            >
+              {currentCategories &&
+                currentCategories.map((category) => {
+                  return (
+                    <option key={category.id} value={category.id}>
+                      {category.category_name}
+                    </option>
+                  )
+                })}
+            </select>
           </div>
           <div className="field flex flex-col">
             <label htmlFor="stock" className="label mt-2">
@@ -105,7 +165,7 @@ export default function ItemForm(props: Props) {
               type="text"
               placeholder="Stock"
               onChange={handleChange}
-              value={editItem && editItem.stock}
+              value={editItem && Number(editItem.stock)}
             />
           </div>
 
@@ -124,14 +184,13 @@ export default function ItemForm(props: Props) {
                 <button
                   className="submit form-box bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
                   type="submit"
-                  // onClick={handleDelete}
                 >
                   Edit
                 </button>
 
                 <button
                   className="submit form-box bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
-                  // onClick={handleDelete}
+                  onClick={handleDelete}
                 >
                   Delete
                 </button>
@@ -142,7 +201,4 @@ export default function ItemForm(props: Props) {
       </section>
     </>
   )
-}
-function useEffect(arg0: () => void, arg1: never[]) {
-  throw new Error('Function not implemented.')
 }
