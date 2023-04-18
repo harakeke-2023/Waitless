@@ -85,12 +85,12 @@ describe('updateMenutItem', () => {
 
 describe('deleteMenuItem', () => {
   it('deletes a specific menu item', async () => {
-    const id = 1
+    const id = 21
     await db.deleteMenuItem(id, testDb)
 
     const menuItems = (await db.getAllMenuItems(testDb)) as MenuItem[]
 
-    expect(menuItems[0].name).toBe('Vegetarian Mini Samosas ( 10 pcs )')
-    expect(menuItems[0].id).toBe(2)
+    expect(menuItems[22].name).toBe('Mee Goreng')
+    expect(menuItems[22].id).toBe(22)
   })
 })
