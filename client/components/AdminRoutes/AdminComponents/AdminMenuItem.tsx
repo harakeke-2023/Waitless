@@ -1,4 +1,5 @@
 import { MenuItemMutation } from "../../../../models/MenuItem";
+import { deleteMenuItem, getAllMenuItems } from "../../../apis/menuItems";
 
 interface Props{
     item: MenuItemMutation
@@ -10,8 +11,9 @@ export default function AdminMenuitem( props: Props) {
     function handleEdit(){
         console.log("edit")
     }
-    function handleDelete(){
-        console.log("delete")
+  async function handleDelete(){
+       await deleteMenuItem(item.id)
+       await getAllMenuItems()
     }
 
 

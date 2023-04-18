@@ -37,6 +37,7 @@ export default function ItemForm(props: Props) {
     console.log(editItem)
   }
 
+
   //get url
   const location = useLocation()
 
@@ -59,6 +60,7 @@ export default function ItemForm(props: Props) {
               value={editItem && editItem.name}
             />
           </div>
+
 
           <div className="field flex flex-col">
             <label htmlFor="description" className="label mt-2">
