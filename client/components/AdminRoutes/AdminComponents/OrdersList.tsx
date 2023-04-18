@@ -1,7 +1,7 @@
-export default function OrdersList(){
-    return (
-        <div>
-            <h1>Orders List</h1>
-        </div>
-    )
+export default function OrdersList() {
+  return (
+    <div>
+      <h1>Orders List</h1>
+    </div>
+  )
 }
