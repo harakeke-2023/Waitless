@@ -1,9 +1,13 @@
+
 import { useLocation } from 'react-router-dom'
+
 import { MenuItemMutation } from '../../../../models/MenuItem'
 
-interface Props {
-  item?: MenuItemMutation
-}
+
+// interface Props {
+//   item?: MenuItemMutation
+// }
+
 
 export default function ItemForm(props: Props) {
   let editItem = { ...props.item }
@@ -28,6 +32,7 @@ export default function ItemForm(props: Props) {
     }
   }
 
+
   //get url
   const location = useLocation()
 
@@ -41,6 +46,7 @@ export default function ItemForm(props: Props) {
               Food Title
             </label>
 
+
             <input
               className="form-box border-solid border border-lightGreen p-2 rounded focus:outline-lightGreen focus:outline-2"
               id="name"
@@ -52,10 +58,11 @@ export default function ItemForm(props: Props) {
             />
           </div>
 
-          <div className="field flex flex-col">
-            <label htmlFor="description" className="label mt-2">
-              Description
-            </label>
+//           <div className="field flex flex-col">
+//             <label htmlFor="description" className="label mt-2">
+//               Description
+//             </label>
+
 
             <input
               className="form-box border-solid border border-lightGreen p-2 rounded focus:outline-lightGreen focus:outline-2"
@@ -131,3 +138,4 @@ export default function ItemForm(props: Props) {
     </>
   )
 }
+

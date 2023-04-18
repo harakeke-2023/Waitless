@@ -13,7 +13,6 @@ function AdminRoutes() {
   return (
     <>
       <Routes>
-        
         <Route path="/admin/about" element={<About />} />
         <Route path="/admin/contact" element={<Contact />} />
 
