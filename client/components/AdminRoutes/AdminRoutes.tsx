@@ -13,14 +13,14 @@ function AdminRoutes() {
     <>
       <Routes>
         <Route path="/admin" element={<AdminHome />} />
-        
+
         <Route path="/admin/about" element={<About />} />
 
         <Route
           path="/admin/menu"
           element={
             <>
-              <AdminMenuDisplay/>
+              <AdminMenuDisplay />
             </>
           }
         />
@@ -33,7 +33,7 @@ function AdminRoutes() {
           }
         />
         <Route path="/admin/contact" element={<Contact />} />
-        
+
         <Route
           path="/admin/order"
           element={
@@ -44,8 +44,6 @@ function AdminRoutes() {
             </>
           }
         />
-        
-    
       </Routes>
     </>
   )
