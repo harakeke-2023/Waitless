@@ -42,7 +42,7 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
     }) as OrderDetails[]
 
     const fullCustomerOrder: CustomerOrderDb = {
-      total_cost: totalCost,
+      total_cost: Number(totalCost.toFixed(2)),
       customer_name: customerDetails.name,
       customer_email: customerDetails.email,
       table_number: Number(tableNo),
@@ -58,12 +58,9 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
         }
       })
       .catch((error) => console.error(error))
+    localStorage.setItem('cart', JSON.stringify([]))
   }
 
-  // const addToCart = (item: CartItem) => {
-  //   // Add item to cart
-  //   setCartItems([...cartItems, item])
-  // }
   useEffect(() => {
     const currentCartJson = localStorage.getItem('cart')
     const fetchedCartItems = (JSON.parse(currentCartJson as string) ||
@@ -169,14 +166,13 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
           <h2 className="ml-5 font-bold flex items-center ">
             Total: ${totalCost.toFixed(2)}
           </h2>
-          {/* <div className="text-center"> */}
+
           <button
             onClick={submitOrderToDb}
             className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4 mb-8 "
           >
             Submit Order
           </button>
-          {/* </div> */}
         </div>
       )}
     </div>
@@ -184,65 +180,3 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
 }
 
 export default Cart
-
-// import React, { useState } from 'react'
-// import Payment from './Payment'
-// import SuccessPage from './SuccessPage'
-// import FailedPage from './FailedPage'
-
-// // Mock data for cart items
-// const cartitems = [
-//   {
-//     categoryid: 1,
-//     id: 2,
-//     name: 'Vegetarian Mini Samosas ( 10 pcs)',
-//     price: 12,
-//   },
-//   { categoryid: 2, id: 16, name: 'Tofu Fried Rice', price: 18.8 },
-//   { categoryid: 3, id: 18, name: 'Pad Thai Duck', price: 21.8 },
-//   { categoryid: 4, id: 63, name: 'Pinor Gris', price: 9 },
-// ]
-
-// type CartProps = {
-//   handlePaymentSubmit: () => void // Define handlePaymentSubmit prop type
-// }
-
-// const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
-//   // Add handlePaymentSubmit as a prop
-//   const [isPaymentSubmitted, setPaymentSubmitted] = useState(false)
-
-//   const handlePaymentButtonClick = () => {
-//     // Call the handlePaymentSubmit callback function passed as a prop
-//     handlePaymentSubmit()
-//     setPaymentSubmitted(true)
-//   }
-
-//   return (
-//     <div>
-//       {isPaymentSubmitted ? (
-//         // render the SuccessPage component if payment is submitted *Mock*
-//         <SuccessPage
-//           name={''}
-//           checkStatus={function (): void {
-//             throw new Error('Function not implemented.')
-//           }}
-//         />
-//       ) : (
-//         <div>
-//           <h1>Cart Items</h1>
-//           <ul>
-//             {cartitems.map((item) => (
-//               <li key={item.id}>
-//                 {item.name} - ${item.price}
-//               </li>
-//             ))}
-//           </ul>
-//           <button onClick={handlePaymentButtonClick}>Submit Payment</button>{' '}
-//           {/* Use handlePaymentButtonClick as the onClick handler */}
-//         </div>
-//       )}
-//     </div>
-//   )
-// }
-
-// export default Cart
