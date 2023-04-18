@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import {
   CustomerOrderWithName,
-  OrderDetails,
   OrderDetailsWithName,
 } from '../../../../models/CustomerOrders'
 import AdminOrderMenuItem from './AdminOrderMenuItem'

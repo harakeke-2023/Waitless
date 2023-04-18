@@ -88,7 +88,6 @@ router.patch('/:id', async (req, res) => {
 //DELETE /api/v1/menuitems/:id
 router.delete('/:id', async (req, res) => {
   try {
-    console.log('In Routes: ', req.params.id)
     const response = await db.deleteMenuItem(Number(req.params.id))
     res.status(200).json(response)
   } catch (error) {

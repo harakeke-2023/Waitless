@@ -30,7 +30,6 @@ export async function updateMenuItem(newMenuItem: MenuItem, db = connection) {
 }
 
 export async function deleteMenuItem(menuItemId: number, db = connection) {
-  console.log('in DB: ', menuItemId)
   const result = await db('menu_items').where('id', menuItemId).delete()
   return result
 }
