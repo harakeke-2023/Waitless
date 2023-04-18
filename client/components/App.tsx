@@ -10,8 +10,6 @@ import AdminRoutes from './AdminRoutes/AdminRoutes'
 const queryClient = new QueryClient()
 
 function App() {
-  useEffect(() => {}, [])
-
   return (
     <QueryClientProvider client={queryClient}>
       <Header />
