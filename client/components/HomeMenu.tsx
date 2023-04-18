@@ -53,12 +53,12 @@ function HomeMenu() {
           </li>
         </ul>
       </nav>
-      <div
+      <button
         className="lg:hidden z-90 absolute top-4 right-6 text-white text-6xl"
         onClick={toggleMenu}
       >
         {open ? <IoClose /> : <GiHamburgerMenu />}
-      </div>
+      </button>
     </>
   )
 }
