@@ -4,21 +4,16 @@ import { MenuItemDb } from '../../models/MenuItem'
 const rootUrl = '/api/v1'
 
 export async function getAllMenuItems() {
-  const menuItems = await request.get(rootUrl + '/menuitems')
-  return menuItems
+  const res = await request.get(rootUrl + '/menuitems')
+  return res.body
 }
 
 export async function getMenuItemById(id: number) {
-  const menuItem = await request.get(rootUrl + '/menuitems/' + id)
-  return menuItem
+  const res = await request.get(rootUrl + '/menuitems/' + id)
+  return res.body
 }
 
 export async function addMenuItem(newMenuItem: MenuItemDb) {
   const res = await request.post(rootUrl + '/menuitems').send(newMenuItem)
-  return res
+  return res.body
 }
-
-
-
-
-

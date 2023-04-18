@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">17.64% </span>
+                <span class="strong">15.78% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/17</span>
+                <span class='fraction'>3/19</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">17.64% </span>
+                <span class="strong">15.78% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/17</span>
+                <span class='fraction'>3/19</span>
             </div>
         
             
@@ -160,7 +160,11 @@
 <a name='L95'></a><a href='#L95'>95</a>
 <a name='L96'></a><a href='#L96'>96</a>
 <a name='L97'></a><a href='#L97'>97</a>
-<a name='L98'></a><a href='#L98'>98</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -207,6 +211,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -256,6 +261,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { CustomerOrderDb } from '../../models/CustomerOrders'
 import connection from './connection'
@@ -293,8 +301,8 @@ export async function <span class="fstat-no" title="function not covered" >addCu
         price: price,
         menu_item_id: menu_item_id,
       })
-      .then(<span class="fstat-no" title="function not covered" >(t</span>hing) =&gt; {
-<span class="cstat-no" title="statement not covered" >        console.log(thing)</span>
+      .then(<span class="fstat-no" title="function not covered" >(r</span>es) =&gt; {
+<span class="cstat-no" title="statement not covered" >        return res</span>
       })
       .catch(<span class="fstat-no" title="function not covered" >(e</span>rror) =&gt; {
 <span class="cstat-no" title="statement not covered" >        console.error(error)</span>
@@ -303,56 +311,60 @@ export async function <span class="fstat-no" title="function not covered" >addCu
 }
 &nbsp;
 export async function <span class="fstat-no" title="function not covered" >getAllCustomerOrdersWithDetails(</span>db = <span class="branch-0 cbranch-no" title="branch not covered" >connection)</span> {
-  const orders = <span class="cstat-no" title="statement not covered" >await db</span>
-    .select(
-      'customer_orders.id',
-      'customer_orders.total_cost',
-      'customer_orders.customer_name',
-      'customer_orders.customer_email',
-      'customer_orders.table_number'
-    )
-    .from('customer_orders')
-    .orderBy('customer_orders.id', 'desc')
+<span class="cstat-no" title="statement not covered" >  try {</span>
+    const orders = <span class="cstat-no" title="statement not covered" >await db</span>
+      .select(
+        'customer_orders.id',
+        'customer_orders.total_cost',
+        'customer_orders.customer_name',
+        'customer_orders.customer_email',
+        'customer_orders.table_number'
+      )
+      .from('customer_orders')
+      .orderBy('customer_orders.id', 'desc')
 &nbsp;
-  const orderDetails = <span class="cstat-no" title="statement not covered" >await db</span>
-    .select(
-      'customer_orders.id as order_id',
-      'menu_items.name as menu_item_name',
-      'customer_order_items.quantity',
-      'customer_order_items.price'
-    )
-    .from('customer_orders')
-    .leftJoin(
-      'customer_order_items',
-      'customer_orders.id',
-      'customer_order_items.order_id'
-    )
-    .leftJoin(
-      'menu_items',
-      'customer_order_items.menu_item_id',
-      'menu_items.id'
-    )
+    const orderDetails = <span class="cstat-no" title="statement not covered" >await db</span>
+      .select(
+        'customer_orders.id as order_id',
+        'menu_items.name as menu_item_name',
+        'customer_order_items.quantity',
+        'customer_order_items.price'
+      )
+      .from('customer_orders')
+      .leftJoin(
+        'customer_order_items',
+        'customer_orders.id',
+        'customer_order_items.order_id'
+      )
+      .leftJoin(
+        'menu_items',
+        'customer_order_items.menu_item_id',
+        'menu_items.id'
+      )
 &nbsp;
-  const ordersWithDetails = <span class="cstat-no" title="statement not covered" >orders.map(<span class="fstat-no" title="function not covered" >(o</span>rder) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return {</span>
-      id: order.id,
-      total_cost: order.total_cost,
-      customer_name: order.customer_name,
-      customer_email: order.customer_email,
-      table_number: order.table_number,
-      order_details: orderDetails
-        .filter(<span class="fstat-no" title="function not covered" >(d</span>etail) =&gt; <span class="cstat-no" title="statement not covered" >detail.order_id === order.id)</span>
-        .map(<span class="fstat-no" title="function not covered" >(d</span>etail) =&gt; {
-<span class="cstat-no" title="statement not covered" >          return {</span>
-            menu_item_name: detail.menu_item_name,
-            quantity: detail.quantity,
-            price: detail.price,
-          }
-        }),
-    }
-  })
+    const ordersWithDetails = <span class="cstat-no" title="statement not covered" >orders.map(<span class="fstat-no" title="function not covered" >(o</span>rder) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      return {</span>
+        id: order.id,
+        total_cost: order.total_cost,
+        customer_name: order.customer_name,
+        customer_email: order.customer_email,
+        table_number: order.table_number,
+        order_details: orderDetails
+          .filter(<span class="fstat-no" title="function not covered" >(d</span>etail) =&gt; <span class="cstat-no" title="statement not covered" >detail.order_id === order.id)</span>
+          .map(<span class="fstat-no" title="function not covered" >(d</span>etail) =&gt; {
+<span class="cstat-no" title="statement not covered" >            return {</span>
+              menu_item_name: detail.menu_item_name,
+              quantity: detail.quantity,
+              price: detail.price,
+            }
+          }),
+      }
+    })
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return ordersWithDetails</span>
+<span class="cstat-no" title="statement not covered" >    return ordersWithDetails</span>
+  } catch (error) {
+<span class="cstat-no" title="statement not covered" >    console.error(error)</span>
+  }
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -361,7 +373,7 @@ export async function <span class="fstat-no" title="function not covered" >getAl
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-04-17T09:36:07.460Z
+                at 2023-04-18T02:07:39.348Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

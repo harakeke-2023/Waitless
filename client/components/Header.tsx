@@ -2,9 +2,16 @@ import { useLocation } from 'react-router-dom'
 
 export function Header() {
   const location = useLocation()
+  console.log(location)
   const headingName =
     location.pathname === '/'
       ? 'Home'
+      : location.pathname.includes('/admin/menu/add')
+      ? 'Add Menu Item'
+      : location.pathname.includes('/admin/menu/edit')
+      ? 'Edit Menu Item'
+      : location.pathname.includes('/admin/menu')
+      ? 'Admin Menu'
       : location.pathname.includes('menu')
       ? 'Menu'
       : location.pathname.includes('cart')
@@ -20,7 +27,7 @@ export function Header() {
       : location.pathname.includes('profile')
       ? 'Profile'
       : location.pathname.includes('admin')
-      ? 'Admin'
+      ? 'Admin Home'
       : 'Home'
 
   return (

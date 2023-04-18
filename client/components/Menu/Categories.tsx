@@ -5,7 +5,7 @@ import {
 } from '../../../models/MenuItem'
 import { MenuItem } from './MenuItem'
 
-interface Props {
+export interface Props {
   category: MenuItemMutation[]
   fetchNumberOfCartItems: () => void
 }
