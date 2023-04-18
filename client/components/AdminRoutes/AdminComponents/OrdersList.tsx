@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getAllCustomerOrders } from '../../../apis/customerOrders'
 import { CustomerOrder } from '../../../../models/CustomerOrders'
+import ScrollToTop from '../../Menu/Scroll/ScrollToTop'
 
 export default function OrdersList() {
   const [orders, setOrders] = useState([] as CustomerOrder[])
@@ -216,6 +217,7 @@ export default function OrdersList() {
           </tbody>
         </table>
       </div>
+      <ScrollToTop />
     </div>
   )
 }
