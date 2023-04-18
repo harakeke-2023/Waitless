@@ -15,6 +15,7 @@ function AdminRoutes() {
         <Route path="/admin" element={<AdminHome />} />
         
         <Route path="/admin/about" element={<About />} />
+        <Route path="/admin/contact" element={<Contact />} />
 
         <Route
           path="/admin/menu"
@@ -32,7 +33,6 @@ function AdminRoutes() {
             </>
           }
         />
-        <Route path="/admin/contact" element={<Contact />} />
         
         <Route
           path="/admin/order"
