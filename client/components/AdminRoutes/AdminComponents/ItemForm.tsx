@@ -1,38 +1,25 @@
-
-import { useFormik } from 'formik'
-import moment from 'moment'
 import { MenuItemMutation } from '../../../../models/MenuItem'
-import e from 'express'
-import { useState } from 'react'
 
 interface Props {
   item?: MenuItemMutation
 }
 
 export default function ItemForm(props: Props) {
-  const [editItem, setEditItem] = useState({
-    id: 0,
-    name: '',
-    description: '',
-    price: '',
-    stock: '',
-    image_url: '',
-    category_id: 0,
-  })
+  let editItem = { ...props.item }
 
-  const handleChange = (event) => {
-    setEditItem({ ...editItem, [event.target.name]: event.target.value })
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    editItem = { ...editItem, [event.target.name]: event.target.value }
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     console.log(editItem)
-    setEditItem({
+    editItem = {
       name: '',
       description: '',
-      price: '',
-      stock: '',
-    })
+      price: 0,
+      stock: 0,
+    }
   }
 
   return (
@@ -51,8 +38,8 @@ export default function ItemForm(props: Props) {
               name="name"
               type="text"
               placeholder="Food Title"
-              // onChange={handleChange}
-              value={editItem.name}
+              onChange={handleChange}
+              value={editItem && editItem.name}
             />
           </div>
 
@@ -67,8 +54,8 @@ export default function ItemForm(props: Props) {
               name="description"
               type="text"
               placeholder="Description"
-              // onChange={handleChange}
-              value={editItem.description}
+              onChange={handleChange}
+              value={editItem && editItem.description}
             />
           </div>
           <div className="field flex flex-col">
@@ -82,8 +69,8 @@ export default function ItemForm(props: Props) {
               name="price"
               type="text"
               placeholder="Price"
-              // onChange={handleChange}
-              value={editItem.price}
+              onChange={handleChange}
+              value={editItem && editItem.price}
             />
           </div>
           <div className="field flex flex-col">
@@ -97,15 +84,15 @@ export default function ItemForm(props: Props) {
               name="stock"
               type="text"
               placeholder="Stock"
-              // onChange={handleChange}
-              value={editItem.stock}
+              onChange={handleChange}
+              value={editItem && editItem.stock}
             />
           </div>
 
           <div className="button-group mt-8">
             {/* {props === 'Update Item' ? ( */}
             <button
-              className="submit form-box bg-orange rounded px-4 py-1 box-border text-white "
+              className="submit form-box bg-orange rounded px-4 py-1 box-border"
               // onClick={handleDelete}
             >
               Delete
@@ -113,7 +100,7 @@ export default function ItemForm(props: Props) {
             {/* ) : null} */}
 
             <button
-              className="submit form-box ml-16  bg-orange rounded px-10 py-1 box-border text-white "
+              className="submit form-box ml-16  bg-orange rounded px-10 py-1 box-borde"
               type="submit"
             >
               Submit
@@ -123,5 +110,4 @@ export default function ItemForm(props: Props) {
       </section>
     </>
   )
-
-
+}
