@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import Contact from '../Contact'
 import About from '../About'
-import OrdersList from './AdminComponents/OrdersList'
+import AdminOrdersList from './AdminComponents/AdminOrdersList'
 import AdminMenuDisplay from './AdminComponents/AdminMenuDisplay'
 import AdminHome from './AdminComponents/AdminHome'
 import EditMenuItem from './AdminComponents/EditMenuItem'
@@ -78,7 +78,7 @@ function AdminRoutes() {
           element={
             <>
               <div>
-                <OrdersList />
+                <AdminOrdersList />
               </div>
             </>
           }

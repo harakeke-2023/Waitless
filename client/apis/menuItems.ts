@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { MenuItemDb } from '../../models/MenuItem'
+import { MenuItemDb, MenuItemMutation } from '../../models/MenuItem'
 
 const rootUrl = '/api/v1'
 
@@ -18,12 +18,14 @@ export async function addMenuItem(newMenuItem: MenuItemDb) {
   return res.body
 }
 
-export async function editMenuItem(newMenuItem: MenuItemDb, id: number) {
-  const res = await request.patch(rootUrl + '/menuitems/'+ id).send({newMenuItem, id})
+export async function editMenuItem(newMenuItem: MenuItemMutation) {
+  const res = await request
+    .patch(rootUrl + '/menuitems/' + newMenuItem.id)
+    .send(newMenuItem)
   return res.body
 }
 
 export async function deleteMenuItem(id: number) {
-  const res = await request.delete(rootUrl + '/menuitems/' + id).send({id})
+  const res = await request.delete(rootUrl + '/menuitems/' + id).send({ id })
   return res.body
 }

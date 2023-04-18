@@ -1,9 +1,27 @@
 import * as z from 'zod'
 
 export type OrderDetails = {
-  menu_item_id: number
+  menu_item_name: number
   quantity: number
   price: number
+}
+
+export type OrderDetailsWithName = {
+  menu_item_name: number
+  quantity: number
+  price: number
+}
+
+export type CustomerOrderWithNameDb = {
+  total_cost: number
+  customer_name: string
+  customer_email: string
+  table_number: number
+  order_details: OrderDetailsWithName[]
+}
+
+export type CustomerOrderWithName = CustomerOrderWithNameDb & {
+  id: number
 }
 
 export type CustomerOrderDb = {
