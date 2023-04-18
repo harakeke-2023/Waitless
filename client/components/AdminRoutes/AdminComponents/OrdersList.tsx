@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function OrdersList() {
+export default function OrdersList() {
   const orders = [
     {
       id: 1,
