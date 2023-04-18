@@ -23,9 +23,15 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
                 <span class="strong">41.66% </span>
                 <span class="quiet">Statements</span>
                 <span class='fraction'>5/12</span>
+=======
+                <span class="strong">76.92% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>10/13</span>
+>>>>>>> 636eb4d2bcf530361e4dafea5a83a88a7c7197d6
             </div>
         
             
@@ -37,16 +43,22 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
                 <span class="strong">45.45% </span>
                 <span class="quiet">Lines</span>
                 <span class='fraction'>5/11</span>
+=======
+                <span class="strong">75% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>9/12</span>
+>>>>>>> 636eb4d2bcf530361e4dafea5a83a88a7c7197d6
             </div>
         
             
@@ -61,7 +73,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -87,11 +99,25 @@
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
+<<<<<<< HEAD
 <a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+=======
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+>>>>>>> 636eb4d2bcf530361e4dafea5a83a88a7c7197d6
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -99,6 +125,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+=======
+>>>>>>> 636eb4d2bcf530361e4dafea5a83a88a7c7197d6
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -110,18 +138,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import express from 'express'
 import * as db from '../db/customerOrders'
 &nbsp;
 const router = express.Router()
 &nbsp;
 //Get /api/v1/admin/orders
+<<<<<<< HEAD
 router.get('/orders', <span class="fstat-no" title="function not covered" >async (r</span>eq, res) =&gt;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > {</span></span>
 <span class="cstat-no" title="statement not covered" >  try {</span>
     const customerOrders = <span class="cstat-no" title="statement not covered" >await db.getAllCustomerOrdersWithDetails()</span>
+=======
+router.get('/orders', async (req, res) =&gt; {
+  try {
+    const customerOrders = await db.getAllCustomerOrdersWithDetails()
+    console.log(customerOrders)
+>>>>>>> 636eb4d2bcf530361e4dafea5a83a88a7c7197d6
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    res.json({ customerOrders })</span>
+    res.json({ customerOrders })
   } catch (error) {
 <span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (error instanceof Error) {</span>
 <span class="cstat-no" title="statement not covered" >      console.error(error.message)</span>
@@ -142,7 +177,11 @@ export default router
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+<<<<<<< HEAD
                 at 2023-04-18T21:37:30.429Z
+=======
+                at 2023-04-18T05:37:45.300Z
+>>>>>>> 636eb4d2bcf530361e4dafea5a83a88a7c7197d6
             </div>
         <script src="../../prettify.js"></script>
         <script>
