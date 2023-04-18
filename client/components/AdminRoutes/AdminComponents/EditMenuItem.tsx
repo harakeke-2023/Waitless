@@ -16,19 +16,18 @@ const blankItem: MenuItemMutation = {
 
 export default function EditMenuItem() {
   const [menuItemForEdit, setMenuItemForEdit] = useState(blankItem)
+
   const { id } = useParams()
 
   useEffect(() => {
     getMenuItemById(Number(id))
       .then((menuItem) => {
-        console.log('in editmenuItem: ', menuItem)
         setMenuItemForEdit(() => menuItem)
       })
       .catch((error) => {
         console.error(error)
       })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [id])
 
   return (
     <div>

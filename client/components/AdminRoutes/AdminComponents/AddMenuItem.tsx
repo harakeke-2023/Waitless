@@ -9,7 +9,7 @@ const blankItem: MenuItemMutation = {
   price: 0,
   stock: 0,
   image_url: '',
-  category_id: 0,
+  category_id: 1,
 }
 
 export default function AddMenuItem() {

@@ -12,6 +12,12 @@ describe('Render Footer component', () => {
     expect(linkElement).toBeInTheDocument()
   })
 
+  it('renders "Home" text', () => {
+    const { getByText } = render(<Footer />)
+    const linkElement = getByText(/Home/i)
+    expect(linkElement).toBeInTheDocument()
+  })
+
   it('renders "About" text', () => {
     const { getByText } = render(<Footer />)
     const linkElement = getByText(/About/i)

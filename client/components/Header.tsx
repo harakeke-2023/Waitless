@@ -2,7 +2,6 @@ import { useLocation } from 'react-router-dom'
 
 export function Header() {
   const location = useLocation()
-  console.log(location)
   const headingName =
     location.pathname === '/'
       ? 'Home'
