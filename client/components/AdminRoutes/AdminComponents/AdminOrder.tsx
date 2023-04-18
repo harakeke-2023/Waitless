@@ -35,7 +35,10 @@ export default function AdminOrders(props: Props) {
   const { order } = props
   return (
     <>
-      <tr onClick={handleRowclick}>
+      <tr
+        className="border-b-2 border-solid border-stroke border-burgundy-500 border-opacity-10"
+        onClick={handleRowclick}
+      >
         <td className="border-b border-[#eee] py-5 px-4 pl-9 text-center dark:border-strokedark xl:pl-11">
           <p className="inline-flex rounded-full bg-success bg-opacity-10 py-1 px-3 text-lg font-medium text-success">
             {order.id}
@@ -43,7 +46,7 @@ export default function AdminOrders(props: Props) {
         </td>
         <td className="border-b border-[#eee] py-5 px-4 pl-9 text-center dark:border-strokedark xl:pl-11">
           <p className="inline-flex rounded-full bg-success bg-opacity-10 py-1 px-3 text-lg font-medium text-success">
-            {order.table_number}
+            {order.table_number ? order.table_number : 'invalid'}
           </p>
         </td>
         <td className="border-b border-[#eee] py-5 px-4 text-center dark:border-strokedark">
@@ -59,7 +62,12 @@ export default function AdminOrders(props: Props) {
 
         <td className="border-b border-[#eee] py-5 px-4 text-center dark:border-strokedark">
           <p className="inline-flex rounded-full bg-success bg-opacity-10 py-1 px-3 text-lg font-medium text-success">
-            ${order.total_cost}
+            ${order.total_cost.toFixed(2)}
+          </p>
+        </td>
+        <td className="border-b border-[#eee] py-5 px-4 text-center dark:border-strokedark">
+          <p className="inline-flex rounded-full bg-success bg-opacity-10 py-1 px-3 text-lg font-medium text-success">
+            {/* add status */}
           </p>
         </td>
         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
