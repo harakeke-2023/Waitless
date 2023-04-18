@@ -19,6 +19,7 @@ export default function EditMenuItem() {
   useEffect(() => {
     getMenuItemById(Number(id))
       .then((menuItem) => {
+        console.log('in editmenuItem: ', menuItem)
         setMenuItemForEdit(() => menuItem)
       })
       .catch((error) => {
@@ -29,7 +30,10 @@ export default function EditMenuItem() {
 
   return (
     <div>
-      <ItemForm item={menuItemForEdit} />
+      <ItemForm
+        editItem={menuItemForEdit}
+        setMenuItemForEdit={setMenuItemForEdit}
+      />
     </div>
   )
 }

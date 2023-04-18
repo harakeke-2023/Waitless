@@ -1,41 +1,54 @@
-
+import { useState } from 'react'
 import { MenuItemMutation } from '../../../../models/MenuItem'
 
+interface Props {
+  editItem?: MenuItemMutation
+  setMenuItemForEdit: React.Dispatch<
+    React.SetStateAction<{
+      id: number
+      name: string
+      description: string
+      price: number
+      stock: number
+      image_url: string
+      category_id: number
+    }>
+  >
+}
 
-// interface Props {
-//   item?: MenuItemMutation
-// }
-
+const blankItem = {
+  id: 0,
+  name: '',
+  description: '',
+  price: 0,
+  stock: 0,
+  image_url: '',
+  category_id: 0,
+}
 
 export default function ItemForm(props: Props) {
-  let editItem = { ...props.item }
+  // const [editItem, setEditItem] = useState(blankItem)
+  // let editItem = { ...props.item }
+  const { editItem, setMenuItemForEdit } = props
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    editItem = { ...editItem, [event.target.name]: event.target.value }
+    const newItem = { ...editItem, [event.target.name]: event.target.value }
+    setMenuItemForEdit(() => newItem)
   }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     console.log(editItem)
-    editItem = {
-      name: '',
-      description: '',
-      price: 0,
-      stock: 0,
-    }
   }
 
-
-//   return (
-//     <>
-//       <div>ItemForm</div>
-//       <section className="w-1/2 mx-auto my-14 flex flex-col">
-//         <form className="form-content" onSubmit={handleSubmit}>
-//           <div className="field flex flex-col">
-//             <label htmlFor="name" className="label mt-2">
-//               Food Title
-//             </label>
-
+  return (
+    <>
+      <section className="w-1/2 mx-auto my-14 flex flex-col">
+        <form className="form-content" onSubmit={handleSubmit}>
+          <div className="field flex flex-col">
+            <label htmlFor="name" className="label mt-2">
+              Food Title
+            </label>
 
             <input
               className="form-box border-solid border border-lightGreen p-2 rounded focus:outline-lightGreen focus:outline-2"
@@ -48,11 +61,10 @@ export default function ItemForm(props: Props) {
             />
           </div>
 
-//           <div className="field flex flex-col">
-//             <label htmlFor="description" className="label mt-2">
-//               Description
-//             </label>
-
+          <div className="field flex flex-col">
+            <label htmlFor="description" className="label mt-2">
+              Description
+            </label>
 
             <input
               className="form-box border-solid border border-lightGreen p-2 rounded focus:outline-lightGreen focus:outline-2"
@@ -117,4 +129,6 @@ export default function ItemForm(props: Props) {
     </>
   )
 }
-
+function useEffect(arg0: () => void, arg1: never[]) {
+  throw new Error('Function not implemented.')
+}
