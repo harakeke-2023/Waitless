@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { MenuItemMutation } from '../../../../models/MenuItem'
+import { useLocation } from 'react-router-dom'
 
 interface Props {
-  editItem?: MenuItemMutation
+  editItem: MenuItemMutation
   setMenuItemForEdit: React.Dispatch<
     React.SetStateAction<{
       id: number
@@ -36,12 +37,14 @@ export default function ItemForm(props: Props) {
     setMenuItemForEdit(() => newItem)
   }
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    // if (location.pathname.includes('/add')){
-    //   addMenuItem()
-    // }
+    if (location.pathname.includes('/add')) {
+      //stuff in here
+    } else if (location.pathname.includes('/edit')) {
+      //stuff in here
+    }
 
     console.log(editItem)
   }
@@ -52,7 +55,6 @@ export default function ItemForm(props: Props) {
   return (
     <>
       <section className="w-1/2 mx-auto my-14 flex flex-col">
-        <div>Edit Menu :</div>
         <form className="form-content" onSubmit={handleSubmit}>
           <div className="field flex flex-col">
             <label htmlFor="name" className="label mt-2">
@@ -130,6 +132,7 @@ export default function ItemForm(props: Props) {
               <div className="grid grid-cols-2 space-2 gap-2 px-4 py-4">
                 <button
                   className="submit form-box bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
+                  type="submit"
                   // onClick={handleDelete}
                 >
                   Edit
