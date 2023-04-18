@@ -6,3 +6,6 @@ server/public/bundle.js.map
 .env
 tags
 server/public/dist/output.css
+
+# React Component Preview
+previewConfig.json

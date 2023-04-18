@@ -29,6 +29,5 @@ describe('POST /api/v1/customerorders', () => {
 
     expect(db.addCustomerOrder).toHaveBeenCalledTimes(1)
     expect(db.addCustomerOrder).toHaveBeenCalledWith(addNewOrder)
-    // expect(response.body).toEqual({ orderId: 1 })
   })
 })
