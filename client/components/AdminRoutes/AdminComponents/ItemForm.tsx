@@ -1,31 +1,52 @@
-import { useLocation } from 'react-router-dom'
+import { useState } from 'react'
 import { MenuItemMutation } from '../../../../models/MenuItem'
+import { useLocation } from 'react-router-dom'
 
 interface Props {
-  item?: MenuItemMutation
+  editItem: MenuItemMutation
+  setMenuItemForEdit: React.Dispatch<
+    React.SetStateAction<{
+      id: number
+      name: string
+      description: string
+      price: number
+      stock: number
+      image_url: string
+      category_id: number
+    }>
+  >
+}
+
+const blankItem = {
+  id: 0,
+  name: '',
+  description: '',
+  price: 0,
+  stock: 0,
+  image_url: '',
+  category_id: 0,
 }
 
 export default function ItemForm(props: Props) {
-  let editItem = { ...props.item }
+  // const [editItem, setEditItem] = useState(blankItem)
+  // let editItem = { ...props.item }
+  const { editItem, setMenuItemForEdit } = props
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    editItem = { ...editItem, [event.target.name]: event.target.value }
+    const newItem = { ...editItem, [event.target.name]: event.target.value }
+    setMenuItemForEdit(() => newItem)
   }
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    // if (location.pathname.includes('/add')){
-    //   addMenuItem()
-    // }
+    if (location.pathname.includes('/add')) {
+      //stuff in here
+    } else if (location.pathname.includes('/edit')) {
+      //stuff in here
+    }
 
     console.log(editItem)
-    editItem = {
-      name: '',
-      description: '',
-      price: 0,
-      stock: 0,
-    }
   }
 
   //get url
@@ -34,7 +55,6 @@ export default function ItemForm(props: Props) {
   return (
     <>
       <section className="w-1/2 mx-auto my-14 flex flex-col">
-        <div>Edit Menu :</div>
         <form className="form-content" onSubmit={handleSubmit}>
           <div className="field flex flex-col">
             <label htmlFor="name" className="label mt-2">
@@ -112,6 +132,7 @@ export default function ItemForm(props: Props) {
               <div className="grid grid-cols-2 space-2 gap-2 px-4 py-4">
                 <button
                   className="submit form-box bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
+                  type="submit"
                   // onClick={handleDelete}
                 >
                   Edit
@@ -130,4 +151,7 @@ export default function ItemForm(props: Props) {
       </section>
     </>
   )
+}
+function useEffect(arg0: () => void, arg1: never[]) {
+  throw new Error('Function not implemented.')
 }
