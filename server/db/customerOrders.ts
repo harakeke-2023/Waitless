@@ -17,6 +17,7 @@ export async function addCustomerOrder(
     table_number,
     order_details,
   } = newCustomerOrder
+
   const order_id = await db('customer_orders').insert({
     total_cost,
     customer_name,
