@@ -4,21 +4,24 @@ import { useParams } from 'react-router-dom'
 import { getMenuItemById } from '../../../apis/menuItems'
 import { MenuItemMutation } from '../../../../models/MenuItem'
 
+const blankItem: MenuItemMutation = {
+  id: 0,
+  name: '',
+  description: '',
+  price: 0,
+  stock: 0,
+  image_url: '',
+  category_id: 0,
+}
+
 export default function EditMenuItem() {
-  const [menuItemForEdit, setMenuItemForEdit] = useState({
-    id: 0,
-    name: '',
-    description: '',
-    price: 0,
-    stock: 0,
-    image_url: '',
-    category_id: 0,
-  } as MenuItemMutation)
+  const [menuItemForEdit, setMenuItemForEdit] = useState(blankItem)
   const { id } = useParams()
 
   useEffect(() => {
     getMenuItemById(Number(id))
       .then((menuItem) => {
+        console.log('in editmenuItem: ', menuItem)
         setMenuItemForEdit(() => menuItem)
       })
       .catch((error) => {
@@ -29,7 +32,10 @@ export default function EditMenuItem() {
 
   return (
     <div>
-      <ItemForm item={menuItemForEdit} />
+      <ItemForm
+        editItem={menuItemForEdit}
+        setMenuItemForEdit={setMenuItemForEdit}
+      />
     </div>
   )
 }
