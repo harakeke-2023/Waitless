@@ -15,7 +15,18 @@ function CustomerRoutes() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/table/:tableNo" element={<Home />} />
-        <Route path="/about" element={<About />} />
+
+        <Route
+          path="/table/:tableNo/about"
+          element={
+            <>
+              <div>
+                <HomeMenu />
+              </div>
+              <About />
+            </>
+          }
+        />
 
         <Route
           path="/table/:tableNo/menu"
