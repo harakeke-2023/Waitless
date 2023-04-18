@@ -87,15 +87,17 @@ router.patch('/:id', async (req, res) => {
 
 //DELETE /api/v1/menuitems/:id
 router.delete('/:id', async (req, res) => {
+  //We don't delete menuItems fully because it leads to orphaned customer orders, so we just update the to inactive.
+
   try {
-    const response = await db.deleteMenuItem(Number(req.params.id))
+    const response = await db.setMenuItemInactive(Number(req.params.id))
     res.status(200).json(response)
   } catch (error) {
     if (error instanceof Error) {
       console.error(error.message)
       res.status(500).json({
         error: {
-          title: 'Unable to delete menu item, id: ' + req.params.id,
+          title: 'Unable to set menu item to inactive, id: ' + req.params.id,
         },
       })
     }

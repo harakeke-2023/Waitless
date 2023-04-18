@@ -4,6 +4,7 @@ import { MenuItemDb, MenuItem } from '../../models/MenuItem'
 export async function getAllMenuItems(db = connection) {
   return await db('menu_items')
     .join('categories', 'menu_items.category_id', '=', 'categories.id')
+    .where('active', true)
     .select('menu_items.*', 'category_name')
 }
 
@@ -31,5 +32,12 @@ export async function updateMenuItem(newMenuItem: MenuItem, db = connection) {
 
 export async function deleteMenuItem(menuItemId: number, db = connection) {
   const result = await db('menu_items').where('id', menuItemId).delete()
+  return result
+}
+
+export async function setMenuItemInactive(menuItemId: number, db = connection) {
+  const result = await db('menu_items')
+    .where('id', menuItemId)
+    .update('active', false)
   return result
 }
