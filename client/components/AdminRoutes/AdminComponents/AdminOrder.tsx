@@ -2,8 +2,9 @@ import { useState } from 'react'
 import {
   CustomerOrderWithName,
   OrderDetails,
+  OrderDetailsWithName,
 } from '../../../../models/CustomerOrders'
-import MenuItemOrder from './MenuItemOrder'
+import AdminOrderMenuItem from './AdminOrderMenuItem'
 
 interface Props {
   order: CustomerOrderWithName
@@ -118,15 +119,17 @@ export default function AdminOrders(props: Props) {
       </tr>
       <tr>
         <td className="" colSpan={6}>
-          {order.order_details.map((itemOrdered: OrderDetails, index) => {
-            return (
-              <MenuItemOrder
-                key={index}
-                itemOrdered={itemOrdered}
-                isExpanded={isExpanded}
-              />
-            )
-          })}
+          {order.order_details.map(
+            (itemOrdered: OrderDetailsWithName, index) => {
+              return (
+                <AdminOrderMenuItem
+                  key={index}
+                  itemOrdered={itemOrdered}
+                  isExpanded={isExpanded}
+                />
+              )
+            }
+          )}
         </td>
       </tr>
     </>
