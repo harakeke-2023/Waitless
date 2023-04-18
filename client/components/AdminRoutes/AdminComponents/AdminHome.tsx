@@ -11,7 +11,7 @@ const AdminHome = () => {
     if (url.includes('/orders')) {
       // Redirect to orders export page
       console.log('Redirecting to orders export page...') // Added console log
-      window.location.href = '/orders'
+      window.location.href = '/admin/orders'
     }
 
     // Check if the URL contains '/menu'
@@ -31,7 +31,7 @@ const AdminHome = () => {
   const handleMenuClick = () => {
     // Redirect to menu page
     console.log('Redirecting to menu page...') // Added console log
-    window.location.href = '/menu'
+    window.location.href = '/admin/menu/'
   }
 
   return (
