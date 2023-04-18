@@ -1,32 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { getAllCustomerOrders } from '../../../apis/customerOrders'
+import { CustomerOrder } from '../../../../models/CustomerOrders'
 
 export default function OrdersList() {
-  const orders = [
-    {
-      id: 1,
-      customerName: 'John Doe',
-      customerEmail: 'john@gmail.com',
-      totalAmount: 100,
-    },
-    {
-      id: 2,
-      customerName: 'Jane Smith',
-      customerEmail: 'jane@gmail.com',
-      totalAmount: 200,
-    },
-    {
-      id: 3,
-      customerName: 'Sam Anderson',
-      customerEmail: 'sam@gmail.com',
-      totalAmount: 241,
-    },
-    {
-      id: 4,
-      customerName: 'Katie Williams',
-      customerEmail: 'katie@gmail.com',
-      totalAmount: 124,
-    },
-  ]
+  const [orders, setOrders] = useState([] as CustomerOrder[])
+  useEffect(() => {
+    getAllCustomerOrders()
+      .then((fetchedOrders) => {
+        setOrders(fetchedOrders)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }, [])
 
   return (
     <div className="rounded-sm border border-stroke bg-white  shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
@@ -64,10 +50,16 @@ export default function OrdersList() {
                 Order ID
               </th>
               <th className="min-w-[150px] py-4 px-4 font-large text-black text-center uppercase dark:text-white">
+                Table Number
+              </th>
+              <th className="min-w-[120px] py-4 px-4 font-large text-black text-center uppercase dark:text-white">
                 Customer Name
               </th>
               <th className="min-w-[120px] py-4 px-4 font-large text-black text-center uppercase dark:text-white">
                 Customer Email
+              </th>
+              <th className="py-4 px-4 font-large text-black text-center uppercase dark:text-white">
+                Order Details
               </th>
               <th className="py-4 px-4 font-large text-black text-center uppercase dark:text-white">
                 Total Amount
@@ -87,17 +79,25 @@ export default function OrdersList() {
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 pl-9 text-center dark:border-strokedark xl:pl-11">
                   <p className="inline-flex rounded-full bg-success bg-opacity-10 py-1 px-3 text-lg font-medium text-success">
-                    {order.customerName}
+                    {order.table_number}
                   </p>
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 text-center dark:border-strokedark">
                   <p className="inline-flex rounded-full bg-success bg-opacity-10 py-1 px-3 text-lg font-medium text-success">
-                    {order.customerEmail}
+                    {order.customer_name}
                   </p>
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 text-center dark:border-strokedark">
                   <p className="inline-flex rounded-full bg-success bg-opacity-10 py-1 px-3 text-lg font-medium text-success">
-                    ${order.totalAmount}
+                    {order.customer_email}
+                  </p>
+                </td>
+                <td className="border-b border-[#eee] py-5 px-4 text-center dark:border-strokedark">
+                  <p className="inline-flex rounded-full bg-success bg-opacity-10 py-1 px-3 text-lg font-medium text-success"></p>
+                </td>
+                <td className="border-b border-[#eee] py-5 px-4 text-center dark:border-strokedark">
+                  <p className="inline-flex rounded-full bg-success bg-opacity-10 py-1 px-3 text-lg font-medium text-success">
+                    ${order.total_cost}
                   </p>
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
