@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { useQuery } from "react-query";
 import { MenuItemMutation } from "../../../../models/MenuItem";
-import CategoriesNavBar from "../../Menu/CategoriesNavBar";
 import ScrollToTop from "../../Menu/Scroll/ScrollToTop";
 import AdminCategories from "./AdminCategories";
 
