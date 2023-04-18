@@ -38,12 +38,21 @@ export default function ItemForm(props: Props) {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+
+    // if (location.pathname.includes('/add')){
+    //   addMenuItem()
+    // }
+
     console.log(editItem)
   }
+
+  //get url
+  const location = useLocation()
 
   return (
     <>
       <section className="w-1/2 mx-auto my-14 flex flex-col">
+        <div>Edit Menu :</div>
         <form className="form-content" onSubmit={handleSubmit}>
           <div className="field flex flex-col">
             <label htmlFor="name" className="label mt-2">
@@ -107,22 +116,33 @@ export default function ItemForm(props: Props) {
             />
           </div>
 
-          <div className="button-group mt-8">
-            {/* {props === 'Update Item' ? ( */}
-            <button
-              className="submit form-box bg-orange rounded px-4 py-1 box-border"
-              // onClick={handleDelete}
-            >
-              Delete
-            </button>
-            {/* ) : null} */}
+          <div className=" px-4 py-4">
+            {location.pathname.includes('/add') && (
+              <button
+                className="submit form-box bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
+                type="submit"
+              >
+                Submit
+              </button>
+            )}
 
-            <button
-              className="submit form-box ml-16  bg-orange rounded px-10 py-1 box-borde"
-              type="submit"
-            >
-              Submit
-            </button>
+            {location.pathname.includes('/edit') && (
+              <div className="grid grid-cols-2 space-2 gap-2 px-4 py-4">
+                <button
+                  className="submit form-box bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
+                  // onClick={handleDelete}
+                >
+                  Edit
+                </button>
+
+                <button
+                  className="submit form-box bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
+                  // onClick={handleDelete}
+                >
+                  Delete
+                </button>
+              </div>
+            )}
           </div>
         </form>
       </section>
