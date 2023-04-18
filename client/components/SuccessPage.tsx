@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { MenuItem } from './Menu/MenuItem'
-import MenuItems from './Menu/MenuItems'
+
 import { CustomerDetails } from '../../models/CustomerOrders'
 
 export interface Props {
