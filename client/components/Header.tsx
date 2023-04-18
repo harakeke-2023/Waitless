@@ -11,6 +11,8 @@ export function Header() {
       ? 'Edit Menu Item'
       : location.pathname.includes('/admin/menu')
       ? 'Admin Menu'
+      : location.pathname.includes('/admin/order')
+      ? 'Admin Orders List'
       : location.pathname.includes('menu')
       ? 'Menu'
       : location.pathname.includes('cart')
