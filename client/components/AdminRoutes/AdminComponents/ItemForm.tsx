@@ -17,19 +17,7 @@ interface Props {
   >
 }
 
-const blankItem = {
-  id: 0,
-  name: '',
-  description: '',
-  price: 0,
-  stock: 0,
-  image_url: '',
-  category_id: 0,
-}
-
 export default function ItemForm(props: Props) {
-  // const [editItem, setEditItem] = useState(blankItem)
-  // let editItem = { ...props.item }
   const { editItem, setMenuItemForEdit } = props
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
