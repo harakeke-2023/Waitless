@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { MenuItemMutation } from '../../../../models/MenuItem'
 import { useLocation } from 'react-router-dom'
+import { addMenuItem } from '../../../apis/menuItems'
 
 interface Props {
   editItem: MenuItemMutation
@@ -42,8 +43,10 @@ export default function ItemForm(props: Props) {
 
     if (location.pathname.includes('/add')) {
       //stuff in here
+      await addMenuItem(editItem)
     } else if (location.pathname.includes('/edit')) {
       //stuff in here
+      await 
     }
 
     console.log(editItem)
