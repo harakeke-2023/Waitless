@@ -42,7 +42,7 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
     }) as OrderDetails[]
 
     const fullCustomerOrder: CustomerOrderDb = {
-      total_cost: totalCost,
+      total_cost: Number(totalCost.toFixed(2)),
       customer_name: customerDetails.name,
       customer_email: customerDetails.email,
       table_number: Number(tableNo),
@@ -58,12 +58,9 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
         }
       })
       .catch((error) => console.error(error))
+    localStorage.setItem('cart', JSON.stringify([]))
   }
 
-  // const addToCart = (item: CartItem) => {
-  //   // Add item to cart
-  //   setCartItems([...cartItems, item])
-  // }
   useEffect(() => {
     const currentCartJson = localStorage.getItem('cart')
     const fetchedCartItems = (JSON.parse(currentCartJson as string) ||
@@ -104,7 +101,7 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
   }
 
   return (
-    <div>
+    <div className="container max-w-screen-lg mx-auto px-5">
       {isPaymentSubmitted ? (
         // render the SuccessPage component if payment is submitted *Mock*
         <SuccessPage
@@ -113,45 +110,48 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
           }}
         />
       ) : (
-        <div>
-          <div className="p-4">
+        <div className="p-4">
+          <div>
             {cartItems.length > 0 ? (
               <article className="my-4 rounded-md shadow-lg">
                 <ul>
                   {cartItems.map((item, index) => (
-                    <li key={item.id} className="shadow-lg">
+                    <li key={item.id} className="shadow-lg p-4">
                       <span>
-                        <h2 className="font-bold flex items-center ">
-                          <div className="flex  w-1/2">{item.name}</div>
-                          <div className=" ml-2 w-1/5 font-bold flex items-center  mr-20">
+                        <h2 className="font-bold flex items-center justify-between">
+                          <div className="flex w-full md:w-1/2">
+                            {item.name}
+                          </div>
+                          <div className="ml-2 w-1/5 font-bold flex items-center justify-center md:justify-end">
                             ${item.quantity * item.price}
                           </div>
-
-                          <button
-                            onClick={() =>
-                              cartItems[index].quantity >= 2
-                                ? changeQuantity(-1, item.id)
-                                : removeFromCart(item.id)
-                            }
-                            className=" p-3 border-2 border-r-0 "
-                          >
-                            -
-                          </button>
-                          <div className="p-3 px-10 font-bold border-2">
-                            {item.quantity}
+                          <div className="flex items-center md:ml-2 p-2">
+                            <button
+                              onClick={() =>
+                                cartItems[index].quantity >= 2
+                                  ? changeQuantity(-1, item.id)
+                                  : removeFromCart(item.id)
+                              }
+                              className=" p-3 border-2 border-r-0 "
+                            >
+                              -
+                            </button>
+                            <div className="p-3 px-10 font-bold border-2">
+                              {item.quantity}
+                            </div>
+                            <button
+                              onClick={() => changeQuantity(1, item.id)}
+                              className="p-3 border-2 border-l-0"
+                            >
+                              +
+                            </button>
+                            <button
+                              onClick={() => removeFromCart(item.id)}
+                              className="ml-2 md:ml-12 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                            >
+                              Remove
+                            </button>
                           </div>
-                          <button
-                            onClick={() => changeQuantity(1, item.id)}
-                            className="p-3 border-2 border-l-0"
-                          >
-                            +
-                          </button>
-                          <button
-                            onClick={() => removeFromCart(item.id)}
-                            className="ml-12 bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
-                          >
-                            Remove
-                          </button>
                         </h2>
                       </span>
                     </li>
@@ -166,9 +166,10 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
           <h2 className="ml-5 font-bold flex items-center ">
             Total: ${totalCost.toFixed(2)}
           </h2>
+
           <button
             onClick={submitOrderToDb}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4 mb-8 "
           >
             Submit Order
           </button>
@@ -179,65 +180,3 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
 }
 
 export default Cart
-
-// import React, { useState } from 'react'
-// import Payment from './Payment'
-// import SuccessPage from './SuccessPage'
-// import FailedPage from './FailedPage'
-
-// // Mock data for cart items
-// const cartitems = [
-//   {
-//     categoryid: 1,
-//     id: 2,
-//     name: 'Vegetarian Mini Samosas ( 10 pcs)',
-//     price: 12,
-//   },
-//   { categoryid: 2, id: 16, name: 'Tofu Fried Rice', price: 18.8 },
-//   { categoryid: 3, id: 18, name: 'Pad Thai Duck', price: 21.8 },
-//   { categoryid: 4, id: 63, name: 'Pinor Gris', price: 9 },
-// ]
-
-// type CartProps = {
-//   handlePaymentSubmit: () => void // Define handlePaymentSubmit prop type
-// }
-
-// const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
-//   // Add handlePaymentSubmit as a prop
-//   const [isPaymentSubmitted, setPaymentSubmitted] = useState(false)
-
-//   const handlePaymentButtonClick = () => {
-//     // Call the handlePaymentSubmit callback function passed as a prop
-//     handlePaymentSubmit()
-//     setPaymentSubmitted(true)
-//   }
-
-//   return (
-//     <div>
-//       {isPaymentSubmitted ? (
-//         // render the SuccessPage component if payment is submitted *Mock*
-//         <SuccessPage
-//           name={''}
-//           checkStatus={function (): void {
-//             throw new Error('Function not implemented.')
-//           }}
-//         />
-//       ) : (
-//         <div>
-//           <h1>Cart Items</h1>
-//           <ul>
-//             {cartitems.map((item) => (
-//               <li key={item.id}>
-//                 {item.name} - ${item.price}
-//               </li>
-//             ))}
-//           </ul>
-//           <button onClick={handlePaymentButtonClick}>Submit Payment</button>{' '}
-//           {/* Use handlePaymentButtonClick as the onClick handler */}
-//         </div>
-//       )}
-//     </div>
-//   )
-// }
-
-// export default Cart

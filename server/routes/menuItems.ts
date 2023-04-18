@@ -41,7 +41,17 @@ router.get('/:id', async (req, res) => {
 //POST /api/v1/menuitems
 router.post('/', async (req, res) => {
   try {
-    await db.addMenuItem(menuItemSchema.parse(req.body))
+    const { name, description, price, stock, image_url, category_id } = req.body
+    await db.addMenuItem(
+      menuItemSchema.parse({
+        name,
+        description,
+        price: Number(price),
+        stock: Number(stock),
+        image_url,
+        category_id: Number(category_id),
+      })
+    )
 
     res.sendStatus(201)
   } catch (error) {

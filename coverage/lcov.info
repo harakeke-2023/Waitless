@@ -314,8 +314,8 @@ DA:4,7
 DA:6,7
 DA:8,7
 DA:11,7
-DA:13,2
-DA:14,2
+DA:13,0
+DA:14,0
 DA:18,7
 DA:20,1
 DA:21,1
@@ -328,11 +328,11 @@ DA:34,2
 DA:37,7
 DA:56,1
 LF:19
-LH:19
-BRDA:11,0,0,2
+LH:17
+BRDA:11,0,0,0
 BRDA:18,1,0,1
 BRF:2
-BRH:2
+BRH:1
 end_of_record
 TN:
 SF:client/components/Menu/Categories.tsx
