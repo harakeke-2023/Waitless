@@ -24,8 +24,8 @@ export default function AdminOrderMenuItem(props: Props) {
               {itemOrdered.quantity}
             </p>
             <p>
-              <b className="font-bold uppercase px-2">Price:</b>
-              {itemOrdered.price}
+              <b className="font-bold uppercase px-2">Price:</b>${' '}
+              {itemOrdered.price.toFixed(2)}
             </p>
           </div>
         </>
