@@ -8,19 +8,43 @@ import AdminMenuDisplay from './AdminComponents/AdminMenuDisplay'
 import AdminHome from './AdminComponents/AdminHome'
 import EditMenuItem from './AdminComponents/EditMenuItem'
 import AddMenuItem from './AdminComponents/AddMenuItem'
+import AdminHomeMenu from './AdminComponents/AdminHomeMenu'
 
 function AdminRoutes() {
   return (
     <>
       <Routes>
-        <Route path="/admin" element={<AdminHome />} />
+        <Route
+          path="/admin"
+          element={
+            <>
+              <div>
+                <AdminHomeMenu />
+              </div>
+              <AdminHome />
+            </>
+          }
+        />
 
-        <Route path="/admin/about" element={<About />} />
+        <Route
+          path="/admin/about"
+          element={
+            <>
+              <div>
+                <AdminHomeMenu />
+              </div>
+              <About />
+            </>
+          }
+        />
 
         <Route
           path="/admin/menu"
           element={
             <>
+              <div>
+                <AdminHomeMenu />
+              </div>
               <AdminMenuDisplay />
             </>
           }
@@ -29,6 +53,9 @@ function AdminRoutes() {
           path="/admin/menu/add/"
           element={
             <>
+              <div>
+                <AdminHomeMenu />
+              </div>
               <AddMenuItem />
             </>
           }
@@ -37,6 +64,9 @@ function AdminRoutes() {
           path="/admin/menu/edit/:id"
           element={
             <>
+              <div>
+                <AdminHomeMenu />
+              </div>
               <EditMenuItem />
             </>
           }
