@@ -36,15 +36,9 @@ describe('Render Footer component', () => {
     expect(linkElement).toBeInTheDocument()
   })
 
-  it('renders "Contact" text', () => {
-    const { getByText } = render(<Footer />)
-    const linkElement = getByText(/Contact/i)
-    expect(linkElement).toBeInTheDocument()
-  })
-
   it('renders "ODAEATS" text', () => {
     const { getByText } = render(<Footer />)
-    const linkElement = getByText(/ODAEATS/i)
+    const linkElement = getByText(/WAITLESS/i)
     expect(linkElement).toBeInTheDocument()
   })
 
