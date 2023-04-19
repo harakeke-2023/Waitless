@@ -122,23 +122,23 @@ const Cart = () => {
                               Number(item.quantity) * Number(item.price)
                             ).toFixed(2)}
                           </div>
-                          <div className="flex flex-col sm:flex-row items-center md:ml-2 p-2">
+                          <div className="flex flex-col-reverse sm:flex-row items-center md:ml-2 p-2">
                             <button
                               onClick={() =>
                                 cartItems[index].quantity >= 2
                                   ? changeQuantity(-1, item.id)
                                   : removeFromCart(item.id)
                               }
-                              className="border-r-2 sm: p-3 border-2 border-r-0 "
+                              className="py-1 border-r-2 sm:border-r-0 p-3 border-2 "
                             >
                               -
                             </button>
-                            <div className="px-2 sm:px-3 md:px-7 font-bold border-2">
+                            <div className="px-3 sm:px-3 md:px-7 py-1 font-bold border-2">
                               {item.quantity}
                             </div>
                             <button
                               onClick={() => changeQuantity(1, item.id)}
-                              className="border-l-2 sm: p-3 border-2 border-l-0"
+                              className="py-1 border-l-2 sm:border-l-0 p-3 border-2 "
                             >
                               +
                             </button>
