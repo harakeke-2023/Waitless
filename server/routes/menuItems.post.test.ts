@@ -65,6 +65,7 @@ describe('PATCH /api/v1/menuitems/:id Update menu item', () => {
         image_url: '',
         category_id: 1,
         category_name: 'Starters',
+        active: true,
       } as MenuItemMutation)
       .expect('Content-Type', /json/)
       .expect(200)
@@ -89,6 +90,7 @@ describe('PATCH /api/v1/menuitems/:id Update menu item', () => {
         image_url: '',
         category_id: 1,
         category_name: 'Starters',
+        active: true,
       } as MenuItemMutation)
       .expect('Content-Type', /json/)
       .expect(500)

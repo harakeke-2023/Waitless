@@ -20,6 +20,7 @@ interface Props {
       stock: number
       image_url: string
       category_id: number
+      active: boolean
     }>
   >
 }
@@ -259,7 +260,7 @@ export default function ItemForm(props: Props) {
                           className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                           placeholder="Price"
                           onChange={handleChange}
-                          value={editItem && Number(editItem.price)}
+                          value={editItem && editItem.price}
                         />
                       </div>
 

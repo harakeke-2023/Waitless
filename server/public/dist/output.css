@@ -1933,6 +1933,14 @@ video {
     height: 5rem;
   }
 
+  .sm\:h-1\/4 {
+    height: 25%;
+  }
+
+  .sm\:w-auto {
+    width: auto;
+  }
+
   .sm\:flex-row {
     flex-direction: row;
   }
@@ -1955,8 +1963,17 @@ video {
     padding-right: 1.75rem;
   }
 
+  .sm\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
   .sm\:text-center {
     text-align: center;
+  }
+
+  .sm\:font-extrabold {
+    font-weight: 800;
   }
 }
 

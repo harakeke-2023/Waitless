@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { CustomerDetails } from '../../models/CustomerOrders'
 
 export function Signup() {
@@ -31,35 +31,13 @@ export function Signup() {
     }
   }
 
-  // Use below codes for all next coming pages
-  //   const location = useLocation();
-  //   const email = new URLSearchParams(location.search).get('email');
-  //   const name = new URLSearchParams(location.search).get('name');
-
-  //   return (
-  //     <div>
-  //       <p>Email: {email}</p>
-  //       <p>Name: {name}</p>
-  //     </div>
-  //   );
-
   // Handles table number from url
-  const [tableNo, setTableNo] = useState('')
+  // const [tableNo, setTableNo] = useState('')
+  const { tableNo } = useParams()
 
-  useEffect(() => {
-    //fetch current url
-    const url = window.location.href
-    //split url by /
-    const urlArray = url.split('/')
-    //get last item in array
-    const tableNo = urlArray[urlArray.length - 2]
-
-    if (!isNaN(parseInt(tableNo))) {
-      setTableNo(tableNo)
-    } else {
-      setTableNo('Invalid')
-    }
-  }, [])
+  // useEffect(() => {
+  //   setTable
+  // }, [])
   function orderNowClick() {
     localStorage.setItem('customerDetails', JSON.stringify(formData))
   }

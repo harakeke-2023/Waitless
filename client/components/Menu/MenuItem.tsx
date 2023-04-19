@@ -97,7 +97,7 @@ export function MenuItem(props: Props) {
             <button
               type="button"
               onClick={(evt) => addToCart(evt, item)}
-              className="h-1/4 border-solid border-2 border-red-900 bg-slate-100 hover:bg-red-900 rounded-md cursor-pointer px-4 py-2 m-2"
+              className="p-3 sm:h-1/4 border-solid border-2 border-red-900 bg-slate-100 hover:bg-red-900 rounded-md cursor-pointer px-4 py-2 m-2"
             >
               Add to Cart
             </button>
@@ -110,16 +110,16 @@ export function MenuItem(props: Props) {
                     ? changeQuantity(-1, item.id)
                     : changeQuantity(-1, item.id, true)
                 }
-                className="max-w-fit font-extrabold p-3 py-3 border-2 border-r-0"
+                className="w-1/5 sm:w-auto font-extrabold p-3  border-2 border-r-0"
               >
                 -
               </button>
-              <span className="max-w-fit font-extrabold py-3 px-6 border-2">
+              <button className="px-5 sm:px-6 font-extrabold p-3  border-2">
                 {quantityToAdd}
-              </span>
+              </button>
               <button
                 onClick={() => changeQuantity(1, item.id)}
-                className="max-w-fit font-extrabold p-3 py-3 border-2 border-l-0 "
+                className="w-1/5 sm:w-auto font-extrabold p-3  border-2 border-l-0 "
               >
                 +
               </button>
