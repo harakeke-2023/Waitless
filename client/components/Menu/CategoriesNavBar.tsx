@@ -76,5 +76,7 @@ export default function CategoriesNavBar(props: Props) {
         </div>
       </nav>
     </>
+
+    
   )
 }

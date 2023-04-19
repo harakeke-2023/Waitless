@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function Footer() {
   return (
     <>
@@ -46,6 +44,22 @@ export default function Footer() {
               </a>
             </li>
           </ul>
+          <li>
+            <button className="admin-button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M12 2c4.97 0 9 4.03 9 9s-4.03 9-9 9-9-4.03-9-9 4.03-9 9-9zm0 2c-3.87 0-7 3.13-7 7s3.13 7 7 7 7-3.13 7-7-3.13-7-7-7zm6.2 6.3l-3.5 3.5c-.2.2-.5.2-.7 0l-1.5-1.5c-.2-.2-.2-.5 0-.7l3.5-3.5c.2-.2.5-.2.7 0l1.5 1.5c.2.2.2.5 0 .7zm-10.4 0l1.5 1.5c.2.2.2.5 0 .7l-3.5 3.5c-.2.2-.5.2-.7 0l-1.5-1.5c-.2-.2-.2-.5 0-.7l3.5-3.5c.2-.2.5-.2.7 0z"
+                />
+              </svg>
+              Admin
+            </button>
+          </li>
         </div>
       </footer>
     </>
