@@ -22,7 +22,7 @@ export default function AdminMenuitem(props: Props) {
 
   return (
     <div className="flex flex-wrap justify-between px-8 py-4 mx-10 w-3/4 items-center">
-      <strong className="w-2/6">{item.name}</strong>
+      <h2 className="w-2/6">{item.name}</h2>
       <p className="w-1/12">
         <b>Price:</b> {Number(item.price).toFixed(2)}
       </p>
@@ -39,7 +39,7 @@ export default function AdminMenuitem(props: Props) {
       >
         {' '}
         Edit
-      </button>
+      </button> 
       <button
         type="button"
         onClick={handleDelete}

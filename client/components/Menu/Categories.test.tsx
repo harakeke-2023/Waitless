@@ -35,7 +35,9 @@ describe('Categories component', () => {
   ];
 
   it('Renders item with image, name, and price if the category_id is not 4', () => {
-    render(<Categories category={menuItems} />);
+    render(<Categories category={menuItems} fetchNumberOfCartItems={function (): void {
+      throw new Error('Function not implemented.');
+    } } />);
 
     const item1 = screen.getByText('test 1');
     expect(item1).toBeInTheDocument();
@@ -53,7 +55,9 @@ describe('Categories component', () => {
 });
 
   it('Renders items with name and price only if category_id is 4', () => {
-    render(<Categories category={menuItems} />);
+    render(<Categories category={menuItems} fetchNumberOfCartItems={function (): void {
+      throw new Error('Function not implemented.');
+    } } />);
     const item2Prices = screen.queryAllByText('NZD$15.00');
     expect(item2Prices).toHaveLength(2);
     item2Prices.forEach((item) => {
@@ -63,13 +67,17 @@ describe('Categories component', () => {
   });
 
   it('Renders the correct number of items', () => {
-    render(<Categories category={menuItems} />);
+    render(<Categories category={menuItems} fetchNumberOfCartItems={function (): void {
+      throw new Error('Function not implemented.');
+    } } />);
     const items = screen.getAllByRole('img');
     expect(items).toHaveLength(2);
   });
 
   it('Does not render any items if the category array is empty', () => {
-    render(<Categories category={[]} />);
+    render(<Categories category={[]} fetchNumberOfCartItems={function (): void {
+      throw new Error('Function not implemented.');
+    } } />);
     const items = screen.queryByRole('img');
     expect(items).not.toBeInTheDocument();
   });
