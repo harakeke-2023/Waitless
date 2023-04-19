@@ -7,12 +7,14 @@ import AdminHome from './AdminComponents/AdminHome'
 import EditMenuItem from './AdminComponents/EditMenuItem'
 import AddMenuItem from './AdminComponents/AddMenuItem'
 import AdminHomeMenu from './AdminComponents/AdminHomeMenu'
+import AdminLogin from './AdminComponents/AdminLogin'
 
 function AdminRoutes() {
   return (
     <>
       <Routes>
         <Route path="/admin/about" element={<About />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
 
         <Route
           path="/admin"
