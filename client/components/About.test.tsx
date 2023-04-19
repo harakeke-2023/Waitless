@@ -7,7 +7,7 @@ import About from './About'
 describe('About component', () => {
   it('renders h1', () => {
     const { getByText } = render(
-      <MemoryRouter initialEntries={['/about']}>
+      <MemoryRouter initialEntries={['/table/:tableNo/about']}>
         <About />
       </MemoryRouter>
     )
@@ -18,7 +18,7 @@ describe('About component', () => {
 
   it('renders p including "Modern Thai Restaurant And Bar"', () => {
     const { getByText } = render(
-      <MemoryRouter initialEntries={['/about']}>
+      <MemoryRouter initialEntries={['/table/:tableNo/about']}>
         <About />
       </MemoryRouter>
     )
@@ -29,7 +29,7 @@ describe('About component', () => {
 
   it('renders p including "261 Karangahape Road, Auckland CBD, Auckland 1010"', () => {
     const { getByText } = render(
-      <MemoryRouter initialEntries={['/about']}>
+      <MemoryRouter initialEntries={['/table/:tableNo/about']}>
         <About />
       </MemoryRouter>
     )
@@ -40,7 +40,7 @@ describe('About component', () => {
 
   it('renders a button with text "Get In Touch"', () => {
     const { getByText } = render(
-      <MemoryRouter initialEntries={['/about']}>
+      <MemoryRouter initialEntries={['/table/:tableNo/about']}>
         <About />
       </MemoryRouter>
     )
@@ -51,7 +51,7 @@ describe('About component', () => {
 
   it('renders sns links with text "Instagram"', () => {
     const { getByText } = render(
-      <MemoryRouter initialEntries={['/about']}>
+      <MemoryRouter initialEntries={['/table/:tableNo/about']}>
         <About />
       </MemoryRouter>
     )
@@ -62,7 +62,7 @@ describe('About component', () => {
 
   it('renders sns links with text "Facebook"', () => {
     const { getByText } = render(
-      <MemoryRouter initialEntries={['/about']}>
+      <MemoryRouter initialEntries={['/table/:tableNo/about']}>
         <About />
       </MemoryRouter>
     )

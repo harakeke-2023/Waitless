@@ -1,4 +1,7 @@
-import { CustomerOrderDb } from '../../models/CustomerOrders'
+import {
+  CustomerOrderDb,
+  CustomerOrderWithName,
+} from '../../models/CustomerOrders'
 import connection from './connection'
 
 /**

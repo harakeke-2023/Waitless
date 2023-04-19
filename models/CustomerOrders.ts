@@ -5,7 +5,7 @@ export type OrderDetails = {
 }
 
 export type OrderDetailsWithName = {
-  menu_item_name: number
+  menu_item_name: string
   quantity: number
   price: number
 }

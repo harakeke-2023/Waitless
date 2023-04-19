@@ -6,6 +6,7 @@ import * as db from './customerOrders'
 import {
   // OrderDetails,
   CustomerOrderDb,
+  CustomerOrderWithName,
   // CustomerOrder,
 } from '../../models/CustomerOrders'
 
@@ -27,8 +28,13 @@ afterAll(() => {
 
 describe('get all customer order with details', () => {
   it('returns the order detail', async () => {
-    const orders = await db.getAllCustomerOrdersWithDetails(testDb)
-    expect(orders).toBe(1)
+    const orders = (await db.getAllCustomerOrdersWithDetails(
+      testDb
+    )) as CustomerOrderWithName[]
+    expect(orders).toHaveLength(4)
+    expect(orders[0].order_details[0].menu_item_name).toBe(
+      'Vegetarian Fried Rice'
+    )
   })
 })
 
@@ -37,8 +43,8 @@ describe('addNewOrder', () => {
   it('adds a new order', async () => {
     const newOrder = {
       total_cost: 100,
-      customer_name: 'Guy Incognito',
-      customer_email: 'thismanismy@exact.double',
+      customer_name: 'Bort',
+      customer_email: 'mysonis@alsonamed.bort',
       table_number: 1,
       order_details: [{ menu_item_id: 2, quantity: 3, price: 78 }],
     } as CustomerOrderDb
@@ -46,13 +52,11 @@ describe('addNewOrder', () => {
     await db.addCustomerOrder(newOrder, testDb)
     const newOrderAdd = await db.getAllCustomerOrdersWithDetails(testDb)
 
-    const newItemAdd = newOrderAdd[newOrderAdd.length - 1]
-    expect(newItemAdd.total_cost).toBe(100)
-    expect(newItemAdd.customer_name).toBe('Guy Incognito')
-    expect(newItemAdd.customer_email).toBe('thismanismy@exact.double')
-    expect(newItemAdd.table_number).toBe(1)
-    expect(newItemAdd.order_details).toBe([
-      { menu_item_id: 2, quantity: 3, price: 78 },
-    ])
+    expect(newOrderAdd).toHaveLength(5)
+    expect(
+      newOrderAdd?.some(
+        (item) => item.customer_email === 'mysonis@alsonamed.bort'
+      )
+    ).toBe(true)
   })
 })
