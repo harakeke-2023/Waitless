@@ -11,6 +11,7 @@ exports.up = function (knex) {
     table.integer('stock')
     table.string('image_url')
     table.integer('category_id').references('categories.id')
+    table.boolean('active')
   })
 }
 

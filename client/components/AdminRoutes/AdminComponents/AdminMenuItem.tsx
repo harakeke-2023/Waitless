@@ -1,9 +1,11 @@
 import { useNavigate } from 'react-router-dom'
 import { MenuItemMutation } from '../../../../models/MenuItem'
 import { deleteMenuItem } from '../../../apis/menuItems'
+import { QueryObserverResult } from 'react-query'
 
 interface Props {
   item: MenuItemMutation
+  refetch: () => Promise<QueryObserverResult<MenuItemMutation[], unknown>>
 }
 
 export default function AdminMenuitem(props: Props) {
@@ -15,6 +17,7 @@ export default function AdminMenuitem(props: Props) {
   }
   async function handleDelete() {
     await deleteMenuItem(item.id)
+    props.refetch()
   }
 
   return (

@@ -48,7 +48,6 @@ describe('DELETE /api/v1/menuitems', () => {
 describe('POST /api/v1/menuitems/:id Update menu item', () => {
   it('responds with confirmation of updated item', async () => {
     jest.mocked(db.updateMenuItem).mockImplementation((updatedMenuItem) => {
-  
       expect(updatedMenuItem.id).toBe(1)
       expect(updatedMenuItem.name).toBe('Autumnn Rolls')
       expect(updatedMenuItem.description).toBe('Well these are out of season')
