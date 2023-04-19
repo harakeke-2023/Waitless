@@ -25,19 +25,18 @@ function AdminHomeMenu() {
 
           <li>
             <Link
-              to={`/admin/about`}
-              className="rounded text-beige-500  hover:bg-black-600 text-xl font-medium uppercase leading-normal hover:text-green block my-6 py-2 px-6 transition duration-150 ease-in-out hover:border-neutral-100"
-            >
-              About
-            </Link>
-          </li>
-
-          <li>
-            <Link
               to={`/admin/menu/add`}
               className="rounded text-beige-500  hover:bg-black-600 text-xl font-medium uppercase leading-normal hover:text-green block my-6 py-2 px-6 transition duration-150 ease-in-out hover:border-neutral-100"
             >
               Add Menu Item
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={`/admin/order`}
+              className="rounded text-beige-500  hover:bg-black-600 text-xl font-medium uppercase leading-normal hover:text-green block my-6 py-2 px-6 transition duration-150 ease-in-out hover:border-neutral-100"
+            >
+              Order List
             </Link>
           </li>
         </ul>
