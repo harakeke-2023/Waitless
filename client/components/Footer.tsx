@@ -15,7 +15,7 @@ export default function Footer() {
           <ul className="flex flex-wrap items-center mt-3 text-xl font-medium text-gray-500 dark:text-gray-400 sm:mt-0 max-sm:text-sm">
             <li>
               <a
-                href="/"
+                href="/admin"
                 className="mr-4 text-beige-300 hover:underline md:mr-6 "
               >
                 Home
@@ -23,7 +23,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="/about"
+                href={location.href + '/about'}
                 className="mr-4 text-beige-300 hover:underline md:mr-6 "
               >
                 About

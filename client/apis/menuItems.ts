@@ -5,7 +5,7 @@ const rootUrl = '/api/v1'
 
 export async function getAllMenuItems() {
   const res = await request.get(rootUrl + '/menuitems')
-  return res.body
+  return res.body as MenuItemMutation[]
 }
 
 export async function getMenuItemById(id: number) {

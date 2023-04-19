@@ -33,22 +33,21 @@ describe('POST /api/v1/menuitems', () => {
   })
 })
 
-describe('DELETE /api/v1/menuitems', () => {
-  it('deletes item, and confirms deletion', async () => {
-    jest.mocked(db.deleteMenuItem).mockImplementation(() => {
+describe('PATCH /api/v1/menuitems', () => {
+  it('sets item to inactive, and confirms', async () => {
+    jest.mocked(db.setMenuItemInactive).mockImplementation(() => {
       return Promise.resolve(1)
     })
 
     await request(server).delete('/api/v1/menuitems/1')
 
-    expect(db.deleteMenuItem).toHaveBeenCalled()
+    expect(db.setMenuItemInactive).toHaveBeenCalled()
   })
 })
 
-describe('POST /api/v1/menuitems/:id Update menu item', () => {
+describe('PATCH /api/v1/menuitems/:id Update menu item', () => {
   it('responds with confirmation of updated item', async () => {
     jest.mocked(db.updateMenuItem).mockImplementation((updatedMenuItem) => {
-  
       expect(updatedMenuItem.id).toBe(1)
       expect(updatedMenuItem.name).toBe('Autumnn Rolls')
       expect(updatedMenuItem.description).toBe('Well these are out of season')

@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import Home from '../Home'
 import MenuItems from '../Menu/MenuItems'
-import Contact from '../Contact'
+
 import Cart from '../Cart'
 import SuccessPage from '../SuccessPage'
 import FailedPage from '../FailedPage'
@@ -39,12 +39,14 @@ function CustomerRoutes() {
             </>
           }
         />
-        <Route path="/contact" element={<Contact />} />
         <Route
           path="/table/:tableNo/cart"
           element={
             <>
-              <Cart handlePaymentSubmit={() => {}} />
+              <div>
+                <HomeMenu />
+              </div>
+              <Cart />
             </>
           }
         />

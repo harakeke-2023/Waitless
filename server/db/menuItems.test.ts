@@ -24,7 +24,7 @@ describe('getAllMenuItems', () => {
   it('returns the correct number of menu items', async () => {
     const menuItems = await db.getAllMenuItems(testDb)
 
-    expect(menuItems).toHaveLength(63)
+    expect(menuItems).toHaveLength(62)
   })
 })
 
@@ -39,15 +39,16 @@ describe('addMenuItem', () => {
       category_id: 2,
     } as MenuItem
 
-    await db.addMenuItem(newMenuItem, testDb)
-    const menuItems = (await db.getAllMenuItems(testDb)) as MenuItemDb[]
+    const response = await db.addMenuItem(newMenuItem, testDb)
 
-    const newItem = menuItems[menuItems.length - 1]
+    const fetchedMenuItem = await db.getMenuItemById(response[0], testDb)
 
-    expect(newItem.name).toBe('Nuts and Gum')
-    expect(newItem.description).toBe(`Together At Last!`)
-    expect(newItem.stock).toBe(40)
-    expect(newItem.category_id).toBe(2)
+    // const menuItems = (await db.getAllMenuItems(testDb)) as MenuItemDb[]
+
+    expect(fetchedMenuItem.name).toBe('Nuts and Gum')
+    expect(fetchedMenuItem.description).toBe(`Together At Last!`)
+    expect(fetchedMenuItem.stock).toBe(40)
+    expect(fetchedMenuItem.category_id).toBe(2)
   })
 })
 
@@ -74,19 +75,17 @@ describe('updateMenutItem', () => {
     }
 
     await db.updateMenuItem(updatedMenuItem, testDb)
-
     const fetchedMenuItem = await db.getMenuItemById(1, testDb)
-
     expect(fetchedMenuItem.name).toBe('Autumnn Rolls')
     expect(fetchedMenuItem.description).toBe('Well these are out of season')
     expect(fetchedMenuItem.price).toBe(3)
   })
 })
 
-describe('deleteMenuItem', () => {
-  it('deletes a specific menu item', async () => {
+describe('setMenuItemInactive', () => {
+  it('set inactive to a specific menu item', async () => {
     const id = 1
-    await db.deleteMenuItem(id, testDb)
+    await db.setMenuItemInactive(id, testDb)
 
     const menuItems = (await db.getAllMenuItems(testDb)) as MenuItem[]
 

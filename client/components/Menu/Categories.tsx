@@ -58,51 +58,6 @@ export default function Categories(props: Props) {
             />
           )
         })}
-        {/* {props.category.map((item) => {
-          if (item.category_id !== 4) {
-            return (
-              <div
-                key={item.id}
-                className="items-center flex flex-col border-solid border-4 border-red-900 rounded-lg p-2 m-px"
-              >
-                <img src={`/images/${item.image_url}`} alt={item.name} />
-                <h2 className="text-xs md:text-base lg:text-xl text-center">
-                  <strong>{item.name}</strong>
-                </h2>
-                <p className="text-sm md:text-base lg:text-xl text-center">
-                  NZD${item.price.toFixed(2)}
-                </p>
-                {!addedToCart && (
-                  <button
-                    type="button"
-                    onClick={(evt) => addToCart(evt, item)}
-                    className="border-solid border-2 border-red-900 bg-slate-100 hover:bg-red-900 rounded-md cursor-pointer px-4 py-2 m-2"
-                  >
-                    Add to Cart
-                  </button>
-                )}
-                {addedToCart && (
-                  <div>
-                    <button>-</button>
-                    <span>1</span>
-                    <button>+</button>
-                  </div>
-                )}
-              </div>
-            )
-          } else {
-            return (
-              <div key={item.id} className="col-span-2 text-base md:text-xl flex justify-between mx-11 ">
-                <p>
-                  <strong>{item.name}</strong> - NZD${item.price}
-                </p>
-                  <button onClick={(evt) => addToCart(evt, item)} className="border-solid border-2 border-red-900 bg-slate-100 hover:bg-red-900 rounded-md cursor-pointer p-2">
-                    Add
-                  </button>
-              </div>
-            )
-          }
-        })} */}
       </section>
     </>
   )

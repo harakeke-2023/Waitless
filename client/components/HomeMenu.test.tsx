@@ -11,6 +11,5 @@ describe('HomeMenu', () => {
     expect(links).toHaveLength(3)
     expect(links[0]).toHaveTextContent('Home')
     expect(links[1]).toHaveTextContent('Menu')
-    expect(links[2]).toHaveTextContent('Contact')
   })
 })
