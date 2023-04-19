@@ -91,6 +91,13 @@ export function Signup() {
 
         <div className="flex items-center w-full max-w-md px-6 mx-auto lg:w-2/6">
           <div className="flex-1">
+            <div className="text-center">
+              <img
+                src="./images/logo/finallogo08.png"
+                alt="logo"
+                className="my-4 max-lg:max-w-[50%] max-h-none mx-auto"
+              />
+            </div>
             <div className="text-center my-8 border-scarlet-400 border-t-4 border-b-4">
               <h1 className="text-4xl font-bold text-center text-gray-700 my-4 dark:text-scarlet-400">
                 Table No: {Number(tableNo) || 0}
