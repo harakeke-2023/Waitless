@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
 
-import Contact from '../Contact'
 import About from '../About'
 import AdminOrdersList from './AdminComponents/AdminOrdersList'
 import AdminMenuDisplay from './AdminComponents/AdminMenuDisplay'
@@ -8,13 +7,14 @@ import AdminHome from './AdminComponents/AdminHome'
 import EditMenuItem from './AdminComponents/EditMenuItem'
 import AddMenuItem from './AdminComponents/AddMenuItem'
 import AdminHomeMenu from './AdminComponents/AdminHomeMenu'
+import AdminLogin from './AdminComponents/AdminLogin'
 
 function AdminRoutes() {
   return (
     <>
       <Routes>
         <Route path="/admin/about" element={<About />} />
-        <Route path="/admin/contact" element={<Contact />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
 
         <Route
           path="/admin"
@@ -24,18 +24,6 @@ function AdminRoutes() {
                 <AdminHomeMenu />
               </div>
               <AdminHome />
-            </>
-          }
-        />
-
-        <Route
-          path="/admin/about"
-          element={
-            <>
-              <div>
-                <AdminHomeMenu />
-              </div>
-              <About />
             </>
           }
         />
@@ -78,8 +66,9 @@ function AdminRoutes() {
           element={
             <>
               <div>
-                <AdminOrdersList />
+                <AdminHomeMenu />
               </div>
+              <AdminOrdersList />
             </>
           }
         />

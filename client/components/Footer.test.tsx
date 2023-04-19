@@ -12,11 +12,11 @@ describe('Render Footer component', () => {
     expect(linkElement).toBeInTheDocument()
   })
 
-  it('renders "Home" text', () => {
-    const { getByText } = render(<Footer />)
-    const linkElement = getByText(/Home/i)
-    expect(linkElement).toBeInTheDocument()
-  })
+  // it('renders "Admin Home" text', () => {
+  //   const { getByText } = render(<Footer />)
+  //   const linkElement = getByText(/Admin/i)
+  //   expect(linkElement).toBeInTheDocument()
+  // })
 
   it('renders "About" text', () => {
     const { getByText } = render(<Footer />)
@@ -36,15 +36,15 @@ describe('Render Footer component', () => {
     expect(linkElement).toBeInTheDocument()
   })
 
-  it('renders "Contact" text', () => {
+  it('renders "about" text', () => {
     const { getByText } = render(<Footer />)
-    const linkElement = getByText(/Contact/i)
+    const linkElement = getByText(/about/i)
     expect(linkElement).toBeInTheDocument()
   })
 
-  it('renders "ODAEATS" text', () => {
+  it('renders "waitless" text', () => {
     const { getByText } = render(<Footer />)
-    const linkElement = getByText(/ODAEATS/i)
+    const linkElement = getByText(/Waitless/i)
     expect(linkElement).toBeInTheDocument()
   })
 

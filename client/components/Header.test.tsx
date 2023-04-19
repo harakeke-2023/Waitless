@@ -26,15 +26,4 @@ describe('Header component - Button rendering', () => {
     const orderNowButton = queryByText('Order Now')
     expect(orderNowButton).not.toBeInTheDocument()
   })
-
-  it('does not render "Order Now" button on contact pages', () => {
-    const { queryByText } = render(
-      <MemoryRouter initialEntries={['/contact']}>
-        <Header />
-      </MemoryRouter>
-    )
-
-    const orderNowButton = queryByText('Order Now')
-    expect(orderNowButton).not.toBeInTheDocument()
-  })
 })

@@ -9,12 +9,7 @@ import {
 import { useNavigate, useParams } from 'react-router-dom'
 import { sendCustomerOrder } from '../apis/customerOrders'
 
-interface CartProps {
-  handlePaymentSubmit: () => void
-}
-//const Cart: React.FC<CartProps> is a functional component that takes in CartProps as a prop.
-//The handlePaymentSubmit prop is expected to be a function that is called when the user clicks the "Submit Payment Method" button
-const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
+const Cart = () => {
   const navigate = useNavigate()
   const { tableNo } = useParams() as { tableNo: string }
   const [isPaymentSubmitted, setPaymentSubmitted] = useState(false)
@@ -26,7 +21,6 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
   const [count, addCount] = useState(0)
 
   const submitOrderToDb = () => {
-    handlePaymentSubmit()
     setPaymentSubmitted(true)
 
     const customerDetails: CustomerDetails = JSON.parse(
@@ -101,7 +95,7 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
   }
 
   return (
-    <div className="container max-w-screen-lg mx-auto px-5">
+    <div className="container max-w-screen-lg mx-auto px-3 ">
       {isPaymentSubmitted ? (
         // render the SuccessPage component if payment is submitted *Mock*
         <SuccessPage
@@ -110,7 +104,7 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
           }}
         />
       ) : (
-        <div className="p-4">
+        <div>
           <div>
             {cartItems.length > 0 ? (
               <article className="my-4 rounded-md shadow-lg">
@@ -123,35 +117,38 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
                             {item.name}
                           </div>
                           <div className="ml-2 w-1/5 font-bold flex items-center justify-center md:justify-end">
-                            ${item.quantity * item.price}
+                            $
+                            {(
+                              Number(item.quantity) * Number(item.price)
+                            ).toFixed(2)}
                           </div>
-                          <div className="flex items-center md:ml-2 p-2">
+                          <div className="flex flex-col-reverse sm:flex-row items-center md:ml-2 p-2">
                             <button
                               onClick={() =>
                                 cartItems[index].quantity >= 2
                                   ? changeQuantity(-1, item.id)
                                   : removeFromCart(item.id)
                               }
-                              className=" p-3 border-2 border-r-0 "
+                              className="py-1 border-r-2 sm:border-r-0 p-3 border-2 "
                             >
                               -
                             </button>
-                            <div className="p-3 px-10 font-bold border-2">
+                            <div className="px-3 sm:px-3 md:px-7 py-1 font-bold border-2">
                               {item.quantity}
                             </div>
                             <button
                               onClick={() => changeQuantity(1, item.id)}
-                              className="p-3 border-2 border-l-0"
+                              className="py-1 border-l-2 sm:border-l-0 p-3 border-2 "
                             >
                               +
                             </button>
-                            <button
-                              onClick={() => removeFromCart(item.id)}
-                              className="ml-2 md:ml-12 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                            >
-                              Remove
-                            </button>
                           </div>
+                          <button
+                            onClick={() => removeFromCart(item.id)}
+                            className=" ml-2  bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                          >
+                            Remove
+                          </button>
                         </h2>
                       </span>
                     </li>
@@ -164,7 +161,7 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
           </div>
 
           <h2 className="ml-5 font-bold flex items-center ">
-            Total: ${totalCost.toFixed(2)}
+            Total: ${Number(totalCost).toFixed(2)}
           </h2>
 
           <button
