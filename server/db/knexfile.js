@@ -1,6 +1,13 @@
 const { join } = require('node:path')
 
 module.exports = {
+  production: {
+    client: 'sqlite3',
+    connection: {
+      filename: '/app/storage/dev.sqlite3',
+    },
+    useNullAsDefault: true,
+  },
   development: {
     client: 'sqlite3',
     useNullAsDefault: true,
@@ -27,13 +34,5 @@ module.exports = {
     pool: {
       afterCreate: (conn, cb) => conn.run('PRAGMA foreign_keys = ON', cb),
     },
-  },
-
-  production: {
-    client: 'sqlite3',
-    connection: {
-      filename: '/app/storage/dev.sqlite3',
-    },
-    useNullAsDefault: true,
   },
 }
