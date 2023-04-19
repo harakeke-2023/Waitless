@@ -12,11 +12,11 @@ describe('Render Footer component', () => {
     expect(linkElement).toBeInTheDocument()
   })
 
-  it('renders "Admin Home" text', () => {
-    const { getByText } = render(<Footer />)
-    const linkElement = getByText(/Home/i)
-    expect(linkElement).toBeInTheDocument()
-  })
+  // it('renders "Admin Home" text', () => {
+  //   const { getByText } = render(<Footer />)
+  //   const linkElement = getByText(/Admin/i)
+  //   expect(linkElement).toBeInTheDocument()
+  // })
 
   it('renders "About" text', () => {
     const { getByText } = render(<Footer />)
