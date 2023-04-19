@@ -44,7 +44,7 @@ export function Signup() {
 
   return (
     <div className="bg-white dark:bg-zinc-900">
-      <div className="flex justify-center h-screen">
+      <div className="flex justify-center h-auto py-3 sm:h-screen sm:py-0 ">
         <div
           className="hidden bg-cover lg:block lg:w-2/3"
           style={{

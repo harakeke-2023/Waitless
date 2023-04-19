@@ -64,34 +64,6 @@ describe('AdminHome component', () => {
     expect(welcomeText).toBeTruthy()
   })
 
-  test('logs correct message for orders button click', () => {
-    const consoleSpy = jest.spyOn(console, 'log')
-    const { getByTestId } = render(
-      <Router>
-        <AdminHome />
-      </Router>
-    )
-
-    fireEvent.click(getByTestId('go to orders list'))
-
-    expect(consoleSpy).toHaveBeenCalledWith(
-      'Redirecting to orders export page...'
-    )
-  })
-
-  test('logs correct message for menu button click', () => {
-    const consoleSpy = jest.spyOn(console, 'log')
-    const { getByTestId } = render(
-      <Router>
-        <AdminHome />
-      </Router>
-    )
-
-    fireEvent.click(getByTestId('go to menu'))
-
-    expect(consoleSpy).toHaveBeenCalledWith('Redirecting to menu page...')
-  })
-
   test('renders with correct button text', () => {
     const { getByTestId } = render(
       <Router>

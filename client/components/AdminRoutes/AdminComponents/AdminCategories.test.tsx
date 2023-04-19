@@ -1,9 +1,9 @@
-import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
-import { QueryObserverResult } from 'react-query';
-import { MemoryRouter } from 'react-router-dom';
-import { MenuItemMutation } from '../../../../models/MenuItem';
-import AdminCategories from './AdminCategories';
+import '@testing-library/jest-dom'
+import { render, screen } from '@testing-library/react'
+import { QueryObserverResult } from 'react-query'
+import { MemoryRouter } from 'react-router-dom'
+import { MenuItemMutation } from '../../../../models/MenuItem'
+import AdminCategories from './AdminCategories'
 
 describe('AdminCategories component', () => {
   const menuItems: MenuItemMutation[] = [
@@ -15,6 +15,7 @@ describe('AdminCategories component', () => {
       stock: 20,
       image_url: 'test1.jpeg',
       category_id: 2,
+      active: true,
     },
     {
       id: 2,
@@ -24,25 +25,62 @@ describe('AdminCategories component', () => {
       stock: 20,
       image_url: 'test2.jpeg',
       category_id: 4,
-    }
-  ];
+      active: true,
+    },
+  ]
   it('Renders without errors', () => {
-    render(<MemoryRouter>
-        <AdminCategories category={menuItems} refetch={function (): Promise<QueryObserverResult<{ id: number; name: string; description: string; price: number; stock: number; image_url: string; category_id: number; }[], unknown>> {
-            throw new Error('Function not implemented.');
-        } } />
-    </MemoryRouter>)
-   
-   expect(screen.getByText('test 1')).toBeInTheDocument();
+    render(
+      <MemoryRouter>
+        <AdminCategories
+          category={menuItems}
+          refetch={function (): Promise<
+            QueryObserverResult<
+              {
+                id: number
+                name: string
+                description: string
+                price: number
+                stock: number
+                image_url: string
+                category_id: number
+                active: boolean
+              }[],
+              unknown
+            >
+          > {
+            throw new Error('Function not implemented.')
+          }}
+        />
+      </MemoryRouter>
+    )
 
-  });
+    expect(screen.getByText('test 1')).toBeInTheDocument()
+  })
 
   it('Does not render any items if the category array is empty', () => {
-    render(<AdminCategories category={[]} refetch={function (): Promise<QueryObserverResult<{ id: number; name: string; description: string; price: number; stock: number; image_url: string; category_id: number; }[], unknown>> {
-        throw new Error('Function not implemented.');
-    } } />);
-    const items = screen.queryByRole('heading', {level:2});
-    expect(items).not.toBeInTheDocument();
-  });
-});
-
+    render(
+      <AdminCategories
+        category={[]}
+        refetch={function (): Promise<
+          QueryObserverResult<
+            {
+              id: number
+              name: string
+              description: string
+              price: number
+              stock: number
+              image_url: string
+              category_id: number
+              active: boolean
+            }[],
+            unknown
+          >
+        > {
+          throw new Error('Function not implemented.')
+        }}
+      />
+    )
+    const items = screen.queryByRole('heading', { level: 2 })
+    expect(items).not.toBeInTheDocument()
+  })
+})

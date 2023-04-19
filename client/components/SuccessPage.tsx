@@ -3,11 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 
 import { CustomerDetails } from '../../models/CustomerOrders'
 
-export interface Props {
-  handleReturnButton?: () => void
-}
-
-const SuccessPage = ({ handleReturnButton }: Props) => {
+const SuccessPage = () => {
   const { tableNo } = useParams()
   console.log(tableNo)
   const customerDetails: CustomerDetails = JSON.parse(
@@ -46,10 +42,7 @@ const SuccessPage = ({ handleReturnButton }: Props) => {
 
               {/* Modify the return button to use Link component */}
               <Link to={`/table/${tableNo}/menu`}>
-                <button
-                  className="bg-blue-500 hover:bg-green-500 text-white font-semibold py-2 px-4 rounded transition-colors duration-300"
-                  onClick={handleReturnButtonClick}
-                >
+                <button className="bg-blue-500 hover:bg-green-500 text-white font-semibold py-2 px-4 rounded transition-colors duration-300">
                   Return to Menu
                 </button>
               </Link>

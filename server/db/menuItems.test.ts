@@ -72,6 +72,7 @@ describe('updateMenutItem', () => {
       stock: 40,
       image_url: '',
       category_id: 1,
+      active: true,
     }
 
     await db.updateMenuItem(updatedMenuItem, testDb)
