@@ -1,12 +1,10 @@
 /* eslint-disable jest/no-commented-out-tests */
 import '@testing-library/jest-dom'
 import nock from 'nock'
-import '@testing-library/jest-dom'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { act } from 'react-dom/test-utils'
 import * as ReactQuery from 'react-query'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { MenuItemMutation } from '../../../models/MenuItem'
 import MenuItems from './MenuItems'
 import { MemoryRouter } from 'react-router-dom'
 
@@ -35,6 +33,7 @@ describe('MenuItems component', () => {
             price: 'NZD$10',
             stock: 2,
             category_id: 1,
+            active: true,
           },
           {
             id: 2,
@@ -44,6 +43,7 @@ describe('MenuItems component', () => {
             price: 'NZD$12',
             stock: 30,
             category_id: 2,
+            active: true,
           },
           {
             id: 3,
@@ -53,6 +53,7 @@ describe('MenuItems component', () => {
             price: 'NZD$15',
             stock: 30,
             category_id: 3,
+            active: true,
           },
           {
             id: 4,
@@ -62,6 +63,7 @@ describe('MenuItems component', () => {
             price: 'NZD$3',
             stock: 20,
             category_id: 4,
+            active: true,
           },
         ],
       })
@@ -93,6 +95,7 @@ describe('MenuItems component', () => {
               price: 'NZD$10',
               stock: 2.0,
               category_id: 1,
+              active: true,
             },
             {
               id: 2,
@@ -102,6 +105,7 @@ describe('MenuItems component', () => {
               price: 'NZD$12',
               stock: 30.0,
               category_id: 2,
+              active: true,
             },
             {
               id: 3,
@@ -111,6 +115,7 @@ describe('MenuItems component', () => {
               price: 'NZD$15',
               stock: 30,
               category_id: 3,
+              active: true,
             },
             {
               id: 4,
@@ -120,6 +125,7 @@ describe('MenuItems component', () => {
               price: 'NZD$3',
               stock: 20.0,
               category_id: 4,
+              active: true,
             },
           ],
         },

@@ -1,13 +1,11 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 import { CustomerDetails } from '../../models/CustomerOrders'
 
-export interface Props {
-  handleReturnButton?: () => void
-}
-
-const SuccessPage = ({ handleReturnButton }: Props) => {
+const SuccessPage = () => {
+  const { tableNo } = useParams()
+  console.log(tableNo)
   const customerDetails: CustomerDetails = JSON.parse(
     localStorage.getItem('customerDetails') as string
   ) || { name: '', email: '' }
@@ -15,9 +13,7 @@ const SuccessPage = ({ handleReturnButton }: Props) => {
 
   const [isReturning, setReturn] = useState(true)
 
-  const handleReturnButtonClick = () => {
-    console.log('Welcome back to the menu ... ')
-  }
+  const handleReturnButtonClick = () => {}
 
   if (isReturning) {
     return (
@@ -37,8 +33,7 @@ const SuccessPage = ({ handleReturnButton }: Props) => {
                       Your order is confirmed!
                     </p>
                     <p className="text-lg text-white-600 mb-4">
-                      We will send you a shipping confirmation email, Please pay
-                      at the counter ^ ^
+                      Please pay at the counter ^ ^
                     </p>
                     <p>Estimated food time 30min</p>
                   </div>
@@ -46,17 +41,14 @@ const SuccessPage = ({ handleReturnButton }: Props) => {
               ) : null}
 
               {/* Modify the return button to use Link component */}
-              <Link to="/table/1/menu">
-                <button
-                  className="bg-blue-500 hover:bg-green-500 text-white font-semibold py-2 px-4 rounded transition-colors duration-300"
-                  onClick={handleReturnButtonClick}
-                >
+              <Link to={`/table/${tableNo}/menu`}>
+                <button className="bg-blue-500 hover:bg-green-500 text-white font-semibold py-2 px-4 rounded transition-colors duration-300">
                   Return to Menu
                 </button>
               </Link>
 
               {/* Add a Link to HomeMenu component */}
-              <Link to="/">
+              <Link to={`/table/${tableNo}/`}>
                 <button className="bg-blue-500 hover:bg-green-500 text-white font-semibold py-2 px-4 rounded transition-colors duration-300 mt-4">
                   Return Home
                 </button>

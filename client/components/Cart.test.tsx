@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect'
 
 import Cart from './Cart'
 import { MemoryRouter } from 'react-router-dom'
-import { QueryClientProvider } from 'react-query'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 describe('Cart Component', () => {
   beforeEach(() => {
@@ -44,40 +44,15 @@ describe('Cart Component', () => {
   it('renders cart Items', async () => {
     await act(async () => {
       render(
-        <MemoryRouter initialEntries={['/table/:tableNo/menu']}>
-          <QueryClientProvider client={queryClient}></QueryClientProvider>
+        <MemoryRouter initialEntries={['/table/:tableNo/cart']}>
+          <Cart />
         </MemoryRouter>
       )
     })
+
+    expect(
+      await screen.findByText('Fried Rice With Cashew Nuts')
+    ).toBeInTheDocument()
+    expect(await screen.findByText('Tom Yum Fried Rice')).toBeInTheDocument()
   })
-
-  // it('renders Cart component with Payment component', () => {
-  //   render(<Cart handlePaymentSubmit={mockHandlePaymentSubmit} />)
-
-  //   const itemElement = screen.getByText('Vegetarian Mini Samosas')
-
-  //   expect(itemElement).toBeInTheDocument()
-
-  //   const paymentPageElement = screen.getByTestId('payment')
-  //   expect(paymentPageElement).toBeInTheDocument()
-  // })
-
-  // it('triggers handlePaymentSubmit on submit payment button click', () => {
-  //   render(<Cart handlePaymentSubmit={mockHandlePaymentSubmit} />)
-
-  //   const submitPaymentButton = screen.getByText('Submit Payment')
-  //   fireEvent.click(submitPaymentButton)
-
-  //   expect(mockHandlePaymentSubmit).toHaveBeenCalledTimes(1)
-  // })
-
-  // it('renders Payment component when payment is submitted', () => {
-  //   render(<Cart handlePaymentSubmit={mockHandlePaymentSubmit} />)
-
-  //   const submitPaymentButton = screen.getByText('Submit Payment')
-  //   fireEvent.click(submitPaymentButton)
-
-  //   const paymentComponent = screen.getByTestId('payment')
-  //   expect(paymentComponent).toBeInTheDocument()
-  // })
 })

@@ -1,36 +1,31 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 
 const AdminHome = () => {
   useEffect(() => {
     // Fetch current URL
     const url = window.location.href
 
-    console.log('/admin', url) // Added console log
-
     // Check if the URL contains '/orders'
     if (url.includes('/orders')) {
       // Redirect to orders export page
-      console.log('Redirecting to orders export page...') // Added console log
       window.location.href = '/order'
     }
 
     // Check if the URL contains '/menu'
     if (url.includes('/menu')) {
       // Redirect to menu page
-      console.log('Redirecting to menu page...') // Added console log
       window.location.href = '/menu'
     }
   }, [])
 
   const handleOrdersClick = () => {
     // Redirect to orders export page
-    console.log('Redirecting to orders export page...') // Added console log
     window.location.href = '/admin/order'
   }
 
   const handleMenuClick = () => {
     // Redirect to menu page
-    console.log('Redirecting to menu page...') // Added console log
+
     window.location.href = '/admin/menu/'
   }
 
@@ -42,12 +37,14 @@ const AdminHome = () => {
         </h1>
         <div className="flex flex-col items-center">
           <button
+            data-testid="go to orders list"
             className="w-full mt-4 bg-burgundy-400 hover:bg-beige-800 text-beige font-semibold py-2 px-4 rounded"
             onClick={handleOrdersClick}
           >
             Go to Order List
           </button>
           <button
+            data-testid="go to menu"
             className="w-full mt-4 bg-burgundy-400 hover:bg-beige-800 text-beige font-semibold py-2 px-4 rounded"
             onClick={handleMenuClick}
           >
@@ -60,5 +57,3 @@ const AdminHome = () => {
 }
 
 export default AdminHome
-{
-}

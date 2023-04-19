@@ -57,7 +57,7 @@ function CustomerRoutes() {
               <div>
                 <HomeMenu />
               </div>
-              <SuccessPage handleReturnButton={() => {}} />
+              <SuccessPage />
             </>
           }
         />

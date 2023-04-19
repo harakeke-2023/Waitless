@@ -2,7 +2,7 @@ import {
   MenuItemMutation,
   MenuItemMutationWithQuantity,
 } from '../../../models/MenuItem'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 interface Props {
   item: MenuItemMutation
@@ -97,7 +97,7 @@ export function MenuItem(props: Props) {
             <button
               type="button"
               onClick={(evt) => addToCart(evt, item)}
-              className="h-1/4 border-solid border-2 border-red-900 bg-slate-100 hover:bg-red-900 rounded-md cursor-pointer px-4 py-2 m-2"
+              className="p-3 sm:h-1/4 border-solid border-2 border-red-900 bg-slate-100 hover:bg-red-900 rounded-md cursor-pointer px-4 py-2 m-2"
             >
               Add to Cart
             </button>
@@ -110,16 +110,16 @@ export function MenuItem(props: Props) {
                     ? changeQuantity(-1, item.id)
                     : changeQuantity(-1, item.id, true)
                 }
-                className="w-1/5 font-extrabold p-3 border-2 border-r-0 "
+                className="w-1/5 sm:w-auto font-extrabold p-3  border-2 border-r-0"
               >
                 -
               </button>
-              <span className=" p-3 px-16 font-bold border-2">
+              <button className="px-5 sm:px-6 font-extrabold p-3  border-2">
                 {quantityToAdd}
-              </span>
+              </button>
               <button
                 onClick={() => changeQuantity(1, item.id)}
-                className="w-1/5 font-extrabold p-3 border-2 border-l-0 "
+                className="w-1/5 sm:w-auto font-extrabold p-3  border-2 border-l-0 "
               >
                 +
               </button>
@@ -132,16 +132,16 @@ export function MenuItem(props: Props) {
     return (
       <div
         key={item.id}
-        className="col-span-2 text-base md:text-xl flex justify-between mx-11 items-center"
+        className="col-span-2 text-base md:text-xl flex justify-between items-center"
       >
         <p>
-          <strong>{item.name}</strong> - NZD ${item.price}
+          <strong>{item.name}</strong> - NZD ${Number(item.price).toFixed(2)}
         </p>
         <button
           className="border-solid border-2 border-red-900 bg-slate-100 hover:bg-red-900 rounded-md cursor-pointer p-2 "
           onClick={(evt) => addToCart(evt, item)}
         >
-          Add to Cart
+          Add
         </button>
       </div>
     )

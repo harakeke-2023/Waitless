@@ -5,25 +5,14 @@ import { MemoryRouter } from 'react-router-dom'
 import { Header } from './Header'
 
 describe('Header component - Button rendering', () => {
-  it('renders "Order Now" button on home page', () => {
+  it('renders Home on home page', () => {
     const { queryByText } = render(
-      <MemoryRouter initialEntries={['/']}>
+      <MemoryRouter initialEntries={['/table/3/']}>
         <Header />
       </MemoryRouter>
     )
 
-    const orderNowButton = queryByText('Order Now')
+    const orderNowButton = queryByText('Home')
     expect(orderNowButton).toBeInTheDocument()
-  })
-
-  it('does not render "Order Now" button on about page', () => {
-    const { queryByText } = render(
-      <MemoryRouter initialEntries={['/about']}>
-        <Header />
-      </MemoryRouter>
-    )
-
-    const orderNowButton = queryByText('Order Now')
-    expect(orderNowButton).not.toBeInTheDocument()
   })
 })

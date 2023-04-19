@@ -43,7 +43,6 @@ export default function AdminMenuDisplay() {
   })
   return (
     <>
-      {/* <CategoriesNavBar /> */}
       <div>
         <a id="appetizers" href="#appetizers">
           <h2 className="m-8 text-2xl font-bold">Appetizers</h2>
