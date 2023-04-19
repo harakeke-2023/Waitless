@@ -12,7 +12,7 @@ describe('Render Footer component', () => {
     expect(linkElement).toBeInTheDocument()
   })
 
-  it('renders "Home" text', () => {
+  it('renders "Admin Home" text', () => {
     const { getByText } = render(<Footer />)
     const linkElement = getByText(/Home/i)
     expect(linkElement).toBeInTheDocument()
@@ -36,9 +36,15 @@ describe('Render Footer component', () => {
     expect(linkElement).toBeInTheDocument()
   })
 
-  it('renders "ODAEATS" text', () => {
+  it('renders "about" text', () => {
     const { getByText } = render(<Footer />)
-    const linkElement = getByText(/WAITLESS/i)
+    const linkElement = getByText(/about/i)
+    expect(linkElement).toBeInTheDocument()
+  })
+
+  it('renders "waitless" text', () => {
+    const { getByText } = render(<Footer />)
+    const linkElement = getByText(/Waitless/i)
     expect(linkElement).toBeInTheDocument()
   })
 
