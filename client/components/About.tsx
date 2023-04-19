@@ -122,7 +122,7 @@ export default function About() {
         <div className="w-full lg:w-2/5 bg-black-400">
           {/* <!-- Big profile image for side bar (desktop) --> */}
           <img
-            src="./images/logo/pokpok_logo.png"
+            src="/images/logo/pokpok_logo.png"
             className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
             alt="profile"
           />

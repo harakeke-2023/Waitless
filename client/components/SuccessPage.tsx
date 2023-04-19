@@ -18,8 +18,8 @@ const SuccessPage = () => {
   if (isReturning) {
     return (
       <>
-        <div className="flex items-center justify-center h-screen">
-          <div className="bg-burgundy-600 p-8 rounded-lg text-center">
+        <div className="flex items-center justify-center my-7 ">
+          <div className="bg-burgundy-600 p-8 rounded-lg text-center text-white">
             <div className="max-w-md mx-auto">
               {isReturning ? (
                 <>
@@ -29,10 +29,10 @@ const SuccessPage = () => {
                   </div>
                   <div className="border border-gray-500 rounded-lg px-6 py-4 mb-6">
                     <h1 className="text-3xl font-bold mb-2">Hello {name}</h1>
-                    <p className="text-lg text-white-600 mb-4">
+                    <p className="text-lg text-white mb-4">
                       Your order is confirmed!
                     </p>
-                    <p className="text-lg text-white-600 mb-4">
+                    <p className="text-lg text-white mb-4">
                       Please pay at the counter ^ ^
                     </p>
                     <p>Estimated food time 30min</p>

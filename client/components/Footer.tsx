@@ -1,8 +1,9 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 
 export default function Footer() {
   const navigate = useNavigate()
   const location = useLocation()
+  const { tableNo } = useParams()
   return (
     <>
       <footer className="bg-burgundy-500 shadow h-40 sm:h-20">
@@ -23,14 +24,7 @@ export default function Footer() {
                 Admin
               </a>
             </li> */}
-            <li>
-              <a
-                href="/about"
-                className="mr-4 text-beige-300 hover:underline md:mr-6 "
-              >
-                About
-              </a>
-            </li>
+
             <li>
               <a
                 href="#"

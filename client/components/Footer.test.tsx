@@ -16,16 +16,6 @@ describe('Render Footer component', () => {
     expect(linkElement).toBeInTheDocument()
   })
 
-  it('renders "About" text', () => {
-    const { getByText } = render(
-      <MemoryRouter initialEntries={['/table/:tableNo/about']}>
-        <Footer />
-      </MemoryRouter>
-    )
-    const linkElement = getByText(/About/i)
-    expect(linkElement).toBeInTheDocument()
-  })
-
   it('renders "Privacy Policy" text', () => {
     const { getByText } = render(
       <MemoryRouter initialEntries={['/table/:tableNo/about']}>
@@ -46,19 +36,9 @@ describe('Render Footer component', () => {
     expect(linkElement).toBeInTheDocument()
   })
 
-  it('renders "about" text', () => {
-    const { getByText } = render(
-      <MemoryRouter initialEntries={['/table/:tableNo/about']}>
-        <Footer />
-      </MemoryRouter>
-    )
-    const linkElement = getByText(/about/i)
-    expect(linkElement).toBeInTheDocument()
-  })
-
   it('renders "waitless" text', () => {
     const { getByText } = render(
-      <MemoryRouter initialEntries={['/table/:tableNo/about']}>
+      <MemoryRouter initialEntries={['/table/:tableNo/']}>
         <Footer />
       </MemoryRouter>
     )
@@ -68,7 +48,7 @@ describe('Render Footer component', () => {
 
   it('renders "All Rights Reserved" text', () => {
     const { getByText } = render(
-      <MemoryRouter initialEntries={['/table/:tableNo/about']}>
+      <MemoryRouter initialEntries={['/table/:tableNo/']}>
         <Footer />
       </MemoryRouter>
     )

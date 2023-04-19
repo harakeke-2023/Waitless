@@ -66,14 +66,16 @@ export function Signup() {
             </div>
           </div>
         </div>
-
+        {/* className="h-1/2"
+            src={`/images/${item.image_url}`}
+            alt={item.name} */}
         <div className="flex items-center w-full max-w-md px-6 mx-auto lg:w-2/6">
           <div className="flex-1">
             <div className="text-center">
               <img
-                src="./images/logo/finallogo08.png"
+                src="/images/logo/finallogo08.png"
                 alt="logo"
-                className="my-4 max-lg:max-w-[50%] max-h-none mx-auto"
+                className=" lg:max-w-[70%] my-4 max-lg:max-w-[50%] max-h-none mx-auto"
               />
             </div>
             <div className="text-center my-8 border-scarlet-400 border-t-4 border-b-4">
