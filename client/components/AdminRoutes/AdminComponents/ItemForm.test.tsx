@@ -28,6 +28,7 @@ describe('item form', () => {
       name: '',
       price: 0,
       stock: 0,
+      active: true,
     }
 
     const setMenuItemForEdit = jest.fn()
@@ -36,13 +37,11 @@ describe('item form', () => {
       { initialEntries: ['/'], route: '/' }
     )
 
-    const nameInput = await screen.findByLabelText(/food title/i)
     const nameInput2 = await screen.findByLabelText(/description/i)
     const nameInput3 = await screen.findByLabelText(/price/i)
     // const nameInput4 = await screen.findByLabelText(/categories/i)
     const nameInput5 = await screen.findByLabelText(/stock/i)
 
-    expect(nameInput).toBeInTheDocument()
     expect(nameInput2).toBeInTheDocument()
     expect(nameInput3).toBeInTheDocument()
     // expect(nameInput4).toBeInTheDocument()

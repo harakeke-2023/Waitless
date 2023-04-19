@@ -95,7 +95,7 @@ export default function MenuItems() {
           fetchNumberOfCartItems={fetchNumberOfCartItems}
         />
       </div>
-      <div className='flex flex-col'>
+      <div className="flex flex-col">
         <a id="drinks" href="#drinks">
           <h2 className="m-8 text-2xl font-bold">Drinks</h2>
         </a>

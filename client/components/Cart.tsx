@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import SuccessPage from './SuccessPage'
 import { MenuItemMutationWithQuantity } from '../../models/MenuItem'
 import {
@@ -98,11 +98,7 @@ const Cart = () => {
     <div className="container max-w-screen-lg mx-auto px-3 ">
       {isPaymentSubmitted ? (
         // render the SuccessPage component if payment is submitted *Mock*
-        <SuccessPage
-          handleReturnButton={function (): void {
-            throw new Error('Function not implemented.')
-          }}
-        />
+        <SuccessPage />
       ) : (
         <div>
           <div>

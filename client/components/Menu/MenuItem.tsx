@@ -2,7 +2,7 @@ import {
   MenuItemMutation,
   MenuItemMutationWithQuantity,
 } from '../../../models/MenuItem'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 interface Props {
   item: MenuItemMutation
@@ -135,7 +135,7 @@ export function MenuItem(props: Props) {
         className="col-span-2 text-base md:text-xl flex justify-between items-center"
       >
         <p>
-          <strong>{item.name}</strong> - NZD ${item.price.toFixed(2)}
+          <strong>{item.name}</strong> - NZD ${Number(item.price).toFixed(2)}
         </p>
         <button
           className="border-solid border-2 border-red-900 bg-slate-100 hover:bg-red-900 rounded-md cursor-pointer p-2 "
