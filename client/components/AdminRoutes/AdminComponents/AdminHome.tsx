@@ -45,7 +45,7 @@ const AdminHome = () => {
             className="w-full mt-4 bg-burgundy-400 hover:bg-beige-800 text-beige font-semibold py-2 px-4 rounded"
             onClick={handleOrdersClick}
           >
-            Go to Orders
+            Go to Order List
           </button>
           <button
             className="w-full mt-4 bg-burgundy-400 hover:bg-beige-800 text-beige font-semibold py-2 px-4 rounded"
