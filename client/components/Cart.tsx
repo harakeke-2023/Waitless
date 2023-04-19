@@ -95,7 +95,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="container max-w-screen-lg mx-auto px-5">
+    <div className="container max-w-screen-lg mx-auto px-3 ">
       {isPaymentSubmitted ? (
         // render the SuccessPage component if payment is submitted *Mock*
         <SuccessPage
@@ -104,7 +104,7 @@ const Cart = () => {
           }}
         />
       ) : (
-        <div className="p-4">
+        <div>
           <div>
             {cartItems.length > 0 ? (
               <article className="my-4 rounded-md shadow-lg">
@@ -117,35 +117,38 @@ const Cart = () => {
                             {item.name}
                           </div>
                           <div className="ml-2 w-1/5 font-bold flex items-center justify-center md:justify-end">
-                            ${item.quantity * item.price}
+                            $
+                            {(
+                              Number(item.quantity) * Number(item.price)
+                            ).toFixed(2)}
                           </div>
-                          <div className="flex items-center md:ml-2 p-2">
+                          <div className="flex flex-col-reverse sm:flex-row items-center md:ml-2 p-2">
                             <button
                               onClick={() =>
                                 cartItems[index].quantity >= 2
                                   ? changeQuantity(-1, item.id)
                                   : removeFromCart(item.id)
                               }
-                              className=" p-3 border-2 border-r-0 "
+                              className="py-1 border-r-2 sm:border-r-0 p-3 border-2 "
                             >
                               -
                             </button>
-                            <div className="p-3 px-10 font-bold border-2">
+                            <div className="px-3 sm:px-3 md:px-7 py-1 font-bold border-2">
                               {item.quantity}
                             </div>
                             <button
                               onClick={() => changeQuantity(1, item.id)}
-                              className="p-3 border-2 border-l-0"
+                              className="py-1 border-l-2 sm:border-l-0 p-3 border-2 "
                             >
                               +
                             </button>
-                            <button
-                              onClick={() => removeFromCart(item.id)}
-                              className="ml-2 md:ml-12 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                            >
-                              Remove
-                            </button>
                           </div>
+                          <button
+                            onClick={() => removeFromCart(item.id)}
+                            className=" ml-2  bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                          >
+                            Remove
+                          </button>
                         </h2>
                       </span>
                     </li>
