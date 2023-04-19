@@ -1,12 +1,10 @@
 /* eslint-disable jest/no-commented-out-tests */
 import '@testing-library/jest-dom';
 import nock from 'nock'
-import '@testing-library/jest-dom'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { act } from 'react-dom/test-utils'
 import * as ReactQuery from 'react-query'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { MenuItemMutation } from '../../../models/MenuItem'
 import MenuItems from './MenuItems'
 
 
