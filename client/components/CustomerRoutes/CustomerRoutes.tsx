@@ -44,7 +44,7 @@ function CustomerRoutes() {
           path="/table/:tableNo/cart"
           element={
             <>
-              <Cart handlePaymentSubmit={() => {}} />
+              <Cart />
             </>
           }
         />

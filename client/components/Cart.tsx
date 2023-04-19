@@ -9,12 +9,7 @@ import {
 import { useNavigate, useParams } from 'react-router-dom'
 import { sendCustomerOrder } from '../apis/customerOrders'
 
-interface CartProps {
-  handlePaymentSubmit: () => void
-}
-
-//The handlePaymentSubmit prop is expected to be a function that is called when the user clicks the "Submit Payment Method" button
-const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
+const Cart = () => {
   const navigate = useNavigate()
   const { tableNo } = useParams() as { tableNo: string }
   const [isPaymentSubmitted, setPaymentSubmitted] = useState(false)
@@ -26,7 +21,6 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
   const [count, addCount] = useState(0)
 
   const submitOrderToDb = () => {
-    handlePaymentSubmit()
     setPaymentSubmitted(true)
 
     const customerDetails: CustomerDetails = JSON.parse(
@@ -164,7 +158,7 @@ const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
           </div>
 
           <h2 className="ml-5 font-bold flex items-center ">
-            Total: ${totalCost.toFixed(2)}
+            Total: ${Number(totalCost).toFixed(2)}
           </h2>
 
           <button
