@@ -132,16 +132,16 @@ export function MenuItem(props: Props) {
     return (
       <div
         key={item.id}
-        className="col-span-2 text-base md:text-xl flex justify-between mx-11 items-center"
+        className="col-span-2 text-base md:text-xl flex justify-between items-center"
       >
         <p>
-          <strong>{item.name}</strong> - NZD ${item.price}
+          <strong>{item.name}</strong> - NZD ${item.price.toFixed(2)}
         </p>
         <button
           className="border-solid border-2 border-red-900 bg-slate-100 hover:bg-red-900 rounded-md cursor-pointer p-2 "
           onClick={(evt) => addToCart(evt, item)}
         >
-          Add to Cart
+          Add
         </button>
       </div>
     )
