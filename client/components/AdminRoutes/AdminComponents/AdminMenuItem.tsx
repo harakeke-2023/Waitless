@@ -24,7 +24,7 @@ export default function AdminMenuitem(props: Props) {
     <div className="flex flex-wrap justify-between px-8 py-4 mx-10 w-3/4 items-center">
       <strong className="w-2/6">{item.name}</strong>
       <p className="w-1/12">
-        <b>Price:</b> {item.price.toFixed(2)}
+        <b>Price:</b> {Number(item.price).toFixed(2)}
       </p>
       <p className="w-1/6">
         <b>Description:</b> {item.description}

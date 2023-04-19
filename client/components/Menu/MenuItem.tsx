@@ -91,7 +91,7 @@ export function MenuItem(props: Props) {
             <strong>{item.name}</strong>
           </h2>
           <p className="h-1/5 text-sm md:text-base lg:text-xl text-center">
-            NZD${item.price.toFixed(2)}
+            NZD${Number(item.price).toFixed(2)}
           </p>
           {!addedToCart && (
             <button
