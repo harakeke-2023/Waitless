@@ -12,7 +12,7 @@ import { sendCustomerOrder } from '../apis/customerOrders'
 interface CartProps {
   handlePaymentSubmit: () => void
 }
-//const Cart: React.FC<CartProps> is a functional component that takes in CartProps as a prop.
+
 //The handlePaymentSubmit prop is expected to be a function that is called when the user clicks the "Submit Payment Method" button
 const Cart: React.FC<CartProps> = ({ handlePaymentSubmit }) => {
   const navigate = useNavigate()

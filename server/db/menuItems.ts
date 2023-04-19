@@ -10,6 +10,7 @@ export async function getAllMenuItems(db = connection) {
 
 export async function addMenuItem(newMenuItem: MenuItemDb, db = connection) {
   const result = await db('menu_items').insert(newMenuItem)
+
   return result
 }
 
@@ -27,11 +28,6 @@ export async function updateMenuItem(newMenuItem: MenuItem, db = connection) {
   const result = await db('menu_Items')
     .where('id', newMenuItem.id)
     .update(newMenuItem)
-  return result
-}
-
-export async function deleteMenuItem(menuItemId: number, db = connection) {
-  const result = await db('menu_items').where('id', menuItemId).delete()
   return result
 }
 
