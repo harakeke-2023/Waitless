@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect'
 
 import Cart from './Cart'
 import { MemoryRouter } from 'react-router-dom'
-import { QueryClientProvider } from 'react-query'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 describe('Cart Component', () => {
   beforeEach(() => {
@@ -44,11 +44,16 @@ describe('Cart Component', () => {
   it('renders cart Items', async () => {
     await act(async () => {
       render(
-        <MemoryRouter initialEntries={['/table/:tableNo/menu']}>
-          <QueryClientProvider client={queryClient}></QueryClientProvider>
+        <MemoryRouter initialEntries={['/table/:tableNo/cart']}>
+          <Cart />
         </MemoryRouter>
       )
     })
+
+    expect(
+      await screen.findByText('Fried Rice With Cashew Nuts')
+    ).toBeInTheDocument()
+    expect(await screen.findByText('Tom Yum Fried Rice')).toBeInTheDocument()
   })
 
   // it('renders Cart component with Payment component', () => {

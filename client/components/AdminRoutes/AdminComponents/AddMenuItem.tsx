@@ -10,6 +10,7 @@ const blankItem: MenuItemMutation = {
   stock: 0,
   image_url: '',
   category_id: 1,
+  active: true,
 }
 
 export default function AddMenuItem() {
