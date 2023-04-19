@@ -11,6 +11,8 @@ export function Header() {
       ? 'Edit Menu Item'
       : location.pathname.includes('/admin/menu')
       ? 'Admin Menu'
+      : location.pathname.includes('/admin/order')
+      ? 'Admin Orders List'
       : location.pathname.includes('menu')
       ? 'Menu'
       : location.pathname.includes('cart')
@@ -47,7 +49,7 @@ export function Header() {
           >
             <div className="flex h-full items-center justify-center">
               <div className="px-6 text-center text-white md:px-12">
-                <h1 className="mb-6 md:text-5xl max-sm:text-3xl font-bold">
+                <h1 className="mb-6 uppercase md:text-5xl max-sm:text-3xl font-bold">
                   {headingName}
                 </h1>
                 <h3 className="mb-8 md:text-3xl max-sm:text-xl font-bold">
