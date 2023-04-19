@@ -23,7 +23,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href={location.href + '/about'}
+                href="/about"
                 className="mr-4 text-beige-300 hover:underline md:mr-6 "
               >
                 About
