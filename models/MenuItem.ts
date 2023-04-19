@@ -9,6 +9,7 @@ export const menuItemSchema = z.object({
   stock: z.number(),
   image_url: z.string(),
   category_id: z.number(),
+  active: z.boolean(),
 })
 
 export const menuItemMutationSchema = z.object({
@@ -19,6 +20,7 @@ export const menuItemMutationSchema = z.object({
   stock: z.number(),
   image_url: z.string(),
   category_id: z.number(),
+  active: z.boolean(),
 })
 
 export type MenuItemMutationWithQuantity = MenuItemMutation & {

@@ -98,7 +98,7 @@ export function Signup() {
             </div>
             <div className="text-center">
               <h2 className="text-4xl font-bold text-center text-gray-700 uppercase dark:text-white">
-                Sign Up
+                Enter your details :
               </h2>
 
               <p className="mt-3 text-lg text-gray-500 dark:text-gray-300">
