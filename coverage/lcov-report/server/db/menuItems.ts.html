@@ -106,23 +106,41 @@
 <a name='L41'></a><a href='#L41'>41</a>
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
+<<<<<<< HEAD
 <a name='L44'></a><a href='#L44'>44</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+=======
+<a name='L44'></a><a href='#L44'>44</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">7x</span>
+>>>>>>> 1f88a546b8d7963a32a37ad22e3a9863cf3ff3b9
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">3x</span>
+<<<<<<< HEAD
+=======
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+>>>>>>> 1f88a546b8d7963a32a37ad22e3a9863cf3ff3b9
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<<<<<<< HEAD
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+=======
+>>>>>>> 1f88a546b8d7963a32a37ad22e3a9863cf3ff3b9
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -131,13 +149,18 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
 <span class="cline-any cline-yes">2x</span>
+=======
+<span class="cline-any cline-yes">7x</span>
+>>>>>>> 1f88a546b8d7963a32a37ad22e3a9863cf3ff3b9
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -148,6 +171,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+=======
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+>>>>>>> 1f88a546b8d7963a32a37ad22e3a9863cf3ff3b9
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import connection from './connection'
 import { MenuItemDb, MenuItem } from '../../models/MenuItem'
@@ -181,6 +216,7 @@ export async function updateMenuItem(newMenuItem: MenuItem, db = <span class="br
   return result
 }
 &nbsp;
+<<<<<<< HEAD
 export async function <span class="fstat-no" title="function not covered" >deleteMenuItem(</span>menuItemId: number, db = <span class="branch-0 cbranch-no" title="branch not covered" >connection)</span> {
   const result = <span class="cstat-no" title="statement not covered" >await db('menu_items').where('id', menuItemId).delete()</span>
 <span class="cstat-no" title="statement not covered" >  return result</span>
@@ -191,6 +227,18 @@ export async function setMenuItemInactive(menuItemId: number, db = <span class="
     .where('id', menuItemId)
     .update('active', false)
   return result
+=======
+export async function deleteMenuItem(menuItemId: number, db = <span class="branch-0 cbranch-no" title="branch not covered" >connection)</span> {
+  const result = await db('menu_items').where('id', menuItemId).delete()
+  return result
+}
+&nbsp;
+export async function <span class="fstat-no" title="function not covered" >setMenuItemInactive(</span>menuItemId: number, db = <span class="branch-0 cbranch-no" title="branch not covered" >connection)</span> {
+  const result = <span class="cstat-no" title="statement not covered" >await db('menu_items')</span>
+    .where('id', menuItemId)
+    .update('active', false)
+<span class="cstat-no" title="statement not covered" >  return result</span>
+>>>>>>> 1f88a546b8d7963a32a37ad22e3a9863cf3ff3b9
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -199,7 +247,11 @@ export async function setMenuItemInactive(menuItemId: number, db = <span class="
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+<<<<<<< HEAD
                 at 2023-04-18T22:36:25.216Z
+=======
+                at 2023-04-18T23:14:54.790Z
+>>>>>>> 1f88a546b8d7963a32a37ad22e3a9863cf3ff3b9
             </div>
         <script src="../../prettify.js"></script>
         <script>

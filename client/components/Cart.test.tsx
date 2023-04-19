@@ -1,8 +1,10 @@
 import React from 'react'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent, act } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
 import Cart from './Cart'
+import { MemoryRouter } from 'react-router-dom'
+import { QueryClientProvider } from 'react-query'
 
 describe('Cart Component', () => {
   beforeEach(() => {
@@ -40,7 +42,13 @@ describe('Cart Component', () => {
   })
 
   it('renders cart Items', async () => {
-    await act(async () => {})
+    await act(async () => {
+      render(
+        <MemoryRouter initialEntries={['/table/:tableNo/menu']}>
+          <QueryClientProvider client={queryClient}></QueryClientProvider>
+        </MemoryRouter>
+      )
+    })
   })
 
   // it('renders Cart component with Payment component', () => {
