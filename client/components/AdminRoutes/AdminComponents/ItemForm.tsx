@@ -255,7 +255,7 @@ export default function ItemForm(props: Props) {
                         <input
                           id="price"
                           name="price"
-                          type=""
+                          type="text"
                           className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                           placeholder="Price"
                           onChange={handleChange}
