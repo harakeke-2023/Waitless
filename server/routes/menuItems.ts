@@ -50,6 +50,7 @@ router.post('/', async (req, res) => {
         stock: Number(stock),
         image_url,
         category_id: Number(category_id),
+        active: true,
       })
     )
 
@@ -69,8 +70,19 @@ router.post('/', async (req, res) => {
 //PATCH /api/v1/menuitems/:id
 router.patch('/:id', async (req, res) => {
   try {
+    const { id, name, description, price, stock, image_url, category_id } =
+      req.body
     const event = await db.updateMenuItem(
-      menuItemMutationSchema.parse(req.body)
+      menuItemMutationSchema.parse({
+        id,
+        name,
+        description,
+        price: Number(price),
+        stock: Number(stock),
+        image_url,
+        category_id: Number(category_id),
+        active: true,
+      })
     )
     res.status(200).json(event)
   } catch (error) {
