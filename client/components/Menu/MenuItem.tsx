@@ -110,16 +110,16 @@ export function MenuItem(props: Props) {
                     ? changeQuantity(-1, item.id)
                     : changeQuantity(-1, item.id, true)
                 }
-                className="font-extrabold p-3 border-2 border-r-0 "
+                className="w-1/5 font-extrabold p-3 border-2 border-r-0 "
               >
                 -
               </button>
-              <span className="p-3 px-10 font-bold border-2">
+              <span className=" p-3 px-16 font-bold border-2">
                 {quantityToAdd}
               </span>
               <button
                 onClick={() => changeQuantity(1, item.id)}
-                className="font-extrabold p-3 border-2 border-l-0 "
+                className="w-1/5 font-extrabold p-3 border-2 border-l-0 "
               >
                 +
               </button>

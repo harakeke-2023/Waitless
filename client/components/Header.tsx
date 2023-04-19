@@ -19,8 +19,6 @@ export function Header() {
       ? 'Cart'
       : location.pathname.includes('about')
       ? 'About'
-      : location.pathname.includes('contact')
-      ? 'Contact'
       : location.pathname.includes('login')
       ? 'Login'
       : location.pathname.includes('register')
