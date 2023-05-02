@@ -1,5 +1,9 @@
 # Boilerplate: Fullstack
 
+# Team:
+
+** Sean | Caroline | Tim | Sean Kim | Phatt **
+
 ## Setup
 
 ### What's included
