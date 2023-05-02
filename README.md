@@ -1,6 +1,6 @@
 # Boilerplate: Fullstack
 
-# Team:
+# Team Member:
 
 ** Sean | Caroline | Tim | Sean Kim | Phatt **
 
