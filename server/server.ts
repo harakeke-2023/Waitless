@@ -20,4 +20,5 @@ server.get('*', (req, res) => {
   const appPath = join(__dirname, 'public', 'index.html')
   res.sendFile(appPath)
 })
+
 export default server

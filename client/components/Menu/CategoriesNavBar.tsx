@@ -2,7 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { CategoryMutation } from '../../../models/Category'
 import { useQuery } from 'react-query'
 import { HashLink as Link } from 'react-router-hash-link'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 interface Props {
   numberOfCartItems: number
@@ -28,7 +28,7 @@ export default function CategoriesNavBar(props: Props) {
   return (
     <>
       {/* {data.categories[0].category_name} */}
-      <nav>
+      <nav className="sticky top-0">
         <div className="max-w-screen-full flex flex-wrap items-center justify-between mx-auto p-4 bg-red-900 ">
           {data.categories.map((cat: CategoryMutation, index: number) => {
             return (
