@@ -1,35 +1,10 @@
-# Boilerplate: Fullstack
+# Waitlerless
 
-## Setup
+# Team Members:
 
-### What's included
+** Sean Stickland | Caroline | Tim | Sean Kim | Phatt **
 
-This repo includes:
+This was the final project at Dev Academy for the students above. To show what we learned.
 
-* a single, simple API endpoint (`/api/v1/fruits`)
-* a single React component (`<App />`)
-* an example database module (`server/db/fruits.js`)
-* an API client module (`client/apis/fruits.js`)
-* configuration for Jest and testing library
-* configuration for server-side debugging in VS Code
-* a single client-side test (`client/components/App.test.js`)
+This is a full stack web app designed for restaurants. The idea is you put a qr code on each table, which the customers scan. This will take them to the menu where they can place an order which will be sent to the sqlite DB. The admin can then check orders, and add, modify, and delete items from the menu.
 
-### Installation
-
-#### **From the Github UI**
-
-See the instructions [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) to use Github's feature to create a new repo from a template.
-
-#### **From the command line**
-
-```
-git clone https://github.com/dev-academy-challenges/boilerplate-fullstack [your-project-name]
-cd [your-project-name]
-npm install # to install dependencies
-npm run dev # to start the dev server
-```
-
-You can find the server running on [http://localhost:3000](http://localhost:3000).
-
----
-[Provide feedback on this repo](https://docs.google.com/forms/d/e/1FAIpQLSfw4FGdWkLwMLlUaNQ8FtP2CTJdGDUv6Xoxrh19zIrJSkvT4Q/viewform?usp=pp_url&entry.1958421517=boilerplate-fullstack)
